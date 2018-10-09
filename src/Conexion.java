@@ -11,6 +11,7 @@ import java.sql.DriverManager;
  * @author DIEGO
  */
 public class Conexion {
+    //aqui se realizo la conexion 
     public Connection conex;
     public Connection conectar(){
         try{
