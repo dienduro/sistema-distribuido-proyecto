@@ -4,14 +4,17 @@
  * and open the template in the editor.
  */
 
+
 /**
  *
  * @author DIEGO
  */
-public class ConexionMYQL {
-    public static void main(String[] args){
-    Conexion objConex = new Conexion();
-         objConex.conectar();
+public class ProyectoFinal {
+
+    
+    public static void main(String[] args) {
+      Conexion con = new Conexion();
+      con.conectar();
     }
     
 }

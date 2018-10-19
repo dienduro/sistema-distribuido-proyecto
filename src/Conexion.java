@@ -1,3 +1,5 @@
+package proyectofinal;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -16,7 +18,7 @@ public class Conexion {
     public Connection conectar(){
         try{
             Class.forName("com.mysql.jdbc.Driver");
-            conex = DriverManager.getConnection("jdbc:mysql://localhost/empesas","root","");
+            conex = DriverManager.getConnection("jdbc:mysql://localhost/proyecto_sd","root","");
             System.out.print("conexion establecidad");
         }catch(Exception e){
             System.out.print(e.getMessage());

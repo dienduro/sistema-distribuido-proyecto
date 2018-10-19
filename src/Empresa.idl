@@ -1,0 +1,12 @@
+module Empresa{
+    interface Empresas{
+    boolean insertarEmpresas(in wstring nombre, in wstring direccion, in  wstring telefono, in  wstring propietario);
+    boolean actualizarEmpresas(in long ruc, in wstring nombre, in  wstring apellido , in  wstring telefono, in  wstring propietario);
+    boolean eliminarEmpresas(in long ruc);
+    wstring consultarEmpresas(in long ruc);
+    
+    oneway void shoutdown();
+    };
+    
+};
+
