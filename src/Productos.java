@@ -41,8 +41,9 @@ public class Productos extends javax.swing.JFrame {
         txtPrecioVenta = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        btnNext = new javax.swing.JButton();
         btnNext1 = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tblProducto = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
@@ -84,40 +85,42 @@ public class Productos extends javax.swing.JFrame {
             }
         });
         getContentPane().add(txtId);
-        txtId.setBounds(140, 60, 105, 20);
+        txtId.setBounds(140, 60, 105, 28);
         getContentPane().add(txtNombre);
-        txtNombre.setBounds(140, 90, 105, 20);
+        txtNombre.setBounds(140, 90, 105, 28);
         getContentPane().add(txtModelo);
-        txtModelo.setBounds(140, 120, 105, 20);
+        txtModelo.setBounds(140, 120, 105, 28);
         getContentPane().add(txtMarca);
-        txtMarca.setBounds(140, 150, 105, 20);
+        txtMarca.setBounds(140, 150, 105, 28);
         getContentPane().add(txtPrecioCompra);
-        txtPrecioCompra.setBounds(140, 180, 105, 20);
+        txtPrecioCompra.setBounds(140, 180, 105, 28);
 
         jLabel7.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
         jLabel7.setText("Precio Venta");
         getContentPane().add(jLabel7);
         jLabel7.setBounds(20, 206, 97, 19);
         getContentPane().add(txtPrecioVenta);
-        txtPrecioVenta.setBounds(140, 210, 105, 20);
+        txtPrecioVenta.setBounds(140, 210, 105, 28);
 
         jButton1.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
         jButton1.setText("Guardar ");
         getContentPane().add(jButton1);
-        jButton1.setBounds(40, 250, 97, 29);
+        jButton1.setBounds(40, 250, 93, 33);
 
         jButton2.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
         jButton2.setText("Limpiar ");
         getContentPane().add(jButton2);
-        jButton2.setBounds(150, 250, 110, 29);
-
-        btnNext.setText("NEXT");
-        getContentPane().add(btnNext);
-        btnNext.setBounds(440, 10, 57, 23);
+        jButton2.setBounds(150, 250, 110, 33);
 
         btnNext1.setText("NEXT");
         getContentPane().add(btnNext1);
         btnNext1.setBounds(310, 10, 80, 30);
+
+        tblProducto.setModel(modeloTablaProducto);
+        jScrollPane1.setViewportView(tblProducto);
+
+        getContentPane().add(jScrollPane1);
+        jScrollPane1.setBounds(270, 70, 310, 190);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -162,7 +165,6 @@ public class Productos extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnNext;
     private javax.swing.JButton btnNext1;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
@@ -173,6 +175,8 @@ public class Productos extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable tblProducto;
     private javax.swing.JTextField txtId;
     private javax.swing.JTextField txtMarca;
     private javax.swing.JTextField txtModelo;

@@ -96,7 +96,7 @@ public class Clientes extends javax.swing.JFrame {
             }
         });
         getContentPane().add(txtId);
-        txtId.setBounds(120, 60, 126, 20);
+        txtId.setBounds(120, 60, 126, 28);
 
         jLabel3.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
         jLabel3.setText("Nombre");
@@ -108,11 +108,11 @@ public class Clientes extends javax.swing.JFrame {
         getContentPane().add(jLabel4);
         jLabel4.setBounds(19, 131, 67, 34);
         getContentPane().add(txtNombre);
-        txtNombre.setBounds(120, 100, 126, 20);
+        txtNombre.setBounds(120, 100, 126, 28);
         getContentPane().add(txtApellido);
-        txtApellido.setBounds(120, 140, 126, 20);
+        txtApellido.setBounds(120, 140, 126, 28);
         getContentPane().add(jLabel5);
-        jLabel5.setBounds(0, 10, 430, 170);
+        jLabel5.setBounds(0, 0, 260, 170);
 
         btnConsultar.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
         btnConsultar.setText("Consultar ");
@@ -122,7 +122,7 @@ public class Clientes extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnConsultar);
-        btnConsultar.setBounds(20, 320, 120, 40);
+        btnConsultar.setBounds(250, 330, 110, 40);
 
         btnGuardar.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
         btnGuardar.setText("Guardar ");
@@ -132,7 +132,7 @@ public class Clientes extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnGuardar);
-        btnGuardar.setBounds(260, 320, 210, 40);
+        btnGuardar.setBounds(20, 330, 110, 40);
 
         btnLimpiar.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
         btnLimpiar.setText("Limpiar");
@@ -142,12 +142,12 @@ public class Clientes extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnLimpiar);
-        btnLimpiar.setBounds(270, 90, 110, 40);
+        btnLimpiar.setBounds(20, 380, 110, 40);
 
         btnEliminar.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
         btnEliminar.setText("Eliminar ");
         getContentPane().add(btnEliminar);
-        btnEliminar.setBounds(150, 320, 100, 40);
+        btnEliminar.setBounds(140, 330, 100, 40);
 
         tblRegistro.setModel(modeloTablaCli);
         jScrollPane1.setViewportView(tblRegistro);
@@ -157,7 +157,7 @@ public class Clientes extends javax.swing.JFrame {
 
         btnNext.setText("NEXT");
         getContentPane().add(btnNext);
-        btnNext.setBounds(440, 10, 57, 23);
+        btnNext.setBounds(360, 330, 120, 40);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -167,7 +167,9 @@ public class Clientes extends javax.swing.JFrame {
     }//GEN-LAST:event_txtIdActionPerformed
 
     private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
-     
+        txtNombre.setText(null);
+        txtApellido.setText(null);
+            
                                               
 
     }//GEN-LAST:event_btnLimpiarActionPerformed
@@ -179,6 +181,8 @@ public class Clientes extends javax.swing.JFrame {
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         // TODO add your handling code here:
+        
+     
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     /**

@@ -73,37 +73,37 @@ public class Empleado extends javax.swing.JFrame {
 
         jLabel1.setText("Empleado");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(132, 11, 46, 14);
+        jLabel1.setBounds(132, 11, 57, 16);
 
         jLabel2.setText("Nombre");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(39, 51, 37, 14);
+        jLabel2.setBounds(39, 51, 45, 16);
 
         jLabel3.setText("Apellido");
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(39, 76, 37, 14);
+        jLabel3.setBounds(39, 76, 44, 16);
 
         jLabel4.setText("Genero");
         getContentPane().add(jLabel4);
-        jLabel4.setBounds(39, 111, 35, 14);
+        jLabel4.setBounds(39, 111, 41, 16);
 
         jLabel5.setText("Direccion ");
         getContentPane().add(jLabel5);
-        jLabel5.setBounds(39, 149, 46, 14);
+        jLabel5.setBounds(39, 149, 55, 16);
 
         jLabel6.setText("Fecha Nacimiento");
         getContentPane().add(jLabel6);
-        jLabel6.setBounds(39, 178, 84, 14);
+        jLabel6.setBounds(39, 178, 100, 16);
         getContentPane().add(jTextField1);
-        jTextField1.setBounds(130, 50, 70, 20);
+        jTextField1.setBounds(130, 50, 70, 28);
         getContentPane().add(jTextField2);
-        jTextField2.setBounds(132, 80, 70, 20);
+        jTextField2.setBounds(132, 80, 70, 28);
         getContentPane().add(jTextField3);
-        jTextField3.setBounds(130, 110, 70, 20);
+        jTextField3.setBounds(130, 110, 70, 28);
         getContentPane().add(jTextField4);
-        jTextField4.setBounds(132, 140, 70, 20);
+        jTextField4.setBounds(132, 140, 70, 28);
         getContentPane().add(jTextField5);
-        jTextField5.setBounds(136, 172, 70, 20);
+        jTextField5.setBounds(136, 172, 70, 28);
 
         btnConsultar.setText("Consultar ");
         btnConsultar.addActionListener(new java.awt.event.ActionListener() {
@@ -112,15 +112,15 @@ public class Empleado extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnConsultar);
-        btnConsultar.setBounds(30, 260, 81, 23);
+        btnConsultar.setBounds(20, 430, 85, 28);
 
         btnGuardar.setText("Guardar");
         getContentPane().add(btnGuardar);
-        btnGuardar.setBounds(130, 260, 71, 23);
+        btnGuardar.setBounds(110, 430, 73, 28);
 
         btnLimpiar.setText("Limpiar ");
         getContentPane().add(btnLimpiar);
-        btnLimpiar.setBounds(220, 260, 69, 23);
+        btnLimpiar.setBounds(190, 430, 73, 28);
 
         btnEliminar.setText("Eliminar");
         btnEliminar.addActionListener(new java.awt.event.ActionListener() {
@@ -129,53 +129,53 @@ public class Empleado extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnEliminar);
-        btnEliminar.setBounds(300, 260, 69, 23);
+        btnEliminar.setBounds(270, 430, 74, 28);
 
         jLabel7.setText("Estado Civil ");
         getContentPane().add(jLabel7);
-        jLabel7.setBounds(240, 40, 60, 14);
+        jLabel7.setBounds(240, 40, 60, 16);
 
         jLabel8.setText("Codigo Cargo");
         getContentPane().add(jLabel8);
-        jLabel8.setBounds(240, 70, 80, 14);
+        jLabel8.setBounds(240, 70, 80, 16);
 
         jLabel9.setText("Hora Entrada");
         getContentPane().add(jLabel9);
-        jLabel9.setBounds(240, 100, 70, 14);
+        jLabel9.setBounds(240, 100, 70, 16);
 
         jLabel10.setText("Hora  De Salida");
         getContentPane().add(jLabel10);
-        jLabel10.setBounds(220, 140, 80, 14);
+        jLabel10.setBounds(220, 140, 80, 16);
 
         jLabel11.setText("Telefono");
         getContentPane().add(jLabel11);
-        jLabel11.setBounds(240, 170, 60, 14);
+        jLabel11.setBounds(240, 170, 60, 16);
         getContentPane().add(txtEstado);
-        txtEstado.setBounds(310, 40, 72, 20);
+        txtEstado.setBounds(310, 40, 72, 28);
         getContentPane().add(txtCodigoCargo);
-        txtCodigoCargo.setBounds(310, 70, 70, 20);
+        txtCodigoCargo.setBounds(310, 70, 70, 28);
         getContentPane().add(txtHoraEntrada);
-        txtHoraEntrada.setBounds(310, 100, 70, 20);
+        txtHoraEntrada.setBounds(310, 100, 70, 28);
         getContentPane().add(txtHoraDeSalida);
-        txtHoraDeSalida.setBounds(310, 130, 70, 20);
+        txtHoraDeSalida.setBounds(310, 130, 70, 28);
         getContentPane().add(txtTelefono);
-        txtTelefono.setBounds(310, 160, 70, 20);
+        txtTelefono.setBounds(310, 160, 70, 28);
 
         jLabel12.setText("Sueldo ");
         getContentPane().add(jLabel12);
-        jLabel12.setBounds(240, 210, 35, 14);
+        jLabel12.setBounds(240, 210, 42, 16);
         getContentPane().add(txtSueldo);
-        txtSueldo.setBounds(310, 200, 70, 20);
+        txtSueldo.setBounds(310, 200, 70, 28);
 
         jTable1.setModel(modeloTablaEmpleado);
         jScrollPane1.setViewportView(jTable1);
 
         getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(40, 290, 310, 190);
+        jScrollPane1.setBounds(30, 230, 310, 190);
 
         btnNext.setText("NEXT");
         getContentPane().add(btnNext);
-        btnNext.setBounds(340, 10, 57, 23);
+        btnNext.setBounds(20, 460, 59, 28);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

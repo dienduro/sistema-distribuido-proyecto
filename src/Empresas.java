@@ -114,6 +114,10 @@ public class Empresas extends EmpresasPOA{
         }
        return resultado;
     }
+
+    Empresas() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
   
     
 

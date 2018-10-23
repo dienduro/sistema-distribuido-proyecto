@@ -1,4 +1,7 @@
 
+import javax.swing.JOptionPane;
+
+
 
 
 public class Proveedor extends javax.swing.JFrame {
@@ -29,43 +32,62 @@ public class Proveedor extends javax.swing.JFrame {
         btnLimpiar = new javax.swing.JButton();
         btnEliminar = new javax.swing.JButton();
         btnNext = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tblProveedor = new javax.swing.JTable();
+        jLabel5 = new javax.swing.JLabel();
+        txtRucProve = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
 
         jLabel1.setText("Proveedor ");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(150, 20, 80, 14);
+        jLabel1.setBounds(150, 20, 80, 16);
 
         jLabel2.setText("Nombre");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(39, 61, 37, 14);
+        jLabel2.setBounds(30, 100, 45, 16);
 
         jLabel3.setText("Direccion ");
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(39, 99, 46, 14);
+        jLabel3.setBounds(30, 130, 55, 16);
 
         jLabel4.setText("Telefono");
         getContentPane().add(jLabel4);
-        jLabel4.setBounds(39, 137, 42, 14);
+        jLabel4.setBounds(30, 180, 48, 16);
         getContentPane().add(txtNombre);
-        txtNombre.setBounds(103, 58, 120, 20);
+        txtNombre.setBounds(110, 90, 120, 28);
         getContentPane().add(txtDireccion);
-        txtDireccion.setBounds(103, 96, 120, 20);
+        txtDireccion.setBounds(110, 130, 120, 28);
         getContentPane().add(txtTelefono);
-        txtTelefono.setBounds(99, 134, 120, 20);
+        txtTelefono.setBounds(110, 170, 120, 28);
 
         btnConsultar.setText("Consultar ");
+        btnConsultar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConsultarActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnConsultar);
-        btnConsultar.setBounds(30, 240, 81, 23);
+        btnConsultar.setBounds(30, 300, 85, 28);
 
         btnGuardar.setText("Guardar");
+        btnGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGuardarActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnGuardar);
-        btnGuardar.setBounds(130, 240, 71, 23);
+        btnGuardar.setBounds(130, 300, 73, 28);
 
         btnLimpiar.setText("Limpiar ");
+        btnLimpiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLimpiarActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnLimpiar);
-        btnLimpiar.setBounds(220, 240, 69, 23);
+        btnLimpiar.setBounds(220, 300, 73, 28);
 
         btnEliminar.setText("Eliminar");
         btnEliminar.addActionListener(new java.awt.event.ActionListener() {
@@ -74,11 +96,23 @@ public class Proveedor extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnEliminar);
-        btnEliminar.setBounds(300, 240, 69, 23);
+        btnEliminar.setBounds(320, 290, 74, 28);
 
         btnNext.setText("NEXT");
         getContentPane().add(btnNext);
-        btnNext.setBounds(320, 10, 70, 23);
+        btnNext.setBounds(320, 10, 70, 28);
+
+        tblProveedor.setModel(modeloTablaProveedor);
+        jScrollPane1.setViewportView(tblProveedor);
+
+        getContentPane().add(jScrollPane1);
+        jScrollPane1.setBounds(230, 50, 310, 190);
+
+        jLabel5.setText("RUC PROVEDOR ");
+        getContentPane().add(jLabel5);
+        jLabel5.setBounds(10, 70, 110, 16);
+        getContentPane().add(txtRucProve);
+        txtRucProve.setBounds(110, 60, 120, 28);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -86,6 +120,48 @@ public class Proveedor extends javax.swing.JFrame {
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnEliminarActionPerformed
+
+    private void btnConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarActionPerformed
+        // TODO add your handling code here:
+          Proveedores objProveedores = new Proveedores();
+        JOptionPane.showMessageDialog(null, objProveedores.consultarProveedor(1));
+    }//GEN-LAST:event_btnConsultarActionPerformed
+
+    private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
+        // TODO add your handling code here:
+        txtNombre.setText(null);
+        txtDireccion.setText(null);
+        txtTelefono.setText(null);
+    }//GEN-LAST:event_btnLimpiarActionPerformed
+
+    private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
+        // TODO add your handling code here:
+        Proveedores objProveedor = new Proveedores();
+        String nombres = txtNombre.getText();
+        String direccion = txtDireccion.getText();
+        String telefono = txtTelefono.getText();
+        
+        int ruc = Integer.parseInt(txtRucProve.getText());
+        if (ruc==0) {
+            
+        
+        boolean resultado = objProveedor.insertarProveedor(nombres, direccion, telefono);
+        if (resultado== true) {
+            JOptionPane.showMessageDialog(null, "Se inserto un nuevo registro");
+           //cargarTabla();
+        }else{
+            JOptionPane.showMessageDialog(null, "Erro al inserta su datos ");
+            }
+        }else{
+            boolean resultado = objProveedor.actualizarProveedor(ruc, nombres, direccion, telefono);
+            if (resultado== true) {
+            JOptionPane.showMessageDialog(null, "Se actualizo el registro");
+            //cargarTabla();
+        }else{
+            JOptionPane.showMessageDialog(null, "Error al actualizar  ");
+            }
+        } 
+    }//GEN-LAST:event_btnGuardarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -133,8 +209,12 @@ public class Proveedor extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable tblProveedor;
     private javax.swing.JTextField txtDireccion;
     private javax.swing.JTextField txtNombre;
+    private javax.swing.JTextField txtRucProve;
     private javax.swing.JTextField txtTelefono;
     // End of variables declaration//GEN-END:variables
 }
