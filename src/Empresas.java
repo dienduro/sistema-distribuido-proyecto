@@ -24,7 +24,7 @@ public class Empresas extends EmpresasPOA{
     boolean resultado = false;
         try {
             String sql = "insert into empresa (nombre,direccion,telefono,propietario)value('"+nombre+"','"+direccion+"','"+telefono+"','"+propietario+"') ";
-       objConexion.conexion();
+       objConexion.conectar();
        Statement st = objConexion.conex.createStatement();
        int valor = st.executeUpdate(sql);
        if(valor>0){
@@ -74,7 +74,7 @@ public class Empresas extends EmpresasPOA{
         String resultado ="";
         try {
             String sqlConsultar = "select*from Empresas RUC = "+ruc;
-            objConexion.conexion();
+            objConexion.conectar();
             Statement st = objConexion.conex.createStatement();
             ResultSet rs  = st.executeQuery(sqlConsultar);
             while (rs.next()) {
@@ -105,7 +105,7 @@ public class Empresas extends EmpresasPOA{
        ResultSet resultado = null;
         try {
             String sql = "Select nombre, direccion,  telefono, celular, Propietario from Empresas";
-            objConexion.conexion(); // abrimos la conexion
+            objConexion.conectar(); // abrimos la conexion
             Statement st = objConexion.conex.createStatement();//encargado de la consulta
             resultado = st.executeQuery(sql);
         } catch (Exception e) {
