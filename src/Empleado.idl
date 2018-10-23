@@ -1,6 +1,6 @@
 module Empleados{
     interface Empleado{
-    boolean insertarEmpleado(in wstring nombre, in wstring apellido, in  wstring genero,in  wstring direccion,in wstring fecha_nacimiento,in  wstring estado_civil,in  wstring codigo_cargo,in double hora_entrada,in double hora_salida, in wstring telefono, in float sueldo);
+    boolean insertarEmpleado(in wstring nombre, in wstring apellido, in  wstring genero,in  wstring direccion,in wstring fecha_nacimiento,in  wstring estado_civil,in  wstring codigo_cargo,in wstring hora_entrada,in wstring hora_salida, in wstring telefono, in float sueldo);
     boolean actualizarEmpleado(in long cedula_empleado, in wstring nombre, in wstring apellido, in  wstring genero,in  wstring direccion,in wstring fecha_nacimiento,in  wstring estado_civil,in  wstring codigo_cargo,in double hora_entrada,in double hora_salida, in wstring telefono, in float sueldo, in long empresa_ruc);
     boolean eliminarEmpleado(in long cedula_empleado, in long empresa_ruc);
     wstring consultarEmpleado(in long cedula_empleado, in long empresa_ruc);

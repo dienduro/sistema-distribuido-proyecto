@@ -13,30 +13,7 @@ import javax.swing.JOptionPane;
  */
 public class Empleados extends EmpleadoPOA{
  Conexion objConexion = new Conexion();
-    @Override
-    public boolean insertarEmpleado(String nombre, String apellido, String genero, String direccion, String fecha_nacimiento, String estado_civil, String codigo_cargo, double hora_entrada, double hora_salida, String telefono, float sueldo) {
-      
-       boolean resultado = false;
-        try {
-           String sql="insert into empleado (cedula_empleado, Nombre,apellido,genero, direccion,fecha_nacimiento, estado_civil, codigo_cargo, Hora_entrada, Hora_salida, telefono, sueldo) values('"+nombre+"','"+apellido+"','"+genero+"','"+direccion+"','"+fecha_nacimiento+"','"+estado_civil+"','"+codigo_cargo+"',"
-                   + "'"+hora_entrada+"','"+hora_salida+"','"+telefono+"','"+sueldo+"')"; 
-           objConexion.conectar();
-           Statement st = objConexion.conex.createStatement();
-           int valor = st.executeUpdate(sql);
-            if (valor>0) {
-             resultado = true;
-             
-            }
-            //cerrar las conexiones 
-            objConexion.conex.close();
-            st.close();
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "ocurrio un error al insertar empleados "+e.getMessage());
-        }
-      
-       return resultado;
-        
-    }
+   
 
     @Override
     public boolean actualizarEmpleado(int cedula_empleado, String nombre, String apellido, String genero, String direccion, String fecha_nacimiento, String estado_civil, String codigo_cargo, double hora_entrada, double hora_salida, String telefono, float sueldo, int empresa_ruc) {
@@ -123,6 +100,30 @@ public class Empleados extends EmpleadoPOA{
             JOptionPane.showMessageDialog(null, "Error "+e.getMessage());
         }
        return resultado;
+    }
+
+    @Override
+    public boolean insertarEmpleado(String nombre, String apellido, String genero, String direccion, String fecha_nacimiento, String estado_civil, String codigo_cargo, String hora_entrada, String hora_salida, String telefono, float sueldo) {
+     boolean resultado = false;
+        try {
+           String sql="insert into empleado (cedula_empleado, Nombre,apellido,genero, direccion,fecha_nacimiento, estado_civil, codigo_cargo, Hora_entrada, Hora_salida, telefono, sueldo) values('"+nombre+"','"+apellido+"','"+genero+"','"+direccion+"','"+fecha_nacimiento+"','"+estado_civil+"','"+codigo_cargo+"',"
+                   + "'"+hora_entrada+"','"+hora_salida+"','"+telefono+"','"+sueldo+"')"; 
+           objConexion.conectar();
+           Statement st = objConexion.conex.createStatement();
+           int valor = st.executeUpdate(sql);
+            if (valor>0) {
+             resultado = true;
+             
+            }
+            //cerrar las conexiones 
+            objConexion.conex.close();
+            st.close();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "ocurrio un error al insertar empleados "+e.getMessage());
+        }
+      
+       return resultado;
+        
     }
 
 }
