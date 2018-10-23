@@ -1,7 +1,6 @@
 
 
 import Proveedores.*;
-import  Empresa.*; 
 import java.sql.*;
 import javax.swing.JOptionPane;
 /*

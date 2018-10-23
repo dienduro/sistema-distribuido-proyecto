@@ -68,11 +68,12 @@ public class Clientes extends javax.swing.JFrame {
         txtApellido = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         btnConsultar = new javax.swing.JButton();
-        btnSiguientes = new javax.swing.JButton();
+        btnGuardar = new javax.swing.JButton();
         btnLimpiar = new javax.swing.JButton();
         btnEliminar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblRegistro = new javax.swing.JTable();
+        btnNext = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
@@ -123,15 +124,15 @@ public class Clientes extends javax.swing.JFrame {
         getContentPane().add(btnConsultar);
         btnConsultar.setBounds(20, 320, 120, 40);
 
-        btnSiguientes.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
-        btnSiguientes.setText("Guardar y Siguientes");
-        btnSiguientes.addActionListener(new java.awt.event.ActionListener() {
+        btnGuardar.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
+        btnGuardar.setText("Guardar ");
+        btnGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSiguientesActionPerformed(evt);
+                btnGuardarActionPerformed(evt);
             }
         });
-        getContentPane().add(btnSiguientes);
-        btnSiguientes.setBounds(260, 320, 210, 40);
+        getContentPane().add(btnGuardar);
+        btnGuardar.setBounds(260, 320, 210, 40);
 
         btnLimpiar.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
         btnLimpiar.setText("Limpiar");
@@ -154,6 +155,10 @@ public class Clientes extends javax.swing.JFrame {
         getContentPane().add(jScrollPane1);
         jScrollPane1.setBounds(20, 180, 300, 120);
 
+        btnNext.setText("NEXT");
+        getContentPane().add(btnNext);
+        btnNext.setBounds(440, 10, 57, 23);
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -172,9 +177,9 @@ public class Clientes extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(null, objCliente.consultarCliente(1));
     }//GEN-LAST:event_btnConsultarActionPerformed
 
-    private void btnSiguientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSiguientesActionPerformed
+    private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnSiguientesActionPerformed
+    }//GEN-LAST:event_btnGuardarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -214,8 +219,9 @@ public class Clientes extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnConsultar;
     private javax.swing.JButton btnEliminar;
+    private javax.swing.JButton btnGuardar;
     private javax.swing.JButton btnLimpiar;
-    private javax.swing.JButton btnSiguientes;
+    private javax.swing.JButton btnNext;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

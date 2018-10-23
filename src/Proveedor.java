@@ -28,6 +28,7 @@ public class Proveedor extends javax.swing.JFrame {
         btnGuardar = new javax.swing.JButton();
         btnLimpiar = new javax.swing.JButton();
         btnEliminar = new javax.swing.JButton();
+        btnNext = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
@@ -74,6 +75,10 @@ public class Proveedor extends javax.swing.JFrame {
         });
         getContentPane().add(btnEliminar);
         btnEliminar.setBounds(300, 240, 69, 23);
+
+        btnNext.setText("NEXT");
+        getContentPane().add(btnNext);
+        btnNext.setBounds(320, 10, 70, 23);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -123,6 +128,7 @@ public class Proveedor extends javax.swing.JFrame {
     private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnGuardar;
     private javax.swing.JButton btnLimpiar;
+    private javax.swing.JButton btnNext;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

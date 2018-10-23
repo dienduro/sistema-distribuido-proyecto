@@ -56,7 +56,7 @@ public class Empresas extends EmpresasPOA{
     public boolean eliminarEmpresas(int ruc) {
       boolean resultado = false ;
       try{
-          String sql = "delete from empresa where RUC "+ruc;
+          String sql = "delete from empresa where ruc "+ruc;
           Statement st = objConexion.conex.createStatement();
          int valor = st.executeUpdate(sql);
        if(valor>0){
@@ -73,7 +73,7 @@ public class Empresas extends EmpresasPOA{
      
         String resultado ="";
         try {
-            String sqlConsultar = "select*from Empresas RUC = "+ruc;
+            String sqlConsultar = "select*from empresas ruc = "+ruc;
             objConexion.conectar();
             Statement st = objConexion.conex.createStatement();
             ResultSet rs  = st.executeQuery(sqlConsultar);

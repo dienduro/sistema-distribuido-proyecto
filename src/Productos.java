@@ -41,6 +41,8 @@ public class Productos extends javax.swing.JFrame {
         txtPrecioVenta = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        btnNext = new javax.swing.JButton();
+        btnNext1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
@@ -109,6 +111,14 @@ public class Productos extends javax.swing.JFrame {
         getContentPane().add(jButton2);
         jButton2.setBounds(150, 250, 110, 29);
 
+        btnNext.setText("NEXT");
+        getContentPane().add(btnNext);
+        btnNext.setBounds(440, 10, 57, 23);
+
+        btnNext1.setText("NEXT");
+        getContentPane().add(btnNext1);
+        btnNext1.setBounds(310, 10, 80, 30);
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -152,6 +162,8 @@ public class Productos extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnNext;
+    private javax.swing.JButton btnNext1;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;

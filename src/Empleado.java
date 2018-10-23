@@ -1,3 +1,7 @@
+
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -10,12 +14,19 @@
  */
 public class Empleado extends javax.swing.JFrame {
 
+    private TableModel modeloTablaEmpleado;
+    
+
     /**
      * Creates new form Empleado
      */
     public Empleado() {
+     //   modeloTablaEmpleado = new DefaultTableModel(null,getColumn());
         initComponents();
+        //cargarTabla();
     }
+    //Metodo para cargar las columnas en la tabla
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -53,6 +64,9 @@ public class Empleado extends javax.swing.JFrame {
         txtTelefono = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
         txtSueldo = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        btnNext = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
@@ -153,6 +167,16 @@ public class Empleado extends javax.swing.JFrame {
         getContentPane().add(txtSueldo);
         txtSueldo.setBounds(310, 200, 70, 20);
 
+        jTable1.setModel(modeloTablaEmpleado);
+        jScrollPane1.setViewportView(jTable1);
+
+        getContentPane().add(jScrollPane1);
+        jScrollPane1.setBounds(40, 290, 310, 190);
+
+        btnNext.setText("NEXT");
+        getContentPane().add(btnNext);
+        btnNext.setBounds(340, 10, 57, 23);
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -204,6 +228,7 @@ public class Empleado extends javax.swing.JFrame {
     private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnGuardar;
     private javax.swing.JButton btnLimpiar;
+    private javax.swing.JButton btnNext;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -216,6 +241,8 @@ public class Empleado extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
