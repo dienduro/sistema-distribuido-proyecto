@@ -1,4 +1,5 @@
 
+import java.sql.ResultSet;
 import javax.swing.table.TableModel;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -17,17 +18,36 @@ public class Clientes extends javax.swing.JFrame {
     /**
      * Creates new form Clientes
      */
-    private DefaultTableModel modeloTabla;
+    private DefaultTableModel modeloTablaCli;
     
     public Clientes() {
-        modeloTabla = new DefaultTableModel(null,getColumn());
-        //cargarTabla();
+        modeloTablaCli = new DefaultTableModel(null,getColumn());
         initComponents();
-        
+        cargarTablaCli();
     }
+      //Metodo para cargar las columnas en la tabla
     private String[] getColumn(){
         String columnas[] = new String[]{"id","Nombre","apellido"};
         return columnas;
+    }
+    //Metodo par cargar tabla
+    private void cargarTablaCli(){
+     Cliente ObjCliente = new Cliente();
+        ResultSet result = ObjCliente.cargarCliente();
+        try {
+            //creamos un arreglo de 3 sectores
+            Object Datos [] = new Object[3];
+            while (result.next()) {
+                for (int i = 0; i <3; i++) {
+                    Datos[i]=result.getObject(i+1) ;
+                }
+                modeloTablaCli.addRow(Datos);
+                
+            }
+            
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error: " + e.getMessage());
+        }
     }
 
     /**
@@ -59,7 +79,7 @@ public class Clientes extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 0, 0));
-        jLabel1.setText("EMPRESAS ");
+        jLabel1.setText("Cliente");
         getContentPane().add(jLabel1);
         jLabel1.setBounds(156, 11, 160, 26);
 
@@ -68,6 +88,7 @@ public class Clientes extends javax.swing.JFrame {
         getContentPane().add(jLabel2);
         jLabel2.setBounds(19, 53, 62, 21);
 
+        txtId.setText("0");
         txtId.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtIdActionPerformed(evt);
@@ -90,17 +111,27 @@ public class Clientes extends javax.swing.JFrame {
         getContentPane().add(txtApellido);
         txtApellido.setBounds(120, 140, 126, 20);
         getContentPane().add(jLabel5);
-        jLabel5.setBounds(0, 0, 430, 170);
+        jLabel5.setBounds(0, 10, 430, 170);
 
         btnConsultar.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
         btnConsultar.setText("Consultar ");
+        btnConsultar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConsultarActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnConsultar);
         btnConsultar.setBounds(20, 320, 120, 40);
 
         btnSiguientes.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
-        btnSiguientes.setText("Siguientes");
+        btnSiguientes.setText("Guardar y Siguientes");
+        btnSiguientes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSiguientesActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnSiguientes);
-        btnSiguientes.setBounds(260, 320, 130, 40);
+        btnSiguientes.setBounds(260, 320, 210, 40);
 
         btnLimpiar.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
         btnLimpiar.setText("Limpiar");
@@ -110,18 +141,18 @@ public class Clientes extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnLimpiar);
-        btnLimpiar.setBounds(400, 320, 110, 40);
+        btnLimpiar.setBounds(270, 90, 110, 40);
 
         btnEliminar.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
         btnEliminar.setText("Eliminar ");
         getContentPane().add(btnEliminar);
         btnEliminar.setBounds(150, 320, 100, 40);
 
-        tblRegistro.setModel(modeloTabla);
+        tblRegistro.setModel(modeloTablaCli);
         jScrollPane1.setViewportView(tblRegistro);
 
         getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(40, 180, 300, 120);
+        jScrollPane1.setBounds(20, 180, 300, 120);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -131,8 +162,19 @@ public class Clientes extends javax.swing.JFrame {
     }//GEN-LAST:event_txtIdActionPerformed
 
     private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
-        // TODO add your handling code here:
+     
+                                              
+
     }//GEN-LAST:event_btnLimpiarActionPerformed
+
+    private void btnConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarActionPerformed
+      Cliente objCliente = new Cliente();
+        JOptionPane.showMessageDialog(null, objCliente.consultarCliente(1));
+    }//GEN-LAST:event_btnConsultarActionPerformed
+
+    private void btnSiguientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSiguientesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnSiguientesActionPerformed
 
     /**
      * @param args the command line arguments

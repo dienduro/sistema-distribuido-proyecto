@@ -92,9 +92,9 @@ public class Cliente extends ClientePOA{
                resultado += rs.getString(2)+"-"
                +rs.getString(3)+"-"
                +rs.getString(4);
-                
-            }
-            
+     
+    }
+
             rs.close(); // resultado de la consultad del Query
             objConexion.conex.close();
             
@@ -120,7 +120,7 @@ public class Cliente extends ClientePOA{
         } catch (Exception e) {
             
             JOptionPane.showMessageDialog(null, "Error "+e.getMessage());
-        }
+}
        return resultado;
     }
     
