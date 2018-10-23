@@ -81,15 +81,15 @@ public class Empleado extends javax.swing.JFrame {
         getContentPane().add(jLabel6);
         jLabel6.setBounds(39, 178, 84, 14);
         getContentPane().add(jTextField1);
-        jTextField1.setBounds(134, 45, 62, 20);
+        jTextField1.setBounds(130, 50, 70, 20);
         getContentPane().add(jTextField2);
-        jTextField2.setBounds(134, 70, 62, 20);
+        jTextField2.setBounds(132, 80, 70, 20);
         getContentPane().add(jTextField3);
-        jTextField3.setBounds(134, 108, 62, 20);
+        jTextField3.setBounds(130, 110, 70, 20);
         getContentPane().add(jTextField4);
-        jTextField4.setBounds(134, 146, 62, 20);
+        jTextField4.setBounds(132, 140, 70, 20);
         getContentPane().add(jTextField5);
-        jTextField5.setBounds(136, 172, 60, 20);
+        jTextField5.setBounds(136, 172, 70, 20);
 
         btnConsultar.setText("Consultar ");
         getContentPane().add(btnConsultar);
@@ -126,7 +126,7 @@ public class Empleado extends javax.swing.JFrame {
 
         jLabel10.setText("Hora  De Salida");
         getContentPane().add(jLabel10);
-        jLabel10.setBounds(240, 140, 80, 14);
+        jLabel10.setBounds(220, 140, 80, 14);
 
         jLabel11.setText("Telefono");
         getContentPane().add(jLabel11);
@@ -134,19 +134,19 @@ public class Empleado extends javax.swing.JFrame {
         getContentPane().add(txtEstado);
         txtEstado.setBounds(310, 40, 72, 20);
         getContentPane().add(txtCodigoCargo);
-        txtCodigoCargo.setBounds(310, 70, 6, 20);
+        txtCodigoCargo.setBounds(310, 70, 70, 20);
         getContentPane().add(txtHoraEntrada);
-        txtHoraEntrada.setBounds(320, 100, 6, 20);
+        txtHoraEntrada.setBounds(310, 100, 70, 20);
         getContentPane().add(txtHoraDeSalida);
-        txtHoraDeSalida.setBounds(320, 140, 6, 20);
+        txtHoraDeSalida.setBounds(310, 130, 70, 20);
         getContentPane().add(txtTelefono);
-        txtTelefono.setBounds(300, 170, 6, 20);
+        txtTelefono.setBounds(310, 160, 70, 20);
 
         jLabel12.setText("Sueldo ");
         getContentPane().add(jLabel12);
         jLabel12.setBounds(240, 210, 35, 14);
         getContentPane().add(txtSueldo);
-        txtSueldo.setBounds(290, 210, 6, 20);
+        txtSueldo.setBounds(310, 200, 70, 20);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

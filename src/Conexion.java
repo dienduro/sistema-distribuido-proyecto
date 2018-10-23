@@ -1,4 +1,4 @@
-package proyectofinal;
+
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -24,6 +24,14 @@ public class Conexion {
             System.out.print(e.getMessage());
         }
         return conex;
+    }
+
+    void conexion() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    Conexion() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }
