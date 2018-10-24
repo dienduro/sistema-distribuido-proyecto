@@ -1,10 +1,13 @@
 
 import javax.swing.JOptionPane;
+import javax.swing.table.TableModel;
 
 
 
 
 public class Proveedor extends javax.swing.JFrame {
+
+    private TableModel modeloTablaProveedor;
 
    
     /**/public Proveedor() {

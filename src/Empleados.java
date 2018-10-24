@@ -15,29 +15,7 @@ public class Empleados extends EmpleadoPOA{
  Conexion objConexion = new Conexion();
    
 
-    @Override
-    public boolean actualizarEmpleado(int cedula_empleado, String nombre, String apellido, String genero, String direccion, String fecha_nacimiento, String estado_civil, String codigo_cargo, double hora_entrada, double hora_salida, String telefono, float sueldo, int empresa_ruc) {
-          boolean resultado = false;
-        try {
-            String sql="update empleado set nombres = '"+nombre+"','"+apellido+"','"+genero+"','"+direccion+"','"+fecha_nacimiento+"','"+estado_civil+"','"+codigo_cargo+"','"+hora_entrada+"','"+hora_salida+"','"+telefono+"','"+sueldo+"' where cedula_empleado = '"+cedula_empleado+"' ";
-            Statement st= objConexion.conex.createStatement();
-            int valor = st.executeUpdate(sql);
-            if (valor>0) {
-                resultado = true;
-            }
-            
-            objConexion.conex.close();
-            
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "ocurrio un error al actualizar empleado "+e.getMessage());
-        }
-       
-       
-       return resultado;
-
-    }
-
-    @Override
+     @Override
     public boolean eliminarEmpleado(int cedula_empleado, int empresa_ruc) {
         boolean resultado = false;
         try {
@@ -125,5 +103,25 @@ public class Empleados extends EmpleadoPOA{
        return resultado;
         
     }
+
+    @Override
+    public boolean actualizarEmpleado(int cedula_empleado, String nombre, String apellido, String genero, String direccion, String fecha_nacimiento, String estado_civil, String codigo_cargo, double hora_entrada, double hora_salida, String telefono, float sueldo, int empresa_ruc) {
+  boolean resultado = false;
+        try {
+            String sql="update empleado set nombres = '"+nombre+"','"+apellido+"','"+genero+"','"+direccion+"','"+fecha_nacimiento+"','"+estado_civil+"','"+codigo_cargo+"','"+hora_entrada+"','"+hora_salida+"','"+telefono+"','"+sueldo+"' where cedula_empleado = '"+cedula_empleado+"' ";
+            Statement st= objConexion.conex.createStatement();
+            int valor = st.executeUpdate(sql);
+            if (valor>0) {
+                resultado = true;
+            }
+            
+            objConexion.conex.close();
+            
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "ocurrio un error al actualizar empleado "+e.getMessage());
+        }
+       
+       
+       return resultado;    }
 
 }
