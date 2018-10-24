@@ -36,32 +36,44 @@ public class Proveedor extends javax.swing.JFrame {
         tblProveedor = new javax.swing.JTable();
         jLabel5 = new javax.swing.JLabel();
         txtRucProve = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
 
+        jLabel1.setFont(new java.awt.Font("Arial Black", 1, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 0, 0));
         jLabel1.setText("Proveedor ");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(150, 20, 80, 16);
+        jLabel1.setBounds(20, 10, 300, 52);
 
+        jLabel2.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Nombre");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(30, 100, 45, 16);
+        jLabel2.setBounds(70, 100, 83, 26);
 
+        jLabel3.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Direccion ");
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(30, 130, 55, 16);
+        jLabel3.setBounds(60, 130, 110, 26);
 
+        jLabel4.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("Telefono");
         getContentPane().add(jLabel4);
-        jLabel4.setBounds(30, 180, 48, 16);
+        jLabel4.setBounds(60, 170, 94, 26);
         getContentPane().add(txtNombre);
-        txtNombre.setBounds(110, 90, 120, 28);
+        txtNombre.setBounds(200, 100, 120, 28);
         getContentPane().add(txtDireccion);
-        txtDireccion.setBounds(110, 130, 120, 28);
+        txtDireccion.setBounds(200, 130, 120, 28);
         getContentPane().add(txtTelefono);
-        txtTelefono.setBounds(110, 170, 120, 28);
+        txtTelefono.setBounds(200, 160, 120, 28);
 
+        btnConsultar.setBackground(new java.awt.Color(51, 255, 255));
+        btnConsultar.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
+        btnConsultar.setForeground(new java.awt.Color(0, 0, 0));
         btnConsultar.setText("Consultar ");
         btnConsultar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -69,8 +81,11 @@ public class Proveedor extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnConsultar);
-        btnConsultar.setBounds(30, 300, 85, 28);
+        btnConsultar.setBounds(120, 310, 140, 38);
 
+        btnGuardar.setBackground(new java.awt.Color(51, 255, 255));
+        btnGuardar.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
+        btnGuardar.setForeground(new java.awt.Color(0, 0, 0));
         btnGuardar.setText("Guardar");
         btnGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -78,8 +93,11 @@ public class Proveedor extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnGuardar);
-        btnGuardar.setBounds(130, 300, 73, 28);
+        btnGuardar.setBounds(10, 310, 114, 38);
 
+        btnLimpiar.setBackground(new java.awt.Color(51, 255, 255));
+        btnLimpiar.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
+        btnLimpiar.setForeground(new java.awt.Color(0, 0, 0));
         btnLimpiar.setText("Limpiar ");
         btnLimpiar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -87,8 +105,11 @@ public class Proveedor extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnLimpiar);
-        btnLimpiar.setBounds(220, 300, 73, 28);
+        btnLimpiar.setBounds(260, 310, 120, 38);
 
+        btnEliminar.setBackground(new java.awt.Color(51, 255, 255));
+        btnEliminar.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
+        btnEliminar.setForeground(new java.awt.Color(0, 0, 0));
         btnEliminar.setText("Eliminar");
         btnEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -96,23 +117,30 @@ public class Proveedor extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnEliminar);
-        btnEliminar.setBounds(320, 290, 74, 28);
+        btnEliminar.setBounds(390, 310, 117, 38);
 
+        btnNext.setBackground(new java.awt.Color(51, 255, 255));
+        btnNext.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
+        btnNext.setForeground(new java.awt.Color(0, 0, 0));
         btnNext.setText("NEXT");
         getContentPane().add(btnNext);
-        btnNext.setBounds(320, 10, 70, 28);
+        btnNext.setBounds(520, 310, 100, 38);
 
         tblProveedor.setModel(modeloTablaProveedor);
         jScrollPane1.setViewportView(tblProveedor);
 
         getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(230, 50, 310, 190);
+        jScrollPane1.setBounds(340, 50, 270, 190);
 
+        jLabel5.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("RUC PROVEDOR ");
         getContentPane().add(jLabel5);
-        jLabel5.setBounds(10, 70, 110, 16);
+        jLabel5.setBounds(10, 70, 190, 26);
         getContentPane().add(txtRucProve);
-        txtRucProve.setBounds(110, 60, 120, 28);
+        txtRucProve.setBounds(200, 70, 120, 28);
+        getContentPane().add(jLabel6);
+        jLabel6.setBounds(0, 0, 640, 360);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -210,6 +238,7 @@ public class Proveedor extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tblProveedor;
     private javax.swing.JTextField txtDireccion;

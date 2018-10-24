@@ -44,40 +44,46 @@ public class Productos extends javax.swing.JFrame {
         btnNext1 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblProducto = new javax.swing.JTable();
+        jLabel8 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
 
-        jLabel1.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Arial Black", 1, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 0, 0));
         jLabel1.setText("PRODUCTOS");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(160, 11, 126, 26);
+        jLabel1.setBounds(6, 11, 280, 52);
 
-        jLabel2.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Id");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(30, 69, 30, 21);
+        jLabel2.setBounds(40, 60, 70, 26);
 
-        jLabel3.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Nombre");
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(30, 89, 60, 20);
+        jLabel3.setBounds(30, 89, 90, 20);
 
-        jLabel4.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("Modelo");
         getContentPane().add(jLabel4);
-        jLabel4.setBounds(30, 120, 54, 21);
+        jLabel4.setBounds(30, 120, 77, 26);
 
-        jLabel5.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("Marca");
         getContentPane().add(jLabel5);
-        jLabel5.setBounds(30, 150, 46, 21);
+        jLabel5.setBounds(30, 150, 66, 26);
 
-        jLabel6.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("Precio Compra ");
         getContentPane().add(jLabel6);
-        jLabel6.setBounds(10, 182, 116, 21);
+        jLabel6.setBounds(10, 182, 165, 26);
 
         txtId.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -85,42 +91,52 @@ public class Productos extends javax.swing.JFrame {
             }
         });
         getContentPane().add(txtId);
-        txtId.setBounds(140, 60, 105, 28);
+        txtId.setBounds(180, 60, 140, 30);
         getContentPane().add(txtNombre);
-        txtNombre.setBounds(140, 90, 105, 28);
+        txtNombre.setBounds(180, 90, 140, 28);
         getContentPane().add(txtModelo);
-        txtModelo.setBounds(140, 120, 105, 28);
+        txtModelo.setBounds(180, 120, 140, 28);
         getContentPane().add(txtMarca);
-        txtMarca.setBounds(140, 150, 105, 28);
+        txtMarca.setBounds(180, 150, 140, 28);
         getContentPane().add(txtPrecioCompra);
-        txtPrecioCompra.setBounds(140, 180, 105, 28);
+        txtPrecioCompra.setBounds(180, 180, 140, 28);
 
-        jLabel7.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(0, 0, 0));
         jLabel7.setText("Precio Venta");
         getContentPane().add(jLabel7);
-        jLabel7.setBounds(20, 206, 97, 19);
+        jLabel7.setBounds(30, 220, 139, 19);
         getContentPane().add(txtPrecioVenta);
-        txtPrecioVenta.setBounds(140, 210, 105, 28);
+        txtPrecioVenta.setBounds(180, 210, 140, 28);
 
-        jButton1.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
+        jButton1.setBackground(new java.awt.Color(51, 255, 255));
+        jButton1.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(0, 0, 0));
         jButton1.setText("Guardar ");
         getContentPane().add(jButton1);
-        jButton1.setBounds(40, 250, 93, 33);
+        jButton1.setBounds(30, 320, 121, 38);
 
-        jButton2.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
+        jButton2.setBackground(new java.awt.Color(51, 255, 255));
+        jButton2.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(0, 0, 0));
         jButton2.setText("Limpiar ");
         getContentPane().add(jButton2);
-        jButton2.setBounds(150, 250, 110, 33);
+        jButton2.setBounds(160, 320, 130, 38);
 
+        btnNext1.setBackground(new java.awt.Color(51, 255, 255));
+        btnNext1.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
+        btnNext1.setForeground(new java.awt.Color(0, 0, 0));
         btnNext1.setText("NEXT");
         getContentPane().add(btnNext1);
-        btnNext1.setBounds(310, 10, 80, 30);
+        btnNext1.setBounds(300, 320, 110, 40);
 
         tblProducto.setModel(modeloTablaProducto);
         jScrollPane1.setViewportView(tblProducto);
 
         getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(270, 70, 310, 190);
+        jScrollPane1.setBounds(330, 70, 250, 190);
+        getContentPane().add(jLabel8);
+        jLabel8.setBounds(0, 0, 590, 360);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -175,6 +191,7 @@ public class Productos extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tblProducto;
     private javax.swing.JTextField txtId;

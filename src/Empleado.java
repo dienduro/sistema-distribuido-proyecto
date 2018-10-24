@@ -67,44 +67,60 @@ public class Empleado extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         btnNext = new javax.swing.JButton();
+        jLabel13 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
 
+        jLabel1.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 0, 0));
         jLabel1.setText("Empleado");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(132, 11, 57, 16);
+        jLabel1.setBounds(10, 20, 180, 40);
 
+        jLabel2.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Nombre");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(39, 51, 45, 16);
+        jLabel2.setBounds(40, 80, 90, 26);
 
+        jLabel3.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Apellido");
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(39, 76, 44, 16);
+        jLabel3.setBounds(40, 120, 88, 26);
 
+        jLabel4.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("Genero");
         getContentPane().add(jLabel4);
-        jLabel4.setBounds(39, 111, 41, 16);
+        jLabel4.setBounds(40, 150, 77, 26);
 
+        jLabel5.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("Direccion ");
         getContentPane().add(jLabel5);
-        jLabel5.setBounds(39, 149, 55, 16);
+        jLabel5.setBounds(20, 180, 110, 26);
 
+        jLabel6.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("Fecha Nacimiento");
         getContentPane().add(jLabel6);
-        jLabel6.setBounds(39, 178, 100, 16);
+        jLabel6.setBounds(0, 210, 195, 26);
         getContentPane().add(jTextField1);
-        jTextField1.setBounds(130, 50, 70, 28);
+        jTextField1.setBounds(200, 80, 110, 28);
         getContentPane().add(jTextField2);
-        jTextField2.setBounds(132, 80, 70, 28);
+        jTextField2.setBounds(200, 120, 110, 28);
         getContentPane().add(jTextField3);
-        jTextField3.setBounds(130, 110, 70, 28);
+        jTextField3.setBounds(200, 150, 110, 28);
         getContentPane().add(jTextField4);
-        jTextField4.setBounds(132, 140, 70, 28);
+        jTextField4.setBounds(200, 180, 110, 28);
         getContentPane().add(jTextField5);
-        jTextField5.setBounds(136, 172, 70, 28);
+        jTextField5.setBounds(200, 210, 110, 28);
 
+        btnConsultar.setBackground(new java.awt.Color(51, 255, 255));
+        btnConsultar.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
+        btnConsultar.setForeground(new java.awt.Color(0, 0, 0));
         btnConsultar.setText("Consultar ");
         btnConsultar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -112,16 +128,25 @@ public class Empleado extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnConsultar);
-        btnConsultar.setBounds(20, 430, 85, 28);
+        btnConsultar.setBounds(20, 430, 139, 38);
 
+        btnGuardar.setBackground(new java.awt.Color(51, 255, 255));
+        btnGuardar.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
+        btnGuardar.setForeground(new java.awt.Color(0, 0, 0));
         btnGuardar.setText("Guardar");
         getContentPane().add(btnGuardar);
-        btnGuardar.setBounds(110, 430, 73, 28);
+        btnGuardar.setBounds(160, 430, 114, 38);
 
+        btnLimpiar.setBackground(new java.awt.Color(51, 255, 255));
+        btnLimpiar.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
+        btnLimpiar.setForeground(new java.awt.Color(0, 0, 0));
         btnLimpiar.setText("Limpiar ");
         getContentPane().add(btnLimpiar);
-        btnLimpiar.setBounds(190, 430, 73, 28);
+        btnLimpiar.setBounds(270, 430, 116, 38);
 
+        btnEliminar.setBackground(new java.awt.Color(51, 255, 255));
+        btnEliminar.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
+        btnEliminar.setForeground(new java.awt.Color(0, 0, 0));
         btnEliminar.setText("Eliminar");
         btnEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -129,53 +154,70 @@ public class Empleado extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnEliminar);
-        btnEliminar.setBounds(270, 430, 74, 28);
+        btnEliminar.setBounds(380, 430, 170, 40);
 
+        jLabel7.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(0, 0, 0));
         jLabel7.setText("Estado Civil ");
         getContentPane().add(jLabel7);
-        jLabel7.setBounds(240, 40, 60, 16);
+        jLabel7.setBounds(340, 50, 140, 26);
 
+        jLabel8.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(0, 0, 0));
         jLabel8.setText("Codigo Cargo");
         getContentPane().add(jLabel8);
-        jLabel8.setBounds(240, 70, 80, 16);
+        jLabel8.setBounds(330, 80, 160, 26);
 
+        jLabel9.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(0, 0, 0));
         jLabel9.setText("Hora Entrada");
         getContentPane().add(jLabel9);
-        jLabel9.setBounds(240, 100, 70, 16);
+        jLabel9.setBounds(330, 110, 160, 26);
 
+        jLabel10.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(0, 0, 0));
         jLabel10.setText("Hora  De Salida");
         getContentPane().add(jLabel10);
-        jLabel10.setBounds(220, 140, 80, 16);
+        jLabel10.setBounds(320, 150, 170, 26);
 
+        jLabel11.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(0, 0, 0));
         jLabel11.setText("Telefono");
         getContentPane().add(jLabel11);
-        jLabel11.setBounds(240, 170, 60, 16);
+        jLabel11.setBounds(370, 180, 110, 26);
         getContentPane().add(txtEstado);
-        txtEstado.setBounds(310, 40, 72, 28);
+        txtEstado.setBounds(490, 50, 170, 28);
         getContentPane().add(txtCodigoCargo);
-        txtCodigoCargo.setBounds(310, 70, 70, 28);
+        txtCodigoCargo.setBounds(490, 80, 170, 28);
         getContentPane().add(txtHoraEntrada);
-        txtHoraEntrada.setBounds(310, 100, 70, 28);
+        txtHoraEntrada.setBounds(490, 110, 170, 28);
         getContentPane().add(txtHoraDeSalida);
-        txtHoraDeSalida.setBounds(310, 130, 70, 28);
+        txtHoraDeSalida.setBounds(490, 140, 170, 28);
         getContentPane().add(txtTelefono);
-        txtTelefono.setBounds(310, 160, 70, 28);
+        txtTelefono.setBounds(490, 170, 170, 28);
 
+        jLabel12.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(0, 0, 0));
         jLabel12.setText("Sueldo ");
         getContentPane().add(jLabel12);
-        jLabel12.setBounds(240, 210, 42, 16);
+        jLabel12.setBounds(370, 210, 120, 26);
         getContentPane().add(txtSueldo);
-        txtSueldo.setBounds(310, 200, 70, 28);
+        txtSueldo.setBounds(490, 210, 170, 28);
 
         jTable1.setModel(modeloTablaEmpleado);
         jScrollPane1.setViewportView(jTable1);
 
         getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(30, 230, 310, 190);
+        jScrollPane1.setBounds(30, 260, 310, 160);
 
+        btnNext.setBackground(new java.awt.Color(51, 255, 255));
+        btnNext.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
+        btnNext.setForeground(new java.awt.Color(0, 0, 0));
         btnNext.setText("NEXT");
         getContentPane().add(btnNext);
-        btnNext.setBounds(20, 460, 59, 28);
+        btnNext.setBounds(550, 430, 87, 38);
+        getContentPane().add(jLabel13);
+        jLabel13.setBounds(0, 0, 670, 470);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -233,6 +275,7 @@ public class Empleado extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

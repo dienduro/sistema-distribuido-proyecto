@@ -74,20 +74,22 @@ public class Clientes extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tblRegistro = new javax.swing.JTable();
         btnNext = new javax.swing.JButton();
+        jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
 
-        jLabel1.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Arial Black", 0, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 0, 0));
         jLabel1.setText("Cliente");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(156, 11, 160, 26);
+        jLabel1.setBounds(60, 10, 160, 26);
 
-        jLabel2.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Id ");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(19, 53, 62, 21);
+        jLabel2.setBounds(19, 53, 62, 26);
 
         txtId.setText("0");
         txtId.addActionListener(new java.awt.event.ActionListener() {
@@ -98,15 +100,17 @@ public class Clientes extends javax.swing.JFrame {
         getContentPane().add(txtId);
         txtId.setBounds(120, 60, 126, 28);
 
-        jLabel3.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Nombre");
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(19, 103, 59, 21);
+        jLabel3.setBounds(19, 103, 90, 26);
 
-        jLabel4.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("Apellido ");
         getContentPane().add(jLabel4);
-        jLabel4.setBounds(19, 131, 67, 34);
+        jLabel4.setBounds(19, 131, 95, 34);
         getContentPane().add(txtNombre);
         txtNombre.setBounds(120, 100, 126, 28);
         getContentPane().add(txtApellido);
@@ -114,7 +118,9 @@ public class Clientes extends javax.swing.JFrame {
         getContentPane().add(jLabel5);
         jLabel5.setBounds(0, 0, 260, 170);
 
-        btnConsultar.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
+        btnConsultar.setBackground(new java.awt.Color(51, 255, 255));
+        btnConsultar.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
+        btnConsultar.setForeground(new java.awt.Color(0, 0, 0));
         btnConsultar.setText("Consultar ");
         btnConsultar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -122,9 +128,11 @@ public class Clientes extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnConsultar);
-        btnConsultar.setBounds(250, 330, 110, 40);
+        btnConsultar.setBounds(250, 330, 150, 40);
 
-        btnGuardar.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
+        btnGuardar.setBackground(new java.awt.Color(51, 255, 255));
+        btnGuardar.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
+        btnGuardar.setForeground(new java.awt.Color(0, 0, 0));
         btnGuardar.setText("Guardar ");
         btnGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -132,9 +140,11 @@ public class Clientes extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnGuardar);
-        btnGuardar.setBounds(20, 330, 110, 40);
+        btnGuardar.setBounds(0, 330, 130, 40);
 
-        btnLimpiar.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
+        btnLimpiar.setBackground(new java.awt.Color(51, 255, 255));
+        btnLimpiar.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
+        btnLimpiar.setForeground(new java.awt.Color(0, 0, 0));
         btnLimpiar.setText("Limpiar");
         btnLimpiar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -144,10 +154,12 @@ public class Clientes extends javax.swing.JFrame {
         getContentPane().add(btnLimpiar);
         btnLimpiar.setBounds(20, 380, 110, 40);
 
-        btnEliminar.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
+        btnEliminar.setBackground(new java.awt.Color(51, 255, 255));
+        btnEliminar.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
+        btnEliminar.setForeground(new java.awt.Color(0, 0, 0));
         btnEliminar.setText("Eliminar ");
         getContentPane().add(btnEliminar);
-        btnEliminar.setBounds(140, 330, 100, 40);
+        btnEliminar.setBounds(130, 330, 124, 40);
 
         tblRegistro.setModel(modeloTablaCli);
         jScrollPane1.setViewportView(tblRegistro);
@@ -155,9 +167,14 @@ public class Clientes extends javax.swing.JFrame {
         getContentPane().add(jScrollPane1);
         jScrollPane1.setBounds(20, 180, 300, 120);
 
+        btnNext.setBackground(new java.awt.Color(51, 255, 255));
+        btnNext.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
+        btnNext.setForeground(new java.awt.Color(0, 0, 0));
         btnNext.setText("NEXT");
         getContentPane().add(btnNext);
-        btnNext.setBounds(360, 330, 120, 40);
+        btnNext.setBounds(140, 380, 120, 40);
+        getContentPane().add(jLabel6);
+        jLabel6.setBounds(0, 0, 510, 420);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -231,6 +248,7 @@ public class Clientes extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tblRegistro;
     private javax.swing.JTextField txtApellido;
