@@ -18,7 +18,8 @@ public class Cliente extends ClientePOA{
     public boolean insertarCliente(String nombre, String apellido, String empresa_ruc) {
           boolean resultado = false;
         try {
-           String sql="insert into cliente (cod_cliente, Nombre,apellido) values('"+nombre+"','"+apellido+"')"; 
+           String sql="insert into cliente (id_cliente, nombre,apellido)"
+                   + " values('"+nombre+"','"+apellido+"')"; 
            objConexion.conectar();
            Statement st = objConexion.conex.createStatement();
            int valor = st.executeUpdate(sql);
@@ -30,7 +31,8 @@ public class Cliente extends ClientePOA{
             objConexion.conex.close();
             st.close();
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "ocurrio un error al insertar dato en cliente "+e.getMessage());
+            JOptionPane.showMessageDialog
+        (null, "ocurrio un error al insertar dato en cliente "+e.getMessage());
         }
       
        return resultado;
@@ -123,5 +125,6 @@ public class Cliente extends ClientePOA{
 }
        return resultado;
     }
+ 
     
 }

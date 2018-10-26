@@ -20,12 +20,21 @@ public class Empresa extends javax.swing.JFrame {
      * Creates new form Empresa
      */
       private DefaultTableModel modeloTablaEmpresa;
+    
   
     
     public Empresa() {
          modeloTablaEmpresa = new DefaultTableModel(null,getColumn());
         initComponents();
-        cargarTablaempresa();
+        cargarTablaempresa();      
+         
+            this.btnGuardar.setVisible(false);
+         this.btnEliminar.setVisible(false);
+         this.txtNomEmp.setVisible(false);
+         this.txtDir.setVisible(false);
+         this.txtProp.setVisible(false);
+         this.txtTel.setVisible(false);
+        
     }
     
      private String[] getColumn(){
@@ -38,9 +47,9 @@ public class Empresa extends javax.swing.JFrame {
         ResultSet result = Objempresas.cargarEmpresa();
         try {
             //creamos un arreglo de 3 sectores
-            Object Datos [] = new Object[5];
+            Object Datos [] = new Object[4];
             while (result.next()) {
-                for (int i = 0; i <5; i++) {
+                for (int i = 0; i <4; i++) {
                     Datos[i]=result.getObject(i+1) ;
                 }
                 modeloTablaEmpresa.addRow(Datos);
@@ -86,19 +95,19 @@ public class Empresa extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
         jLabel1.setText("Ruc");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 60, -1, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
         jLabel2.setText("Nombre");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 94, -1, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
         jLabel3.setText("Direccion");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 128, -1, -1));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
         jLabel4.setText("Telefono");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 162, -1, -1));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, -1, -1));
 
         jLabel5.setFont(new java.awt.Font("Arial Black", 1, 36)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(204, 0, 0));
@@ -107,14 +116,14 @@ public class Empresa extends javax.swing.JFrame {
 
         jLabel6.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
         jLabel6.setText("Propietario");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 202, -1, -1));
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, -1, -1));
 
         txtRuc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtRucActionPerformed(evt);
             }
         });
-        getContentPane().add(txtRuc, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 50, 130, -1));
+        getContentPane().add(txtRuc, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 60, 130, -1));
 
         btnConsultar.setBackground(new java.awt.Color(51, 255, 255));
         btnConsultar.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
@@ -182,7 +191,7 @@ public class Empresa extends javax.swing.JFrame {
                 txtPropActionPerformed(evt);
             }
         });
-        getContentPane().add(txtProp, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 190, 130, -1));
+        getContentPane().add(txtProp, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 180, 130, -1));
 
         btnNext.setBackground(new java.awt.Color(51, 255, 255));
         btnNext.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
@@ -198,13 +207,13 @@ public class Empresa extends javax.swing.JFrame {
         jScrollPane1.setViewportView(tblEmpresa);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 40, 310, 190));
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 720, 340));
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 680, 340));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtRucActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtRucActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_txtRucActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
@@ -228,14 +237,27 @@ public class Empresa extends javax.swing.JFrame {
     }//GEN-LAST:event_txtPropActionPerformed
 
     private void btnNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNextActionPerformed
-        // TODO add your handling code here:
+    Empleado obj = new Empleado();
+    obj.setVisible(true);
     }//GEN-LAST:event_btnNextActionPerformed
 
     private void btnConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarActionPerformed
         // TODO add your handling code here:
         
          Empresas objEmpresas = new Empresas();
-      JOptionPane.showMessageDialog(null, objEmpresas.consultarEmpresas(1));
+         int ruc = Integer.parseInt(txtRuc.getText());
+         if (ruc==0) {
+            JOptionPane.showMessageDialog(null, objEmpresas.consultarEmpresas(1));
+        } else {
+            this.btnGuardar.setVisible(true);
+            this.btnEliminar.setVisible(true);
+            this.txtNomEmp.setVisible(true);
+            this.txtDir.setVisible(true);
+            this.txtProp.setVisible(true);
+            this.txtTel.setVisible(true);
+            this.txtRuc.setVisible(true);
+        }
+      
                                          
     }//GEN-LAST:event_btnConsultarActionPerformed
 
@@ -249,17 +271,19 @@ public class Empresa extends javax.swing.JFrame {
     }//GEN-LAST:event_btnLimpiarActionPerformed
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
-        // TODO add your handling code here:
+      
+        
          Empresas objEmpresa = new Empresas();
+         int ruc = Integer.parseInt(txtRuc.getText());
         String nombres = txtNomEmp.getText();
         String direccion = txtDir.getText();
         String telefono = txtTel.getText();
         String propietario = txtProp.getText();
-        int ruc = Integer.parseInt(txtRuc.getText());
+        
         if (ruc==0) {
             
         
-        boolean resultado = objEmpresa.insertarEmpresas(nombres, direccion, telefono,propietario);
+        boolean resultado = objEmpresa.insertarEmpresas(ruc,nombres, direccion, telefono,propietario);
         if (resultado== true) {
             JOptionPane.showMessageDialog(null, "Se inserto un nuevo registro");
            //cargarTabla();

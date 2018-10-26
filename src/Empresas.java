@@ -19,11 +19,11 @@ public class Empresas extends EmpresasPOA{
     
          
     @Override
-    public boolean insertarEmpresas(String nombre, String direccion, String telefono, String propietario) {
+    public boolean insertarEmpresas(int ruc, String nombre, String direccion, String telefono, String propietario) {
        
     boolean resultado = false;
         try {
-            String sql = "insert into empresa (nombre,direccion,telefono,propietario)value('"+nombre+"','"+direccion+"','"+telefono+"','"+propietario+"') ";
+            String sql = "insert into empresa (ruc,nombre,direccion,telefono,propietario)value('"+ruc+"','"+nombre+"','"+direccion+"','"+telefono+"','"+propietario+"') ";
        objConexion.conectar();
        Statement st = objConexion.conex.createStatement();
        int valor = st.executeUpdate(sql);
@@ -40,7 +40,7 @@ public class Empresas extends EmpresasPOA{
     public boolean actualizarEmpresas(int ruc, String nombre, String direccion, String telefono, String propietario) {
     boolean resultado = false;
     try{
-       String sql = "Update empresa set nombre = '"+nombre+"','"+direccion+"','"+telefono+"','"+propietario+"' where ruc = '"+ruc+"' ";
+       String sql = "Update empresa set nombre ='"+ruc+"' '"+nombre+"','"+direccion+"','"+telefono+"','"+propietario+"' where ruc = '"+ruc+"' ";
         Statement st = objConexion.conex.createStatement();
        int valor = st.executeUpdate(sql);
        if(valor>0){
@@ -104,7 +104,7 @@ public class Empresas extends EmpresasPOA{
     public ResultSet cargarEmpresa(){
        ResultSet resultado = null;
         try {
-            String sql = "Select nombre, direccion,  telefono, celular, Propietario from Empresas";
+            String sql = "Select nombre, direccion,  telefono, Propietario from Empresas";
             objConexion.conectar(); // abrimos la conexion
             Statement st = objConexion.conex.createStatement();//encargado de la consulta
             resultado = st.executeQuery(sql);
@@ -115,9 +115,9 @@ public class Empresas extends EmpresasPOA{
        return resultado;
     }
 
-    Empresas() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+  
+
+   
   
     
 

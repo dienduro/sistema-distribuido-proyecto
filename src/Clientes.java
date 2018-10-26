@@ -65,8 +65,7 @@ public class Clientes extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         txtNombre = new javax.swing.JTextField();
-        txtApellido = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
+        txtEmpresa_Ruc = new javax.swing.JTextField();
         btnConsultar = new javax.swing.JButton();
         btnGuardar = new javax.swing.JButton();
         btnLimpiar = new javax.swing.JButton();
@@ -74,9 +73,11 @@ public class Clientes extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tblRegistro = new javax.swing.JTable();
         btnNext = new javax.swing.JButton();
-        jLabel6 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        txtApellido = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setState(1);
         getContentPane().setLayout(null);
 
         jLabel1.setFont(new java.awt.Font("Arial Black", 0, 36)); // NOI18N
@@ -86,7 +87,6 @@ public class Clientes extends javax.swing.JFrame {
         jLabel1.setBounds(60, 10, 160, 26);
 
         jLabel2.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Id ");
         getContentPane().add(jLabel2);
         jLabel2.setBounds(19, 53, 62, 26);
@@ -98,29 +98,30 @@ public class Clientes extends javax.swing.JFrame {
             }
         });
         getContentPane().add(txtId);
-        txtId.setBounds(120, 60, 126, 28);
+        txtId.setBounds(120, 60, 126, 20);
 
         jLabel3.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Nombre");
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(19, 103, 90, 26);
+        jLabel3.setBounds(20, 80, 90, 26);
 
         jLabel4.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel4.setText("Apellido ");
+        jLabel4.setText("Empresa_Ruc");
         getContentPane().add(jLabel4);
-        jLabel4.setBounds(19, 131, 95, 34);
+        jLabel4.setBounds(20, 140, 144, 34);
         getContentPane().add(txtNombre);
-        txtNombre.setBounds(120, 100, 126, 28);
-        getContentPane().add(txtApellido);
-        txtApellido.setBounds(120, 140, 126, 28);
-        getContentPane().add(jLabel5);
-        jLabel5.setBounds(0, 0, 260, 170);
+        txtNombre.setBounds(120, 90, 126, 20);
+
+        txtEmpresa_Ruc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtEmpresa_RucActionPerformed(evt);
+            }
+        });
+        getContentPane().add(txtEmpresa_Ruc);
+        txtEmpresa_Ruc.setBounds(170, 150, 126, 20);
 
         btnConsultar.setBackground(new java.awt.Color(51, 255, 255));
         btnConsultar.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
-        btnConsultar.setForeground(new java.awt.Color(0, 0, 0));
         btnConsultar.setText("Consultar ");
         btnConsultar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -132,7 +133,6 @@ public class Clientes extends javax.swing.JFrame {
 
         btnGuardar.setBackground(new java.awt.Color(51, 255, 255));
         btnGuardar.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
-        btnGuardar.setForeground(new java.awt.Color(0, 0, 0));
         btnGuardar.setText("Guardar ");
         btnGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -144,7 +144,6 @@ public class Clientes extends javax.swing.JFrame {
 
         btnLimpiar.setBackground(new java.awt.Color(51, 255, 255));
         btnLimpiar.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
-        btnLimpiar.setForeground(new java.awt.Color(0, 0, 0));
         btnLimpiar.setText("Limpiar");
         btnLimpiar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -156,25 +155,33 @@ public class Clientes extends javax.swing.JFrame {
 
         btnEliminar.setBackground(new java.awt.Color(51, 255, 255));
         btnEliminar.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
-        btnEliminar.setForeground(new java.awt.Color(0, 0, 0));
         btnEliminar.setText("Eliminar ");
         getContentPane().add(btnEliminar);
-        btnEliminar.setBounds(130, 330, 124, 40);
+        btnEliminar.setBounds(130, 330, 129, 40);
 
         tblRegistro.setModel(modeloTablaCli);
         jScrollPane1.setViewportView(tblRegistro);
 
         getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(20, 180, 300, 120);
+        jScrollPane1.setBounds(20, 200, 300, 120);
 
         btnNext.setBackground(new java.awt.Color(51, 255, 255));
         btnNext.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
-        btnNext.setForeground(new java.awt.Color(0, 0, 0));
         btnNext.setText("NEXT");
+        btnNext.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNextActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnNext);
         btnNext.setBounds(140, 380, 120, 40);
-        getContentPane().add(jLabel6);
-        jLabel6.setBounds(0, 0, 510, 420);
+
+        jLabel10.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
+        jLabel10.setText("Apellido ");
+        getContentPane().add(jLabel10);
+        jLabel10.setBounds(20, 110, 95, 34);
+        getContentPane().add(txtApellido);
+        txtApellido.setBounds(120, 120, 126, 20);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -185,8 +192,8 @@ public class Clientes extends javax.swing.JFrame {
 
     private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
         txtNombre.setText(null);
-        txtApellido.setText(null);
-            
+        txtEmpresa_Ruc.setText(null);
+        txtApellido.setText(null);   
                                               
 
     }//GEN-LAST:event_btnLimpiarActionPerformed
@@ -197,10 +204,42 @@ public class Clientes extends javax.swing.JFrame {
     }//GEN-LAST:event_btnConsultarActionPerformed
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
-        // TODO add your handling code here:
+ Cliente objCliente = new Cliente();
+        String nombre = txtNombre.getText();
+        String apellido = txtApellido.getText();
+         String empresa_ruc = txtEmpresa_Ruc.getText();
+        int id_cliente = Integer.parseInt(txtId.getText());
         
+        if(empresa_ruc=="" & id_cliente == 0){
+            boolean resultado = objCliente.insertarCliente(nombre, apellido,empresa_ruc);
+            if(resultado == true){
+                JOptionPane.showMessageDialog(null, "Se inserto un nuevo registro.");
+                cargarTablaCli();
+            }else{
+                JOptionPane.showMessageDialog(null, "Error al insertar.");
+            }
+            
+        }else{
+            boolean resultado = objCliente.actualizarCliente(id_cliente, nombre, apellido,empresa_ruc);
+            if(resultado == true){
+                JOptionPane.showMessageDialog(null, "Se actualizó el registro.");
+                cargarTablaCli();
+            }else{
+                JOptionPane.showMessageDialog(null, "Error al actualizar.");
+                 Empresa obj = new Empresa();
+                obj.setVisible(true);
+            }
+        }        
      
     }//GEN-LAST:event_btnGuardarActionPerformed
+
+    private void txtEmpresa_RucActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEmpresa_RucActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtEmpresa_RucActionPerformed
+
+    private void btnNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnNextActionPerformed
 
     /**
      * @param args the command line arguments
@@ -244,14 +283,14 @@ public class Clientes extends javax.swing.JFrame {
     private javax.swing.JButton btnLimpiar;
     private javax.swing.JButton btnNext;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tblRegistro;
     private javax.swing.JTextField txtApellido;
+    private javax.swing.JTextField txtEmpresa_Ruc;
     private javax.swing.JTextField txtId;
     private javax.swing.JTextField txtNombre;
     // End of variables declaration//GEN-END:variables

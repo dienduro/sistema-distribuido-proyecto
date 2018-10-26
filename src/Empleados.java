@@ -61,25 +61,7 @@ public class Empleados extends EmpleadoPOA{
         return resultado;
     }
 
-    @Override
-    public void shoutdown() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
- public ResultSet cargarEmpleado(){
-       ResultSet resultado = null;
-        try {
-            String sql = "Select nombre, apellido,genero, direccion,fecha_nacimiento, estado_civil, codigo_cargo, "
-                    + "Hora_entrada, Hora_salida,telefono, sueldo from empleado";
-            objConexion.conectar(); // abrimos la conexion
-            Statement st = objConexion.conex.createStatement();//encargado de la consulta
-            resultado = st.executeQuery(sql);
-        } catch (Exception e) {
-            
-            JOptionPane.showMessageDialog(null, "Error "+e.getMessage());
-        }
-       return resultado;
-    }
-
+   
     @Override
     public boolean insertarEmpleado(String nombre, String apellido, String genero, String direccion, String fecha_nacimiento, String estado_civil, String codigo_cargo, String hora_entrada, String hora_salida, String telefono, float sueldo) {
      boolean resultado = false;
@@ -123,5 +105,23 @@ public class Empleados extends EmpleadoPOA{
        
        
        return resultado;    }
+ @Override
+    public void shoutdown() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+ public ResultSet cargarEmpleado(){
+       ResultSet resultado = null;
+        try {
+            String sql = "Select nombre, apellido,genero, direccion,fecha_nacimiento, estado_civil, codigo_cargo, "
+                    + "Hora_entrada, Hora_salida,telefono, sueldo from empleado";
+            objConexion.conectar(); // abrimos la conexion
+            Statement st = objConexion.conex.createStatement();//encargado de la consulta
+            resultado = st.executeQuery(sql);
+        } catch (Exception e) {
+            
+            JOptionPane.showMessageDialog(null, "Error "+e.getMessage());
+        }
+       return resultado;
+    }
 
 }
