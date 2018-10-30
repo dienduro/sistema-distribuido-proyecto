@@ -91,6 +91,7 @@ public class Clientes extends javax.swing.JFrame {
         getContentPane().add(jLabel2);
         jLabel2.setBounds(19, 53, 62, 26);
 
+        txtId.setEditable(false);
         txtId.setText("0");
         txtId.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

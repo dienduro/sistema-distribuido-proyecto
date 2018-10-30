@@ -26,7 +26,7 @@ public class Empresa extends javax.swing.JFrame {
     public Empresa() {
          modeloTablaEmpresa = new DefaultTableModel(null,getColumn());
         initComponents();
-        cargarTablaempresa();      
+        cargarTablaEmpresa();      
          
             this.btnGuardar.setVisible(false);
          this.btnEliminar.setVisible(false);
@@ -42,7 +42,7 @@ public class Empresa extends javax.swing.JFrame {
         return columnas;
     }
     //Metodo par cargar tabla
-    private void cargarTablaempresa(){
+    private void cargarTablaEmpresa(){
      Empresas Objempresas = new Empresas();
         ResultSet result = Objempresas.cargarEmpresa();
         try {
@@ -118,6 +118,8 @@ public class Empresa extends javax.swing.JFrame {
         jLabel6.setText("Propietario");
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, -1, -1));
 
+        txtRuc.setEditable(false);
+        txtRuc.setText("0");
         txtRuc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtRucActionPerformed(evt);
@@ -273,7 +275,7 @@ public class Empresa extends javax.swing.JFrame {
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
       
         
-         Empresas objEmpresa = new Empresas();
+         Empresas objEmpresas = new Empresas();
          int ruc = Integer.parseInt(txtRuc.getText());
         String nombres = txtNomEmp.getText();
         String direccion = txtDir.getText();
@@ -283,18 +285,18 @@ public class Empresa extends javax.swing.JFrame {
         if (ruc==0) {
             
         
-        boolean resultado = objEmpresa.insertarEmpresas(ruc,nombres, direccion, telefono,propietario);
+        boolean resultado = objEmpresas.insertarEmpresas(ruc,nombres, direccion, telefono,propietario);
         if (resultado== true) {
             JOptionPane.showMessageDialog(null, "Se inserto un nuevo registro");
-           //cargarTabla();
+            cargarTablaEmpresa();
         }else{
             JOptionPane.showMessageDialog(null, "Erro al inserta su datos ");
             }
         }else{
-            boolean resultado = objEmpresa.actualizarEmpresas(ruc, nombres, direccion, telefono,propietario);
+            boolean resultado = objEmpresas.actualizarEmpresas(ruc, nombres, direccion, telefono,propietario);
             if (resultado== true) {
             JOptionPane.showMessageDialog(null, "Se actualizo el registro");
-            //cargarTabla();
+            cargarTablaEmpresa();
         }else{
             JOptionPane.showMessageDialog(null, "Error al actualizar  ");
             }
