@@ -51,32 +51,56 @@ public class Proveedor extends javax.swing.JFrame {
         jLabel1.setBounds(20, 10, 300, 52);
 
         jLabel2.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Nombre");
         getContentPane().add(jLabel2);
         jLabel2.setBounds(70, 100, 83, 26);
 
         jLabel3.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Direccion ");
         getContentPane().add(jLabel3);
         jLabel3.setBounds(60, 130, 110, 26);
 
         jLabel4.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("Telefono");
         getContentPane().add(jLabel4);
         jLabel4.setBounds(60, 170, 94, 26);
+
+        txtNombre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNombreActionPerformed(evt);
+            }
+        });
+        txtNombre.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtNombreKeyTyped(evt);
+            }
+        });
         getContentPane().add(txtNombre);
         txtNombre.setBounds(200, 100, 120, 28);
+
+        txtDireccion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtDireccionActionPerformed(evt);
+            }
+        });
         getContentPane().add(txtDireccion);
         txtDireccion.setBounds(200, 130, 120, 28);
+
+        txtTelefono.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtTelefonoActionPerformed(evt);
+            }
+        });
+        txtTelefono.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtTelefonoKeyTyped(evt);
+            }
+        });
         getContentPane().add(txtTelefono);
         txtTelefono.setBounds(200, 160, 120, 28);
 
         btnConsultar.setBackground(new java.awt.Color(51, 255, 255));
         btnConsultar.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
-        btnConsultar.setForeground(new java.awt.Color(0, 0, 0));
         btnConsultar.setText("Consultar ");
         btnConsultar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -88,7 +112,6 @@ public class Proveedor extends javax.swing.JFrame {
 
         btnGuardar.setBackground(new java.awt.Color(51, 255, 255));
         btnGuardar.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
-        btnGuardar.setForeground(new java.awt.Color(0, 0, 0));
         btnGuardar.setText("Guardar");
         btnGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -100,7 +123,6 @@ public class Proveedor extends javax.swing.JFrame {
 
         btnLimpiar.setBackground(new java.awt.Color(51, 255, 255));
         btnLimpiar.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
-        btnLimpiar.setForeground(new java.awt.Color(0, 0, 0));
         btnLimpiar.setText("Limpiar ");
         btnLimpiar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -112,7 +134,6 @@ public class Proveedor extends javax.swing.JFrame {
 
         btnEliminar.setBackground(new java.awt.Color(51, 255, 255));
         btnEliminar.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
-        btnEliminar.setForeground(new java.awt.Color(0, 0, 0));
         btnEliminar.setText("Eliminar");
         btnEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -124,19 +145,22 @@ public class Proveedor extends javax.swing.JFrame {
 
         btnNext.setBackground(new java.awt.Color(51, 255, 255));
         btnNext.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
-        btnNext.setForeground(new java.awt.Color(0, 0, 0));
         btnNext.setText("NEXT");
         getContentPane().add(btnNext);
         btnNext.setBounds(520, 310, 100, 38);
 
         tblProveedor.setModel(modeloTablaProveedor);
+        tblProveedor.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblProveedorMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tblProveedor);
 
         getContentPane().add(jScrollPane1);
         jScrollPane1.setBounds(340, 50, 270, 190);
 
         jLabel5.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("RUC PROVEDOR ");
         getContentPane().add(jLabel5);
         jLabel5.setBounds(10, 70, 190, 26);
@@ -193,6 +217,65 @@ public class Proveedor extends javax.swing.JFrame {
             }
         } 
     }//GEN-LAST:event_btnGuardarActionPerformed
+
+    private void txtNombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombreKeyTyped
+        // TODO add your handling code here:
+        
+        
+         char  validar = evt.getKeyChar();
+    if(Character.isDigit(validar)){
+        getToolkit().beep();
+        evt.consume();
+
+        JOptionPane.showMessageDialog(rootPane,"Ingresa tu nombre proveedor");
+}
+
+        
+        
+    }//GEN-LAST:event_txtNombreKeyTyped
+
+    private void txtTelefonoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTelefonoKeyTyped
+        // TODO add your handling code here:
+         char c = evt.getKeyChar();
+        if(c < '0' || c > '9') evt.consume(); {
+        
+        }      
+        
+         char validar=evt.getKeyChar();
+    if(Character.isLetter(validar)){
+    getToolkit().beep();
+    evt.consume();
+    JOptionPane.showMessageDialog(rootPane,"Ingrensar su numero proveedor ");
+        }
+        
+        
+        
+    }//GEN-LAST:event_txtTelefonoKeyTyped
+
+    private void tblProveedorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblProveedorMouseClicked
+        // TODO add your handling code here:
+        
+        int seleccion = tblProveedor.rowAtPoint(evt.getPoint());
+        txtNombre.setText(String.valueOf(tblProveedor.getValueAt(seleccion,0)));
+        txtDireccion.setText(String.valueOf(tblProveedor.getValueAt(seleccion,1)));
+        txtTelefono.setText(String.valueOf(tblProveedor.getValueAt(seleccion,2)));
+    }//GEN-LAST:event_tblProveedorMouseClicked
+
+    private void txtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreActionPerformed
+        // TODO add your handling code here:
+        
+          txtNombre.transferFocus();
+    }//GEN-LAST:event_txtNombreActionPerformed
+
+    private void txtDireccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDireccionActionPerformed
+        // TODO add your handling code here:
+          txtDireccion.transferFocus();
+    }//GEN-LAST:event_txtDireccionActionPerformed
+
+    private void txtTelefonoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTelefonoActionPerformed
+        // TODO add your handling code here:
+          txtTelefono.transferFocus();
+    }//GEN-LAST:event_txtTelefonoActionPerformed
 
     /**
      * @param args the command line arguments

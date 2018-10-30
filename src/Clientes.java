@@ -65,7 +65,6 @@ public class Clientes extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         txtNombre = new javax.swing.JTextField();
-        txtEmpresa_Ruc = new javax.swing.JTextField();
         btnConsultar = new javax.swing.JButton();
         btnGuardar = new javax.swing.JButton();
         btnLimpiar = new javax.swing.JButton();
@@ -73,23 +72,23 @@ public class Clientes extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tblRegistro = new javax.swing.JTable();
         btnNext = new javax.swing.JButton();
-        jLabel10 = new javax.swing.JLabel();
         txtApellido = new javax.swing.JTextField();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        jLabel10 = new javax.swing.JLabel();
+        cmbEmpresa_ruc = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setState(1);
-        getContentPane().setLayout(null);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Arial Black", 0, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 0, 0));
         jLabel1.setText("Cliente");
-        getContentPane().add(jLabel1);
-        jLabel1.setBounds(60, 10, 160, 26);
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, 160, 40));
 
         jLabel2.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
         jLabel2.setText("Id ");
-        getContentPane().add(jLabel2);
-        jLabel2.setBounds(19, 53, 62, 26);
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(19, 53, 62, -1));
 
         txtId.setText("0");
         txtId.addActionListener(new java.awt.event.ActionListener() {
@@ -97,28 +96,27 @@ public class Clientes extends javax.swing.JFrame {
                 txtIdActionPerformed(evt);
             }
         });
-        getContentPane().add(txtId);
-        txtId.setBounds(120, 60, 126, 20);
+        getContentPane().add(txtId, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 60, 126, -1));
 
         jLabel3.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
         jLabel3.setText("Nombre");
-        getContentPane().add(jLabel3);
-        jLabel3.setBounds(20, 80, 90, 26);
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 90, -1));
 
         jLabel4.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
         jLabel4.setText("Empresa_Ruc");
-        getContentPane().add(jLabel4);
-        jLabel4.setBounds(20, 140, 144, 34);
-        getContentPane().add(txtNombre);
-        txtNombre.setBounds(120, 90, 126, 20);
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, -1, 34));
 
-        txtEmpresa_Ruc.addActionListener(new java.awt.event.ActionListener() {
+        txtNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtEmpresa_RucActionPerformed(evt);
+                txtNombreActionPerformed(evt);
             }
         });
-        getContentPane().add(txtEmpresa_Ruc);
-        txtEmpresa_Ruc.setBounds(170, 150, 126, 20);
+        txtNombre.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtNombreKeyTyped(evt);
+            }
+        });
+        getContentPane().add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 90, 126, -1));
 
         btnConsultar.setBackground(new java.awt.Color(51, 255, 255));
         btnConsultar.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
@@ -128,8 +126,7 @@ public class Clientes extends javax.swing.JFrame {
                 btnConsultarActionPerformed(evt);
             }
         });
-        getContentPane().add(btnConsultar);
-        btnConsultar.setBounds(250, 330, 150, 40);
+        getContentPane().add(btnConsultar, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 330, 150, 40));
 
         btnGuardar.setBackground(new java.awt.Color(51, 255, 255));
         btnGuardar.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
@@ -139,8 +136,7 @@ public class Clientes extends javax.swing.JFrame {
                 btnGuardarActionPerformed(evt);
             }
         });
-        getContentPane().add(btnGuardar);
-        btnGuardar.setBounds(0, 330, 130, 40);
+        getContentPane().add(btnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 330, 130, 40));
 
         btnLimpiar.setBackground(new java.awt.Color(51, 255, 255));
         btnLimpiar.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
@@ -150,20 +146,22 @@ public class Clientes extends javax.swing.JFrame {
                 btnLimpiarActionPerformed(evt);
             }
         });
-        getContentPane().add(btnLimpiar);
-        btnLimpiar.setBounds(20, 380, 110, 40);
+        getContentPane().add(btnLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 380, 110, 40));
 
         btnEliminar.setBackground(new java.awt.Color(51, 255, 255));
         btnEliminar.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
         btnEliminar.setText("Eliminar ");
-        getContentPane().add(btnEliminar);
-        btnEliminar.setBounds(130, 330, 129, 40);
+        getContentPane().add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 330, -1, 40));
 
         tblRegistro.setModel(modeloTablaCli);
+        tblRegistro.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblRegistroMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tblRegistro);
 
-        getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(20, 200, 300, 120);
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, 300, 120));
 
         btnNext.setBackground(new java.awt.Color(51, 255, 255));
         btnNext.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
@@ -173,15 +171,29 @@ public class Clientes extends javax.swing.JFrame {
                 btnNextActionPerformed(evt);
             }
         });
-        getContentPane().add(btnNext);
-        btnNext.setBounds(140, 380, 120, 40);
+        getContentPane().add(btnNext, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 380, 120, 40));
+
+        txtApellido.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtApellidoActionPerformed(evt);
+            }
+        });
+        txtApellido.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtApellidoKeyTyped(evt);
+            }
+        });
+        getContentPane().add(txtApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 120, 126, -1));
+
+        jComboBox1.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
+        jComboBox1.setForeground(new java.awt.Color(0, 0, 0));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "---- Selecione  ----" }));
+        getContentPane().add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 150, -1, -1));
 
         jLabel10.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
         jLabel10.setText("Apellido ");
-        getContentPane().add(jLabel10);
-        jLabel10.setBounds(20, 110, 95, 34);
-        getContentPane().add(txtApellido);
-        txtApellido.setBounds(120, 120, 126, 20);
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, -1, 34));
+        getContentPane().add(cmbEmpresa_ruc, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 570, 440));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -192,8 +204,8 @@ public class Clientes extends javax.swing.JFrame {
 
     private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
         txtNombre.setText(null);
-        txtEmpresa_Ruc.setText(null);
         txtApellido.setText(null);   
+        cmbEmpresa_ruc.setText(null);
                                               
 
     }//GEN-LAST:event_btnLimpiarActionPerformed
@@ -207,7 +219,7 @@ public class Clientes extends javax.swing.JFrame {
  Cliente objCliente = new Cliente();
         String nombre = txtNombre.getText();
         String apellido = txtApellido.getText();
-         String empresa_ruc = txtEmpresa_Ruc.getText();
+         String empresa_ruc = cmbEmpresa_ruc.getText();
         int id_cliente = Integer.parseInt(txtId.getText());
         
         if(empresa_ruc=="" & id_cliente == 0){
@@ -233,13 +245,58 @@ public class Clientes extends javax.swing.JFrame {
      
     }//GEN-LAST:event_btnGuardarActionPerformed
 
-    private void txtEmpresa_RucActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEmpresa_RucActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtEmpresa_RucActionPerformed
-
     private void btnNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNextActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnNextActionPerformed
+
+    private void tblRegistroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblRegistroMouseClicked
+        // TODO add your handling code here:
+       int seleccion = tblRegistro.rowAtPoint(evt.getPoint());
+        txtNombre.setText(String.valueOf(tblRegistro.getValueAt(seleccion,0)));
+        txtApellido.setText(String.valueOf(tblRegistro.getValueAt(seleccion,1)));
+        cmbEmpresa_ruc.setText(String.valueOf(tblRegistro.getValueAt(seleccion,1)));
+        
+    }//GEN-LAST:event_tblRegistroMouseClicked
+
+    private void txtNombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombreKeyTyped
+        // TODO add your handling code here:
+        
+         char  validar = evt.getKeyChar();
+        if(Character.isDigit(validar)){
+        getToolkit().beep();
+        evt.consume();
+
+        JOptionPane.showMessageDialog(rootPane,"Ingresa tu nombre cliente");
+}
+
+        
+        
+        
+        
+    }//GEN-LAST:event_txtNombreKeyTyped
+
+    private void txtApellidoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtApellidoKeyTyped
+        // TODO add your handling code here:
+        
+         char  validar = evt.getKeyChar();
+    if(Character.isDigit(validar)){
+        getToolkit().beep();
+        evt.consume();
+
+        JOptionPane.showMessageDialog(rootPane,"Ingresa tu apellido cliente ");
+}
+
+    }//GEN-LAST:event_txtApellidoKeyTyped
+
+    private void txtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreActionPerformed
+        // TODO add your handling code here:
+        txtNombre.transferFocus();
+    }//GEN-LAST:event_txtNombreActionPerformed
+
+    private void txtApellidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtApellidoActionPerformed
+        // TODO add your handling code here:
+        txtApellido.transferFocus();
+    }//GEN-LAST:event_txtApellidoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -282,6 +339,8 @@ public class Clientes extends javax.swing.JFrame {
     private javax.swing.JButton btnGuardar;
     private javax.swing.JButton btnLimpiar;
     private javax.swing.JButton btnNext;
+    private javax.swing.JLabel cmbEmpresa_ruc;
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
@@ -290,7 +349,6 @@ public class Clientes extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tblRegistro;
     private javax.swing.JTextField txtApellido;
-    private javax.swing.JTextField txtEmpresa_Ruc;
     private javax.swing.JTextField txtId;
     private javax.swing.JTextField txtNombre;
     // End of variables declaration//GEN-END:variables

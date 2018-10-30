@@ -163,7 +163,7 @@ public class Empresa extends javax.swing.JFrame {
                 btnEliminarActionPerformed(evt);
             }
         });
-        getContentPane().add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 260, -1, -1));
+        getContentPane().add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 270, -1, -1));
 
         txtDir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -177,11 +177,21 @@ public class Empresa extends javax.swing.JFrame {
                 txtNomEmpActionPerformed(evt);
             }
         });
+        txtNomEmp.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtNomEmpKeyTyped(evt);
+            }
+        });
         getContentPane().add(txtNomEmp, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 90, 130, -1));
 
         txtTel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtTelActionPerformed(evt);
+            }
+        });
+        txtTel.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtTelKeyTyped(evt);
             }
         });
         getContentPane().add(txtTel, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 150, 130, -1));
@@ -222,18 +232,23 @@ public class Empresa extends javax.swing.JFrame {
 
     private void txtDirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDirActionPerformed
         // TODO add your handling code here:
+          txtDir.transferFocus();
+        
     }//GEN-LAST:event_txtDirActionPerformed
 
     private void txtNomEmpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomEmpActionPerformed
         // TODO add your handling code here:
+          txtNomEmp.transferFocus();
     }//GEN-LAST:event_txtNomEmpActionPerformed
 
     private void txtTelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTelActionPerformed
         // TODO add your handling code here:
+          txtTel.transferFocus();
     }//GEN-LAST:event_txtTelActionPerformed
 
     private void txtPropActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPropActionPerformed
         // TODO add your handling code here:
+          txtProp.transferFocus();
     }//GEN-LAST:event_txtPropActionPerformed
 
     private void btnNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNextActionPerformed
@@ -300,6 +315,38 @@ public class Empresa extends javax.swing.JFrame {
             }
         } 
     }//GEN-LAST:event_btnGuardarActionPerformed
+
+    private void txtNomEmpKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNomEmpKeyTyped
+        // TODO add your handling code here:
+        
+        char  validar = evt.getKeyChar();
+    if(Character.isDigit(validar)){
+        getToolkit().beep();
+        evt.consume();
+
+        JOptionPane.showMessageDialog(rootPane,"Ingresa el nombre de empresa");
+}
+ 
+        
+        
+    }//GEN-LAST:event_txtNomEmpKeyTyped
+
+    private void txtTelKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTelKeyTyped
+        // TODO add your handling code here:
+        
+         char c = evt.getKeyChar();
+        if(c < '0' || c > '9') evt.consume(); {
+        
+        }      
+        
+         char validar=evt.getKeyChar();
+         if(Character.isLetter(validar)){
+        getToolkit().beep();
+        evt.consume();
+        JOptionPane.showMessageDialog(rootPane,"Ingrensar su numero ");
+        }
+        
+    }//GEN-LAST:event_txtTelKeyTyped
 
     /**
      * @param args the command line arguments
