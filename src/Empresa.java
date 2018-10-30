@@ -216,10 +216,17 @@ public class Empresa extends javax.swing.JFrame {
         getContentPane().add(btnNext, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 260, 130, -1));
 
         tblEmpresa.setModel(modeloTablaEmpresa);
+        tblEmpresa.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblEmpresaMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tblEmpresa);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 40, 310, 190));
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 680, 340));
+
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/wallpapers.jpeg"))); // NOI18N
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 710, 340));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -349,6 +356,16 @@ public class Empresa extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_txtTelKeyTyped
+
+    private void tblEmpresaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblEmpresaMouseClicked
+        // TODO add your handling code here:
+           // TODO add your handling code here:
+       int seleccion = tblEmpresa.rowAtPoint(evt.getPoint());
+        txtNomEmp.setText(String.valueOf(tblEmpresa.getValueAt(seleccion,0)));
+        txtDir.setText(String.valueOf(tblEmpresa.getValueAt(seleccion,1)));
+         txtTel.setText(String.valueOf(tblEmpresa.getValueAt(seleccion,2)));
+        txtProp.setText(String.valueOf(tblEmpresa.getValueAt(seleccion,3)));
+    }//GEN-LAST:event_tblEmpresaMouseClicked
 
     /**
      * @param args the command line arguments

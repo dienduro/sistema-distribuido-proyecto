@@ -51,16 +51,19 @@ public class Proveedor extends javax.swing.JFrame {
         jLabel1.setBounds(20, 10, 300, 52);
 
         jLabel2.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Nombre");
         getContentPane().add(jLabel2);
         jLabel2.setBounds(70, 100, 83, 26);
 
         jLabel3.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Direccion ");
         getContentPane().add(jLabel3);
         jLabel3.setBounds(60, 130, 110, 26);
 
         jLabel4.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("Telefono");
         getContentPane().add(jLabel4);
         jLabel4.setBounds(60, 170, 94, 26);
@@ -161,11 +164,14 @@ public class Proveedor extends javax.swing.JFrame {
         jScrollPane1.setBounds(340, 50, 270, 190);
 
         jLabel5.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("RUC PROVEDOR ");
         getContentPane().add(jLabel5);
         jLabel5.setBounds(10, 70, 190, 26);
         getContentPane().add(txtRucProve);
         txtRucProve.setBounds(200, 70, 120, 28);
+
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/91894-OJ7BRZ-164.jpg"))); // NOI18N
         getContentPane().add(jLabel6);
         jLabel6.setBounds(0, 0, 640, 360);
 

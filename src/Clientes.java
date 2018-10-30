@@ -84,7 +84,7 @@ public class Clientes extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Arial Black", 0, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 0, 0));
         jLabel1.setText("Cliente");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, 160, 40));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 160, 40));
 
         jLabel2.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
         jLabel2.setText("Id ");
@@ -194,6 +194,8 @@ public class Clientes extends javax.swing.JFrame {
         jLabel10.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
         jLabel10.setText("Apellido ");
         getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, -1, 34));
+
+        cmbEmpresa_ruc.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/91134-OIW11W-632.jpg"))); // NOI18N
         getContentPane().add(cmbEmpresa_ruc, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 570, 440));
 
         pack();
