@@ -36,9 +36,9 @@ public class Clientes extends javax.swing.JFrame {
         ResultSet result = ObjCliente.cargarCliente();
         try {
             //creamos un arreglo de 3 sectores
-            Object Datos [] = new Object[3];
+            Object Datos [] = new Object[4];
             while (result.next()) {
-                for (int i = 0; i <3; i++) {
+                for (int i = 0; i <4; i++) {
                     Datos[i]=result.getObject(i+1) ;
                 }
                 modeloTablaCli.addRow(Datos);
@@ -194,8 +194,6 @@ public class Clientes extends javax.swing.JFrame {
         jLabel10.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
         jLabel10.setText("Apellido ");
         getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, -1, 34));
-
-        cmbEmpresa_ruc.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/91134-OIW11W-632.jpg"))); // NOI18N
         getContentPane().add(cmbEmpresa_ruc, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 570, 440));
 
         pack();

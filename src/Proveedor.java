@@ -1,5 +1,6 @@
-
+import java.sql.ResultSet;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 
 
@@ -11,7 +12,33 @@ public class Proveedor extends javax.swing.JFrame {
 
    
     /**/public Proveedor() {
+        
+         modeloTablaProveedor = new DefaultTableModel(null,getColumn());
         initComponents();
+        cargarTablaproveedor();
+    }
+    private String[] getColumn(){
+        String columnas[] = new String[]{"ruc","Nombre","direccion","telefono"};
+        return columnas;
+    }
+    //Metodo par cargar tabla
+    private void cargarTablaproveedor(){
+     Proveedores ObjproProveedor = new Proveedores();
+        ResultSet result = ObjproProveedor.cargarProveedor();
+        try {
+            //creamos un arreglo de 3 sectores
+            Object Datos [] = new Object[4];
+            while (result.next()) {
+                for (int i = 0; i <4; i++) {
+                    Datos[i]=result.getObject(i+1) ;
+                }
+                 modeloTablaProveedor.addRow(Datos);
+                
+            }
+            
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error: " + e.getMessage());
+        }
     }
 
     /**
@@ -170,8 +197,6 @@ public class Proveedor extends javax.swing.JFrame {
         jLabel5.setBounds(10, 70, 190, 26);
         getContentPane().add(txtRucProve);
         txtRucProve.setBounds(200, 70, 120, 28);
-
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/91894-OJ7BRZ-164.jpg"))); // NOI18N
         getContentPane().add(jLabel6);
         jLabel6.setBounds(0, 0, 640, 360);
 

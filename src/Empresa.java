@@ -47,9 +47,9 @@ public class Empresa extends javax.swing.JFrame {
         ResultSet result = Objempresas.cargarEmpresa();
         try {
             //creamos un arreglo de 3 sectores
-            Object Datos [] = new Object[4];
+            Object Datos [] = new Object[5];
             while (result.next()) {
-                for (int i = 0; i <4; i++) {
+                for (int i = 0; i <5; i++) {
                     Datos[i]=result.getObject(i+1) ;
                 }
                 modeloTablaEmpresa.addRow(Datos);
@@ -118,7 +118,6 @@ public class Empresa extends javax.swing.JFrame {
         jLabel6.setText("Propietario");
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, -1, -1));
 
-        txtRuc.setEditable(false);
         txtRuc.setText("0");
         txtRuc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -224,8 +223,6 @@ public class Empresa extends javax.swing.JFrame {
         jScrollPane1.setViewportView(tblEmpresa);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 40, 310, 190));
-
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/wallpapers.jpeg"))); // NOI18N
         getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 710, 340));
 
         pack();
@@ -304,7 +301,7 @@ public class Empresa extends javax.swing.JFrame {
         String telefono = txtTel.getText();
         String propietario = txtProp.getText();
         
-        if (ruc==0) {
+        if (ruc==12345) {
             
         
         boolean resultado = objEmpresas.insertarEmpresas(ruc,nombres, direccion, telefono,propietario);
