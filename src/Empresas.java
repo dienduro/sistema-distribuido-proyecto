@@ -23,7 +23,7 @@ public class Empresas extends EmpresasPOA{
        
     boolean resultado = false;
         try {
-            String sql = "insert into empresa (ruc,nombre,direccion,telefono,propietario)value('"+ruc+"','"+nombre+"','"+direccion+"','"+telefono+"','"+propietario+"') ";
+            String sql = "insert into empresas (ruc,nombre,direccion,telefono,propietario)value('"+ruc+"','"+nombre+"','"+direccion+"','"+telefono+"','"+propietario+"') ";
        objConexion.conectar();
        Statement st = objConexion.conex.createStatement();
        int valor = st.executeUpdate(sql);
@@ -40,7 +40,7 @@ public class Empresas extends EmpresasPOA{
     public boolean actualizarEmpresas(int ruc, String nombre, String direccion, String telefono, String propietario) {
     boolean resultado = false;
     try{
-       String sql = "Update empresa set nombre ='"+ruc+"' '"+nombre+"','"+direccion+"','"+telefono+"','"+propietario+"' where ruc = '"+ruc+"' ";
+       String sql = "Update empresas set nombre ='"+ruc+"','"+nombre+"','"+direccion+"','"+telefono+"','"+propietario+"' where ruc = '"+ruc+"' ";
         Statement st = objConexion.conex.createStatement();
        int valor = st.executeUpdate(sql);
        if(valor>0){
@@ -56,7 +56,7 @@ public class Empresas extends EmpresasPOA{
     public boolean eliminarEmpresas(int ruc) {
       boolean resultado = false ;
       try{
-          String sql = "delete from empresa where ruc "+ruc;
+          String sql = "delete from empresas where ruc "+ruc;
           Statement st = objConexion.conex.createStatement();
          int valor = st.executeUpdate(sql);
        if(valor>0){
@@ -80,7 +80,9 @@ public class Empresas extends EmpresasPOA{
             while (rs.next()) {
                resultado += rs.getString(2)+"-"
                +rs.getString(3)+"-"
-               +rs.getString(4);
+               +rs.getString(4)
+               +rs.getString(4)
+               +rs.getInt(3);
                 
             }
             
@@ -104,7 +106,7 @@ public class Empresas extends EmpresasPOA{
     public ResultSet cargarEmpresa(){
        ResultSet resultado = null;
         try {
-            String sql = "Select nombre, direccion,  telefono, Propietario from Empresas";
+            String sql = "Select ruc,nombre, direccion,  telefono, propietario from Empresas";
             objConexion.conectar(); // abrimos la conexion
             Statement st = objConexion.conex.createStatement();//encargado de la consulta
             resultado = st.executeQuery(sql);

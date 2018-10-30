@@ -90,6 +90,7 @@ public class Clientes extends javax.swing.JFrame {
         jLabel2.setText("Id ");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(19, 53, 62, -1));
 
+        txtId.setEditable(false);
         txtId.setText("0");
         txtId.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
