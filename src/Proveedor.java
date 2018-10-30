@@ -1,14 +1,14 @@
 import java.sql.ResultSet;
+import javax.swing.table.TableModel;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableModel;
 
 
 
 
 public class Proveedor extends javax.swing.JFrame {
 
-    private TableModel modeloTablaProveedor;
+    private DefaultTableModel modeloTablaProveedor;
 
    
     /**/public Proveedor() {
@@ -32,7 +32,7 @@ public class Proveedor extends javax.swing.JFrame {
                 for (int i = 0; i <4; i++) {
                     Datos[i]=result.getObject(i+1) ;
                 }
-                 modeloTablaProveedor.addRow(Datos);
+                modeloTablaProveedor.addRow(Datos);
                 
             }
             
