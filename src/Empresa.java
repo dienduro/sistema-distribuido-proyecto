@@ -15,7 +15,7 @@ import javax.swing.table.TableModel;
  * @author DIEGO
  */
 public class Empresa extends javax.swing.JFrame {
-
+    public int indice;  
     /**
      * Creates new form Empresa
      */
@@ -27,13 +27,13 @@ public class Empresa extends javax.swing.JFrame {
          modeloTablaEmpresa = new DefaultTableModel(null,getColumn());
         initComponents();
         cargarTablaEmpresa();      
-         
-            this.btnGuardar.setVisible(false);
+         this.btnGuardar.setVisible(false);
          this.btnEliminar.setVisible(false);
          this.txtNomEmp.setVisible(false);
          this.txtDir.setVisible(false);
          this.txtProp.setVisible(false);
          this.txtTel.setVisible(false);
+          
         
     }
     
@@ -234,6 +234,36 @@ public class Empresa extends javax.swing.JFrame {
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
         // TODO add your handling code here:
+        
+         // Elimino el registro del JTable y la tabla empresa
+
+        // Defino el modelo para el JTable
+        DefaultTableModel modelo = (DefaultTableModel) tblEmpresa.getModel();
+        
+        
+        // Asigno el indice del elemento seleccionado
+        indice = tblEmpresa.getSelectedRow();
+
+        // Asigno a ruc el elemento a eliminar
+        int ruc =  Integer.parseInt((String)modelo.getValueAt(indice, 0));
+
+        // Elimino el registro del JTable
+        modelo.removeRow(indice);
+        
+        Empresas objEmpresas = new Empresas();
+         // Elimino el registro de la tabla ciudad
+         boolean resultado = objEmpresas.eliminarEmpresas(ruc);
+        // Imprimo el mensaje para indicar si se eliminó o no el registro
+        if(resultado == true){
+            JOptionPane.showMessageDialog(null, "El registro se elimino.");
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "ERROR: No se elimino el registro.");
+        }
+        
+        
+        
+        
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void txtDirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDirActionPerformed
@@ -267,9 +297,11 @@ public class Empresa extends javax.swing.JFrame {
         
          Empresas objEmpresas = new Empresas();
          int ruc = Integer.parseInt(txtRuc.getText());
-         if (ruc==0) {
+         if (ruc == 0) {
+            
+        
             JOptionPane.showMessageDialog(null, objEmpresas.consultarEmpresas(1));
-        } else {
+         } else {
             this.btnGuardar.setVisible(true);
             this.btnEliminar.setVisible(true);
             this.txtNomEmp.setVisible(true);
@@ -278,12 +310,40 @@ public class Empresa extends javax.swing.JFrame {
             this.txtTel.setVisible(true);
             this.txtRuc.setVisible(true);
         }
+           
+        txtRuc.setText("");
+        txtNomEmp.setText("");
+        txtDir.setText("");
+        txtTel.setText("");
+        txtProp.setText("");
+        txtNomEmp.requestFocus();
       
                                          
     }//GEN-LAST:event_btnConsultarActionPerformed
 
     private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
         // TODO add your handling code here:
+        
+        DefaultTableModel modelo = (DefaultTableModel) tblEmpresa.getModel();
+         
+        // Limpio los campos
+         // *** Limpio los Campos ***  
+        txtRuc.setText("");
+        txtNomEmp.setText("");
+        txtDir.setText("");
+        txtTel.setText("");
+        txtProp.setText("");
+        txtNomEmp.requestFocus();
+         // Limpio las filas y las columnas de la tabla
+        modelo.setColumnCount(0);
+        modelo.setNumRows(0);          
+        
+        
+        
+        
+        
+        
+        
         txtNomEmp.setText(null);
         txtDir.setText(null);
         txtTel.setText(null);
@@ -292,8 +352,35 @@ public class Empresa extends javax.swing.JFrame {
     }//GEN-LAST:event_btnLimpiarActionPerformed
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
-      
         
+        
+        if (txtNomEmp.getText().equals("")){
+           JOptionPane.showMessageDialog(null,"Digite Su nombre  ");
+           txtNomEmp.requestFocus();
+           return;
+           
+       }
+       if (txtDir.getText().equals("")){
+           JOptionPane.showMessageDialog(null,"Digite Su direccion ");
+           txtDir.requestFocus();
+           return;
+        
+       }
+        if (txtTel.getText().equals("")){
+           JOptionPane.showMessageDialog(null,"Digite Su telefono ");
+           txtTel.requestFocus();
+           return;
+        
+       }
+         if (txtProp.getText().equals("")){
+           JOptionPane.showMessageDialog(null,"Digite el nombre del propíetario ");
+           txtProp.requestFocus();
+           return;
+        
+       }
+        
+        
+       
          Empresas objEmpresas = new Empresas();
          int ruc = Integer.parseInt(txtRuc.getText());
         String nombres = txtNomEmp.getText();
@@ -301,7 +388,7 @@ public class Empresa extends javax.swing.JFrame {
         String telefono = txtTel.getText();
         String propietario = txtProp.getText();
         
-        if (ruc==12345) {
+        if (ruc==0) {
             
         
         boolean resultado = objEmpresas.insertarEmpresas(ruc,nombres, direccion, telefono,propietario);
@@ -358,10 +445,11 @@ public class Empresa extends javax.swing.JFrame {
         // TODO add your handling code here:
            // TODO add your handling code here:
        int seleccion = tblEmpresa.rowAtPoint(evt.getPoint());
-        txtNomEmp.setText(String.valueOf(tblEmpresa.getValueAt(seleccion,0)));
-        txtDir.setText(String.valueOf(tblEmpresa.getValueAt(seleccion,1)));
-         txtTel.setText(String.valueOf(tblEmpresa.getValueAt(seleccion,2)));
-        txtProp.setText(String.valueOf(tblEmpresa.getValueAt(seleccion,3)));
+       txtRuc.setText(String.valueOf(tblEmpresa.getValueAt(seleccion,0)));
+        txtNomEmp.setText(String.valueOf(tblEmpresa.getValueAt(seleccion,1)));
+        txtDir.setText(String.valueOf(tblEmpresa.getValueAt(seleccion,2)));
+         txtTel.setText(String.valueOf(tblEmpresa.getValueAt(seleccion,3)));
+        txtProp.setText(String.valueOf(tblEmpresa.getValueAt(seleccion,4)));
     }//GEN-LAST:event_tblEmpresaMouseClicked
 
     /**

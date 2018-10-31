@@ -13,10 +13,9 @@ import javax.swing.JOptionPane;
  * @author DIEGO
  */
 public class Empresas extends EmpresasPOA{
+    
     Conexion objConexion = new Conexion();
-    
-    
-    
+   
          
     @Override
     public boolean insertarEmpresas(int ruc, String nombre, String direccion, String telefono, String propietario) {

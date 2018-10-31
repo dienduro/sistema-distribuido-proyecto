@@ -7,7 +7,7 @@ import javax.swing.table.DefaultTableModel;
 
 
 public class Proveedor extends javax.swing.JFrame {
-
+    public int indice;  
     private DefaultTableModel modeloTablaProveedor;
 
    
@@ -205,6 +205,32 @@ public class Proveedor extends javax.swing.JFrame {
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
         // TODO add your handling code here:
+         // Elimino el registro del JTable y la tabla proveedor
+
+        // Defino el modelo para el JTable
+        DefaultTableModel modelo = (DefaultTableModel) tblProveedor.getModel();
+        
+        
+        // Asigno el indice del elemento seleccionado
+        indice = tblProveedor.getSelectedRow();
+
+        // Asigno a idCiudad el elemento a eliminar
+        int ruc_prov =  Integer.parseInt((String)modelo.getValueAt(indice, 0));
+
+        // Elimino el registro del JTable
+        modelo.removeRow(indice);
+        
+        Proveedores objProveedor = new Proveedores();
+         // Elimino el registro de la tabla proveedor
+         boolean resultado = objProveedor.eliminarProveedor(ruc_prov);
+        // Imprimo el mensaje para indicar si se eliminó o no el registro
+        if(resultado == true){
+            JOptionPane.showMessageDialog(null, "El registro se elimino.");
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "ERROR: No se elimino el registro.");
+        }
+        
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void btnConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarActionPerformed
@@ -215,12 +241,52 @@ public class Proveedor extends javax.swing.JFrame {
 
     private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
         // TODO add your handling code here:
+        
+        DefaultTableModel modelo = (DefaultTableModel) tblProveedor.getModel();
+         
+        // Limpio los campos
+         // *** Limpio los Campos ***      
+        txtRucProve.setText("");
+        txtNombre.setText("");
+        txtDireccion.setText("");
+        txtTelefono.setText("");
+        txtNombre.requestFocus();
+        
+        
+        // Limpio las filas y las columnas de la tabla
+        modelo.setColumnCount(0);
+        modelo.setNumRows(0);           
+        
+        
+        
+        
         txtNombre.setText(null);
         txtDireccion.setText(null);
         txtTelefono.setText(null);
     }//GEN-LAST:event_btnLimpiarActionPerformed
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
+
+         if (txtNombre.getText().equals("")){
+           JOptionPane.showMessageDialog(null,"Digite Su nombtr ");
+           txtNombre.requestFocus();
+           return;
+           
+       }
+       if (txtDireccion.getText().equals("")){
+           JOptionPane.showMessageDialog(null,"Digite Su direccion ");
+           txtDireccion.requestFocus();
+           return;
+        
+       }
+        if (txtTelefono.getText().equals("")){
+           JOptionPane.showMessageDialog(null,"Digite Su telefono ");
+           txtTelefono.requestFocus();
+           return;
+        
+       }
+
+
         // TODO add your handling code here:
         Proveedores objProveedor = new Proveedores();
         String nombres = txtNombre.getText();
@@ -247,6 +313,12 @@ public class Proveedor extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Error al actualizar  ");
             }
         } 
+         // *** Limpio los Campos ***  
+        txtRucProve.setText("");
+        txtNombre.setText("");
+        txtDireccion.setText("");
+        txtTelefono.setText("");
+        txtNombre.requestFocus();
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void txtNombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombreKeyTyped
