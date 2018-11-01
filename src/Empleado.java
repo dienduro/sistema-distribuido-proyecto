@@ -98,48 +98,37 @@ public class Empleado extends javax.swing.JFrame {
         btnNext = new javax.swing.JButton();
 
         setSize(new java.awt.Dimension(100, 100));
-        getContentPane().setLayout(null);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 0, 0));
         jLabel1.setText("Empleado");
-        getContentPane().add(jLabel1);
-        jLabel1.setBounds(10, 30, 180, 40);
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 180, 40));
 
         jLabel2.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
         jLabel2.setText("Nombre");
-        getContentPane().add(jLabel2);
-        jLabel2.setBounds(40, 80, 90, 26);
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, 90, -1));
 
         jLabel3.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
         jLabel3.setText("Apellido");
-        getContentPane().add(jLabel3);
-        jLabel3.setBounds(40, 120, 88, 26);
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
         jLabel4.setText("Genero");
-        getContentPane().add(jLabel4);
-        jLabel4.setBounds(40, 150, 77, 26);
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, -1, -1));
 
         jLabel5.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
         jLabel5.setText("Direccion ");
-        getContentPane().add(jLabel5);
-        jLabel5.setBounds(20, 180, 110, 26);
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, -1, -1));
 
         jLabel6.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
         jLabel6.setText("Fecha Nacimiento");
-        getContentPane().add(jLabel6);
-        jLabel6.setBounds(0, 210, 195, 26);
-        getContentPane().add(jTextField1);
-        jTextField1.setBounds(200, 80, 110, 20);
-        getContentPane().add(jTextField2);
-        jTextField2.setBounds(200, 120, 110, 20);
-        getContentPane().add(jTextField3);
-        jTextField3.setBounds(200, 150, 110, 20);
-        getContentPane().add(jTextField4);
-        jTextField4.setBounds(200, 180, 110, 20);
-        getContentPane().add(jTextField5);
-        jTextField5.setBounds(200, 210, 110, 20);
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 210, -1, -1));
+        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 80, 110, -1));
+        getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 120, 110, -1));
+        getContentPane().add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 150, 110, -1));
+        getContentPane().add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 180, 110, -1));
+        getContentPane().add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 210, 110, -1));
 
         btnConsultar.setBackground(new java.awt.Color(51, 255, 255));
         btnConsultar.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
@@ -149,20 +138,17 @@ public class Empleado extends javax.swing.JFrame {
                 btnConsultarActionPerformed(evt);
             }
         });
-        getContentPane().add(btnConsultar);
-        btnConsultar.setBounds(20, 430, 143, 35);
+        getContentPane().add(btnConsultar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 430, -1, -1));
 
         btnGuardar.setBackground(new java.awt.Color(51, 255, 255));
         btnGuardar.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
         btnGuardar.setText("Guardar");
-        getContentPane().add(btnGuardar);
-        btnGuardar.setBounds(160, 430, 119, 35);
+        getContentPane().add(btnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 430, -1, -1));
 
         btnLimpiar.setBackground(new java.awt.Color(51, 255, 255));
         btnLimpiar.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
         btnLimpiar.setText("Limpiar ");
-        getContentPane().add(btnLimpiar);
-        btnLimpiar.setBounds(270, 430, 121, 35);
+        getContentPane().add(btnLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 430, -1, -1));
 
         btnEliminar.setBackground(new java.awt.Color(51, 255, 255));
         btnEliminar.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
@@ -172,56 +158,42 @@ public class Empleado extends javax.swing.JFrame {
                 btnEliminarActionPerformed(evt);
             }
         });
-        getContentPane().add(btnEliminar);
-        btnEliminar.setBounds(380, 430, 170, 40);
+        getContentPane().add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 430, 170, 40));
 
         jLabel7.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
         jLabel7.setText("Estado Civil ");
-        getContentPane().add(jLabel7);
-        jLabel7.setBounds(340, 50, 140, 26);
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 50, 140, -1));
 
         jLabel8.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
         jLabel8.setText("Codigo Cargo");
-        getContentPane().add(jLabel8);
-        jLabel8.setBounds(330, 80, 160, 26);
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 80, 160, -1));
 
         jLabel9.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
         jLabel9.setText("Hora Entrada");
-        getContentPane().add(jLabel9);
-        jLabel9.setBounds(330, 110, 160, 26);
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 110, 160, -1));
 
         jLabel10.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
         jLabel10.setText("Hora  De Salida");
-        getContentPane().add(jLabel10);
-        jLabel10.setBounds(320, 150, 170, 26);
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 150, 170, -1));
 
         jLabel11.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
         jLabel11.setText("Telefono");
-        getContentPane().add(jLabel11);
-        jLabel11.setBounds(370, 180, 110, 26);
-        getContentPane().add(txtEstado);
-        txtEstado.setBounds(490, 50, 170, 20);
-        getContentPane().add(txtCodigoCargo);
-        txtCodigoCargo.setBounds(490, 80, 170, 20);
-        getContentPane().add(txtHoraEntrada);
-        txtHoraEntrada.setBounds(490, 110, 170, 20);
-        getContentPane().add(txtHoraDeSalida);
-        txtHoraDeSalida.setBounds(490, 140, 170, 20);
-        getContentPane().add(txtTelefono);
-        txtTelefono.setBounds(490, 170, 170, 20);
+        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 180, 110, -1));
+        getContentPane().add(txtEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 50, 170, -1));
+        getContentPane().add(txtCodigoCargo, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 80, 170, -1));
+        getContentPane().add(txtHoraEntrada, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 110, 170, -1));
+        getContentPane().add(txtHoraDeSalida, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 140, 170, -1));
+        getContentPane().add(txtTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 170, 170, -1));
 
         jLabel12.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
         jLabel12.setText("Sueldo ");
-        getContentPane().add(jLabel12);
-        jLabel12.setBounds(370, 210, 120, 26);
-        getContentPane().add(txtSueldo);
-        txtSueldo.setBounds(490, 210, 170, 20);
+        getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 210, 120, -1));
+        getContentPane().add(txtSueldo, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 210, 170, -1));
 
         jTable1.setModel(modeloTablaEmpleado);
         jScrollPane1.setViewportView(jTable1);
 
-        getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(30, 260, 310, 160);
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, 310, 160));
 
         btnNext.setBackground(new java.awt.Color(51, 255, 255));
         btnNext.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
@@ -231,8 +203,7 @@ public class Empleado extends javax.swing.JFrame {
                 btnNextActionPerformed(evt);
             }
         });
-        getContentPane().add(btnNext);
-        btnNext.setBounds(550, 430, 91, 35);
+        getContentPane().add(btnNext, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 430, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
