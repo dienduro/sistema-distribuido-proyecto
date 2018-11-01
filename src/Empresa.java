@@ -26,13 +26,7 @@ public class Empresa extends javax.swing.JFrame {
     public Empresa() {
          modeloTablaEmpresa = new DefaultTableModel(null,getColumn());
         initComponents();
-        cargarTablaEmpresa();      
-         this.btnGuardar.setVisible(false);
-         this.btnEliminar.setVisible(false);
-         this.txtNomEmp.setVisible(false);
-         this.txtDir.setVisible(false);
-         this.txtProp.setVisible(false);
-         this.txtTel.setVisible(false);
+        cargarTablaEmpresa();     
           
         
     }
@@ -118,6 +112,7 @@ public class Empresa extends javax.swing.JFrame {
         jLabel6.setText("Propietario");
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, -1, -1));
 
+        txtRuc.setEditable(false);
         txtRuc.setText("0");
         txtRuc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -297,19 +292,12 @@ public class Empresa extends javax.swing.JFrame {
         
          Empresas objEmpresas = new Empresas();
          int ruc = Integer.parseInt(txtRuc.getText());
-         if (ruc == 0) {
+         
             
         
             JOptionPane.showMessageDialog(null, objEmpresas.consultarEmpresas(1));
-         } else {
-            this.btnGuardar.setVisible(true);
-            this.btnEliminar.setVisible(true);
-            this.txtNomEmp.setVisible(true);
-            this.txtDir.setVisible(true);
-            this.txtProp.setVisible(true);
-            this.txtTel.setVisible(true);
-            this.txtRuc.setVisible(true);
-        }
+        
+        
            
         txtRuc.setText("");
         txtNomEmp.setText("");
