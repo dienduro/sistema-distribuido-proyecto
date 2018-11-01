@@ -228,34 +228,32 @@ public class Empresa extends javax.swing.JFrame {
     }//GEN-LAST:event_txtRucActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-               // Elimino el registro del JTable y la tabla empresa
-    
-     Empresas objEmpresas = new Empresas();
+   
+            // Defino el modelo para el JTable
+        DefaultTableModel modelo = (DefaultTableModel) tblEmpresa.getModel();
+        
         
         // Asigno el indice del elemento seleccionado
         indice = tblEmpresa.getSelectedRow();
 
-        // Asigno a ruc el elemento a eliminar
-        int ruc =  Integer.parseInt((String)modeloTablaEmpresa.getValueAt(indice, 0));
+        // Asigno a idCiudad el elemento a eliminar
+        int ruc =  Integer.parseInt((String)modelo.getValueAt(indice, 0));
 
         // Elimino el registro del JTable
-        modeloTablaEmpresa.removeRow(indice);
+        modelo.removeRow(indice);
         
-       
-         // Elimino el registro de la tabla ciudad
-         boolean resultado = objEmpresas.eliminarEmpresas(ruc);
+        Empresas Objempresas = new Empresas();
+         // Elimino el registro de la tabla proveedor
+         boolean resultado = Objempresas.eliminarEmpresas(ruc);
         // Imprimo el mensaje para indicar si se eliminó o no el registro
         if(resultado == true){
-            JOptionPane.showMessageDialog(null, "El registro se elimino.");
+            JOptionPane.showMessageDialog(null, "El registro se elimino empresas .");
         }
         else{
-            JOptionPane.showMessageDialog(null, "ERROR: No se elimino el registro.");
-        
-        
-        
+            JOptionPane.showMessageDialog(null, "ERROR: No se elimino el registro empresas.");
         
      
-         }  
+         } 
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void txtDirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDirActionPerformed
