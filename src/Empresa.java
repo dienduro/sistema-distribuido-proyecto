@@ -333,21 +333,8 @@ public class Empresa extends javax.swing.JFrame {
         txtDir.setText("");
         txtTel.setText("");
         txtProp.setText("");
-        txtNomEmp.requestFocus();
-         // Limpio las filas y las columnas de la tabla
-        modelo.setColumnCount(0);
-        modelo.setNumRows(0);          
+        txtNomEmp.requestFocus();        
         
-        
-        
-        
-        
-        
-        
-        txtNomEmp.setText(null);
-        txtDir.setText(null);
-        txtTel.setText(null);
-        txtProp.setText(null);
         
     }//GEN-LAST:event_btnLimpiarActionPerformed
 
@@ -394,6 +381,7 @@ public class Empresa extends javax.swing.JFrame {
         boolean resultado = objEmpresas.insertarEmpresas(ruc,nombres, direccion, telefono,propietario);
         if (resultado== true) {
             JOptionPane.showMessageDialog(null, "Se inserto un nuevo registro");
+            modeloTablaEmpresa.setNumRows(0); 
             cargarTablaEmpresa();
         }else{
             JOptionPane.showMessageDialog(null, "Erro al inserta su datos ");
@@ -402,6 +390,7 @@ public class Empresa extends javax.swing.JFrame {
             boolean resultado = objEmpresas.actualizarEmpresas(ruc, nombres, direccion, telefono,propietario);
             if (resultado== true) {
             JOptionPane.showMessageDialog(null, "Se actualizo el registro");
+            modeloTablaEmpresa.setNumRows(0); 
             cargarTablaEmpresa();
         }else{
             JOptionPane.showMessageDialog(null, "Error al actualizar  ");

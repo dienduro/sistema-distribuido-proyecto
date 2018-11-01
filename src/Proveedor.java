@@ -252,17 +252,7 @@ public class Proveedor extends javax.swing.JFrame {
         txtTelefono.setText("");
         txtNombre.requestFocus();
         
-        
-        // Limpio las filas y las columnas de la tabla
-        modelo.setColumnCount(0);
-        modelo.setNumRows(0);           
-        
-        
-        
-        
-        txtNombre.setText(null);
-        txtDireccion.setText(null);
-        txtTelefono.setText(null);
+       
     }//GEN-LAST:event_btnLimpiarActionPerformed
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
@@ -300,7 +290,8 @@ public class Proveedor extends javax.swing.JFrame {
         boolean resultado = objProveedor.insertarProveedor(nombres, direccion, telefono);
         if (resultado== true) {
             JOptionPane.showMessageDialog(null, "Se inserto un nuevo registro");
-           //cargarTabla();
+            modeloTablaProveedor.setNumRows(0); 
+            cargarTablaproveedor();
         }else{
             JOptionPane.showMessageDialog(null, "Erro al inserta su datos ");
             }

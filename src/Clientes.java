@@ -227,9 +227,7 @@ public class Clientes extends javax.swing.JFrame {
         cmbempresa.setSelectedIndex(0);
         txtNombre.requestFocus();
         
-        // Limpio las filas y las columnas de la tabla
-        modelo.setColumnCount(0);
-        modelo.setNumRows(0);           
+        // Limpio las filas y las columnas de la tabla          
 
     }//GEN-LAST:event_btnLimpiarActionPerformed
 
@@ -269,6 +267,7 @@ public class Clientes extends javax.swing.JFrame {
             boolean resultado = objCliente.insertarCliente(nombre, apellido,empresa_ruc);
             if(resultado == true){
                 JOptionPane.showMessageDialog(null, "Se inserto un nuevo registro.");
+                 modeloTablaCli.setNumRows(0);
                 cargarTablaCli();
             }else{
                 JOptionPane.showMessageDialog(null, "Error al insertar.");
