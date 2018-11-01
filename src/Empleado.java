@@ -97,7 +97,7 @@ public class Empleado extends javax.swing.JFrame {
         jTable1 = new javax.swing.JTable();
         btnNext = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setSize(new java.awt.Dimension(100, 100));
         getContentPane().setLayout(null);
 
         jLabel1.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N

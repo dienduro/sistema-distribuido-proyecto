@@ -283,8 +283,10 @@ public class Empresa extends javax.swing.JFrame {
     }//GEN-LAST:event_txtPropActionPerformed
 
     private void btnNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNextActionPerformed
-    Empleado obj = new Empleado();
+        this.hide();
+        Empleado obj = new Empleado();
     obj.setVisible(true);
+    
     }//GEN-LAST:event_btnNextActionPerformed
 
     private void btnConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarActionPerformed
@@ -299,13 +301,13 @@ public class Empresa extends javax.swing.JFrame {
         
         
            
-        txtRuc.setText("");
+        txtRuc.setText("0");
         txtNomEmp.setText("");
         txtDir.setText("");
         txtTel.setText("");
         txtProp.setText("");
         txtNomEmp.requestFocus();
-      
+        
                                          
     }//GEN-LAST:event_btnConsultarActionPerformed
 
@@ -316,7 +318,7 @@ public class Empresa extends javax.swing.JFrame {
          
         // Limpio los campos
          // *** Limpio los Campos ***  
-        txtRuc.setText("");
+        txtRuc.setText("0");
         txtNomEmp.setText("");
         txtDir.setText("");
         txtTel.setText("");
