@@ -229,22 +229,8 @@ public class Empresa extends javax.swing.JFrame {
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
                // Elimino el registro del JTable y la tabla empresa
- Empresas objEmpresas = new Empresas();
-        
-         int ruc = Integer.parseInt(txtRuc.getText());
-         
-         if (ruc== ruc ) {
-            
-        
-        boolean resultado = objEmpresas.eliminarEmpresas(ruc);
-        if (resultado== true) {
-            JOptionPane.showMessageDialog(null, "Se elimino un registro registro");
-             
-            cargarTablaEmpresa();
-        }else{
-            JOptionPane.showMessageDialog(null, "Erro al eliminar su datos ");
-            }
-     /* Empresas objEmpresas = new Empresas();
+    
+     Empresas objEmpresas = new Empresas();
         
         // Asigno el indice del elemento seleccionado
         indice = tblEmpresa.getSelectedRow();
@@ -267,9 +253,9 @@ public class Empresa extends javax.swing.JFrame {
         
         
         
-        }
-     */
-         } 
+        
+     
+         }  
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void txtDirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDirActionPerformed
