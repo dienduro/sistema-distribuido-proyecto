@@ -26,10 +26,10 @@ public class Empresa extends javax.swing.JFrame {
     public Empresa() {
          modeloTablaEmpresa = new DefaultTableModel(null,getColumn());
         initComponents();
-        cargarTablaEmpresa();     
-          
-        
-    }
+        cargarTablaEmpresa();
+         
+}
+    
     
      private String[] getColumn(){
         String columnas[] = new String[]{"ruc","nombre","direccion","telefono","propietario"};
@@ -228,24 +228,34 @@ public class Empresa extends javax.swing.JFrame {
     }//GEN-LAST:event_txtRucActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-        // TODO add your handling code here:
+               // Elimino el registro del JTable y la tabla empresa
+ Empresas objEmpresas = new Empresas();
         
-         // Elimino el registro del JTable y la tabla empresa
-
-        // Defino el modelo para el JTable
-        DefaultTableModel modelo = (DefaultTableModel) tblEmpresa.getModel();
+         int ruc = Integer.parseInt(txtRuc.getText());
+         
+         if (ruc== ruc ) {
+            
         
+        boolean resultado = objEmpresas.eliminarEmpresas(ruc);
+        if (resultado== true) {
+            JOptionPane.showMessageDialog(null, "Se elimino un registro registro");
+             
+            cargarTablaEmpresa();
+        }else{
+            JOptionPane.showMessageDialog(null, "Erro al eliminar su datos ");
+            }
+     /* Empresas objEmpresas = new Empresas();
         
         // Asigno el indice del elemento seleccionado
         indice = tblEmpresa.getSelectedRow();
 
         // Asigno a ruc el elemento a eliminar
-        int ruc =  Integer.parseInt((String)modelo.getValueAt(indice, 0));
+        int ruc =  Integer.parseInt((String)modeloTablaEmpresa.getValueAt(indice, 0));
 
         // Elimino el registro del JTable
-        modelo.removeRow(indice);
+        modeloTablaEmpresa.removeRow(indice);
         
-        Empresas objEmpresas = new Empresas();
+       
          // Elimino el registro de la tabla ciudad
          boolean resultado = objEmpresas.eliminarEmpresas(ruc);
         // Imprimo el mensaje para indicar si se eliminó o no el registro
@@ -254,11 +264,12 @@ public class Empresa extends javax.swing.JFrame {
         }
         else{
             JOptionPane.showMessageDialog(null, "ERROR: No se elimino el registro.");
+        
+        
+        
         }
-        
-        
-        
-        
+     */
+         } 
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void txtDirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDirActionPerformed
@@ -283,7 +294,7 @@ public class Empresa extends javax.swing.JFrame {
     }//GEN-LAST:event_txtPropActionPerformed
 
     private void btnNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNextActionPerformed
-        
+        this.hide();
         Empleado obj = new Empleado();
     obj.setVisible(true);
     
@@ -314,7 +325,7 @@ public class Empresa extends javax.swing.JFrame {
     private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
         // TODO add your handling code here:
         
-        DefaultTableModel modelo = (DefaultTableModel) tblEmpresa.getModel();
+       
          
         // Limpio los campos
          // *** Limpio los Campos ***  
@@ -488,5 +499,6 @@ public class Empresa extends javax.swing.JFrame {
     private javax.swing.JTextField txtTel;
     // End of variables declaration//GEN-END:variables
 
+  
    
 }

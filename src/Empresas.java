@@ -53,6 +53,18 @@ public class Empresas extends EmpresasPOA{
 
     @Override
     public boolean eliminarEmpresas(int ruc) {
+        
+        /*
+        
+         
+            //Se cierran las conexiones.
+            objConec.conex.close();
+            st.close();
+        } catch (Exception e) {
+           JOptionPane.showMessageDialog(null, "Error al eliminar. "+e.getMessage());
+        }        
+        return resultado;
+        */
       boolean resultado = false ;
       try{
           String sql = "delete from empresas where ruc "+ruc;
@@ -60,7 +72,11 @@ public class Empresas extends EmpresasPOA{
          int valor = st.executeUpdate(sql);
        if(valor>0){
            resultado = true;
+           
          }
+       //Se cierran las conexiones.
+            objConexion.conex.close();
+            st.close();
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "ocurrio un error al insertar"+e.getMessage());
         }

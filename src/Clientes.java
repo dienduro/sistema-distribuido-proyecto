@@ -221,13 +221,12 @@ public class Clientes extends javax.swing.JFrame {
          
         // Limpio los campos
          // *** Limpio los Campos ***      
-        txtId.setText("");
+        txtId.setText("0");
         txtNombre.setText("");
         txtApellido.setText("");
         cmbempresa.setSelectedIndex(0);
         txtNombre.requestFocus();
-        
-        // Limpio las filas y las columnas de la tabla          
+               
 
     }//GEN-LAST:event_btnLimpiarActionPerformed
 
