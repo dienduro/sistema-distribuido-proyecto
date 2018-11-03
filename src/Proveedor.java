@@ -14,6 +14,7 @@ public class Proveedor extends javax.swing.JFrame {
     /**/public Proveedor() {
         
          modeloTablaProveedor = new DefaultTableModel(null,getColumn());
+         this.setLocationRelativeTo(null);
         initComponents();
         cargarTablaproveedor();
     }
@@ -215,7 +216,7 @@ public class Proveedor extends javax.swing.JFrame {
         indice = tblProveedor.getSelectedRow();
 
         // Asigno a idCiudad el elemento a eliminar
-        int ruc_prov =  Integer.parseInt((String)modelo.getValueAt(indice, 0));
+        int ruc_prov = Integer.parseInt(txtRucProve.getText());;
 
         // Elimino el registro del JTable
         modelo.removeRow(indice);
