@@ -194,7 +194,6 @@ public class Clientes extends javax.swing.JFrame {
         getContentPane().add(txtApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 120, 126, -1));
 
         cmbempresa.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
-        cmbempresa.setForeground(new java.awt.Color(0, 0, 0));
         cmbempresa.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "---- Selecione  ----" }));
         cmbempresa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -238,7 +237,7 @@ public class Clientes extends javax.swing.JFrame {
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
  
         if (txtNombre.getText().equals("")){
-           JOptionPane.showMessageDialog(null,"Digite Su nombtr ");
+           JOptionPane.showMessageDialog(null,"Digite Su nombre ");
            txtNombre.requestFocus();
            return;
            

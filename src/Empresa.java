@@ -215,6 +215,11 @@ public class Empresa extends javax.swing.JFrame {
                 tblEmpresaMouseClicked(evt);
             }
         });
+        tblEmpresa.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                tblEmpresaKeyPressed(evt);
+            }
+        });
         jScrollPane1.setViewportView(tblEmpresa);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 40, 310, 190));
@@ -425,6 +430,10 @@ public class Empresa extends javax.swing.JFrame {
          txtTel.setText(String.valueOf(tblEmpresa.getValueAt(seleccion,3)));
         txtProp.setText(String.valueOf(tblEmpresa.getValueAt(seleccion,4)));
     }//GEN-LAST:event_tblEmpresaMouseClicked
+
+    private void tblEmpresaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tblEmpresaKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tblEmpresaKeyPressed
 
     /**
      * @param args the command line arguments

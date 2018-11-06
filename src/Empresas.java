@@ -37,9 +37,9 @@ public class Empresas extends EmpresasPOA{
 
     @Override
     public boolean actualizarEmpresas(int ruc, String nombre, String direccion, String telefono, String propietario) {
-    boolean resultado = false;
+        boolean resultado = false;
     try{
-       String sql = "Update empresas set nombre ='"+ruc+"','"+nombre+"','"+direccion+"','"+telefono+"','"+propietario+"' where ruc = '"+ruc+"' ";
+       String sql = "update empresas set ruc='"+ruc+"', nombre ='"+nombre+"',direccion='"+direccion+"',telefono='"+telefono+"',propietario='"+propietario+"' where ruc = '"+ruc+"' ";
         Statement st = objConexion.conex.createStatement();
        int valor = st.executeUpdate(sql);
        if(valor>0){
