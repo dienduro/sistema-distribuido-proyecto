@@ -43,7 +43,8 @@ public class Proveedores extends ProveedorPOA{
     public boolean actualizarProveedor(int ruc_prov, String nombre, String direccion, String telefono) {
            boolean resultado = false;
         try {
-            String sql="update proveedores set nombres = '"+nombre+"','"+direccion+"','"+telefono+"', where ruc = '"+ruc_prov+"' ";
+            String sql="update proveedor set nombres = '"+nombre+"','"+direccion+"','"+telefono+"', where ruc = '"+ruc_prov+"' ";
+            objConexion.conectar();
             Statement st= objConexion.conex.createStatement();
             int valor = st.executeUpdate(sql);
             if (valor>0) {
@@ -64,7 +65,8 @@ public class Proveedores extends ProveedorPOA{
     public boolean eliminarProveedor(int ruc_prov) {
           boolean resultado = false;
         try {
-            String sql = "delete from proveedores where ruc_prov = "+ruc_prov;
+            String sql = "delete from proveedor where ruc_prov = "+ruc_prov;
+            objConexion.conectar();
             Statement st= objConexion.conex.createStatement();
             int valor = st.executeUpdate(sql);
             if (valor>0) {

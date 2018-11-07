@@ -242,7 +242,8 @@ public class Empresa extends javax.swing.JFrame {
         indice = tblEmpresa.getSelectedRow();
 
         // Asigno a idCiudad el elemento a eliminar
-        int ruc =  Integer.parseInt((String)modelo.getValueAt(indice, 0));
+        int ruc = Integer.parseInt(txtRuc.getText());;
+
 
         // Elimino el registro del JTable
         modelo.removeRow(indice);

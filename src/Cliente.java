@@ -45,6 +45,7 @@ public class Cliente extends ClientePOA{
        boolean resultado = false;
         try {
             String sql="update cliente set nombres = '"+nombre+"','"+apellido+"' where id = '"+id_cliente+"' ";
+            objConexion.conectar();
             Statement st= objConexion.conex.createStatement();
             int valor = st.executeUpdate(sql);
             if (valor>0) {
@@ -66,6 +67,7 @@ public class Cliente extends ClientePOA{
         boolean resultado = false;
         try {
             String sql = "delete from cliente where id_cliente = "+id_cliente;
+            objConexion.conectar();
             Statement st= objConexion.conex.createStatement();
             int valor = st.executeUpdate(sql);
             if (valor>0) {
