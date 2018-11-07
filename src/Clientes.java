@@ -361,7 +361,7 @@ public class Clientes extends javax.swing.JFrame {
         indice = tblRegistro.getSelectedRow();
 
         // Asigno a idCiudad el elemento a eliminar
-        int id_cliente =  Integer.parseInt((String)modelo.getValueAt(indice, 0));
+        int id_cliente =  Integer.parseInt(txtId.getText());
 
         // Elimino el registro del JTable
         modelo.removeRow(indice);
