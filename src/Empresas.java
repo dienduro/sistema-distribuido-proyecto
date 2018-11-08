@@ -40,7 +40,8 @@ public class Empresas extends EmpresasPOA{
         boolean resultado = false;
     try{
        String sql = "update empresas set ruc='"+ruc+"', nombre ='"+nombre+"',direccion='"+direccion+"',telefono='"+telefono+"',propietario='"+propietario+"' where ruc = '"+ruc+"' ";
-        Statement st = objConexion.conex.createStatement();
+       objConexion.conectar();
+       Statement st = objConexion.conex.createStatement();
        int valor = st.executeUpdate(sql);
        if(valor>0){
            resultado = true;
@@ -58,6 +59,7 @@ public class Empresas extends EmpresasPOA{
       boolean resultado = false ;
       try{
           String sql = "delete from empresas where ruc = "+ruc;
+          objConexion.conectar();
           Statement st = objConexion.conex.createStatement();
          int valor = st.executeUpdate(sql);
        if(valor>0){
