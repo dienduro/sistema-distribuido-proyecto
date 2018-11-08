@@ -79,19 +79,16 @@ public class Proveedor extends javax.swing.JFrame {
         jLabel1.setBounds(20, 10, 300, 52);
 
         jLabel2.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Nombre");
         getContentPane().add(jLabel2);
         jLabel2.setBounds(70, 100, 83, 26);
 
         jLabel3.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Direccion ");
         getContentPane().add(jLabel3);
         jLabel3.setBounds(60, 130, 110, 26);
 
         jLabel4.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("Telefono");
         getContentPane().add(jLabel4);
         jLabel4.setBounds(60, 170, 94, 26);
@@ -107,7 +104,7 @@ public class Proveedor extends javax.swing.JFrame {
             }
         });
         getContentPane().add(txtNombre);
-        txtNombre.setBounds(200, 100, 120, 28);
+        txtNombre.setBounds(200, 110, 120, 20);
 
         txtDireccion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -115,7 +112,7 @@ public class Proveedor extends javax.swing.JFrame {
             }
         });
         getContentPane().add(txtDireccion);
-        txtDireccion.setBounds(200, 130, 120, 28);
+        txtDireccion.setBounds(200, 140, 120, 20);
 
         txtTelefono.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -128,7 +125,7 @@ public class Proveedor extends javax.swing.JFrame {
             }
         });
         getContentPane().add(txtTelefono);
-        txtTelefono.setBounds(200, 160, 120, 28);
+        txtTelefono.setBounds(200, 170, 120, 20);
 
         btnConsultar.setBackground(new java.awt.Color(51, 255, 255));
         btnConsultar.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
@@ -139,7 +136,7 @@ public class Proveedor extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnConsultar);
-        btnConsultar.setBounds(120, 310, 140, 38);
+        btnConsultar.setBounds(120, 310, 150, 35);
 
         btnGuardar.setBackground(new java.awt.Color(51, 255, 255));
         btnGuardar.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
@@ -150,7 +147,7 @@ public class Proveedor extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnGuardar);
-        btnGuardar.setBounds(10, 310, 114, 38);
+        btnGuardar.setBounds(10, 310, 119, 35);
 
         btnLimpiar.setBackground(new java.awt.Color(51, 255, 255));
         btnLimpiar.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
@@ -161,7 +158,7 @@ public class Proveedor extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnLimpiar);
-        btnLimpiar.setBounds(260, 310, 120, 38);
+        btnLimpiar.setBounds(270, 310, 120, 35);
 
         btnEliminar.setBackground(new java.awt.Color(51, 255, 255));
         btnEliminar.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
@@ -172,13 +169,13 @@ public class Proveedor extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnEliminar);
-        btnEliminar.setBounds(390, 310, 117, 38);
+        btnEliminar.setBounds(390, 310, 121, 35);
 
         btnNext.setBackground(new java.awt.Color(51, 255, 255));
         btnNext.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
         btnNext.setText("NEXT");
         getContentPane().add(btnNext);
-        btnNext.setBounds(520, 310, 100, 38);
+        btnNext.setBounds(520, 310, 100, 35);
 
         tblProveedor.setModel(modeloTablaProveedor);
         tblProveedor.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -192,12 +189,11 @@ public class Proveedor extends javax.swing.JFrame {
         jScrollPane1.setBounds(340, 50, 270, 190);
 
         jLabel5.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("RUC PROVEDOR ");
         getContentPane().add(jLabel5);
         jLabel5.setBounds(10, 70, 190, 26);
         getContentPane().add(txtRucProve);
-        txtRucProve.setBounds(200, 70, 120, 28);
+        txtRucProve.setBounds(200, 80, 120, 20);
         getContentPane().add(jLabel6);
         jLabel6.setBounds(0, 0, 640, 360);
 

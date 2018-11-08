@@ -104,7 +104,7 @@ public class Productos extends javax.swing.JFrame {
 
         jLabel6.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
         jLabel6.setText("Precio Compra ");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 182, -1, -1));
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 180, -1, -1));
 
         txtIdProd.setEditable(false);
         txtIdProd.setText("0");
@@ -132,7 +132,7 @@ public class Productos extends javax.swing.JFrame {
                 btnGuardarActionPerformed(evt);
             }
         });
-        getContentPane().add(btnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 320, -1, -1));
+        getContentPane().add(btnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 320, -1, 40));
 
         btnLimp.setBackground(new java.awt.Color(51, 255, 255));
         btnLimp.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
@@ -142,7 +142,7 @@ public class Productos extends javax.swing.JFrame {
                 btnLimpActionPerformed(evt);
             }
         });
-        getContentPane().add(btnLimp, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 320, 130, -1));
+        getContentPane().add(btnLimp, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 320, 130, 40));
 
         btnEliminar.setBackground(new java.awt.Color(51, 255, 255));
         btnEliminar.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N

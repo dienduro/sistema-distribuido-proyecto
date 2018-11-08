@@ -174,11 +174,11 @@ public class Empleado extends javax.swing.JFrame {
 
         jLabel10.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
         jLabel10.setText("Hora  De Salida");
-        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 150, 170, -1));
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 140, 170, -1));
 
         jLabel11.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
         jLabel11.setText("Telefono");
-        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 180, 110, -1));
+        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 170, 110, -1));
         getContentPane().add(txtEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 50, 170, -1));
         getContentPane().add(txtCodigoCargo, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 80, 170, -1));
         getContentPane().add(txtHoraEntrada, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 110, 170, -1));
@@ -187,7 +187,7 @@ public class Empleado extends javax.swing.JFrame {
 
         jLabel12.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
         jLabel12.setText("Sueldo ");
-        getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 210, 120, -1));
+        getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 200, 120, -1));
         getContentPane().add(txtSueldo, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 210, 170, -1));
 
         jTable1.setModel(modeloTablaEmpleado);

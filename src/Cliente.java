@@ -15,7 +15,7 @@ public class Cliente extends ClientePOA{
     Conexion objConexion = new Conexion();
 
     @Override
-    public boolean insertarCliente(String nombre, String apellido, String empresa_ruc) {
+    public boolean insertarCliente(String nombre, String apellido, int empresa_ruc) {
           boolean resultado = false;
         try {
            String sql="insert into cliente (id_cliente, nombre,apellido)"
@@ -41,7 +41,7 @@ public class Cliente extends ClientePOA{
     }
 
     @Override
-    public boolean actualizarCliente(int id_cliente, String nombre, String apellido, String empresa_ruc) {
+    public boolean actualizarCliente(int id_cliente, String nombre, String apellido, int empresa_ruc) {
        boolean resultado = false;
         try {
             String sql="update cliente set nombres = '"+nombre+"','"+apellido+"' where id = '"+id_cliente+"' ";

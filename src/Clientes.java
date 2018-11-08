@@ -75,9 +75,9 @@ public class Clientes extends javax.swing.JFrame {
         tblRegistro = new javax.swing.JTable();
         btnNext = new javax.swing.JButton();
         txtApellido = new javax.swing.JTextField();
-        cmbempresa = new javax.swing.JComboBox<>();
+        cmbEmpresa = new javax.swing.JComboBox<>();
         jLabel10 = new javax.swing.JLabel();
-        cmbEmpresa_ruc = new javax.swing.JLabel();
+        lblCli = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setState(1);
@@ -193,19 +193,19 @@ public class Clientes extends javax.swing.JFrame {
         });
         getContentPane().add(txtApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 120, 126, -1));
 
-        cmbempresa.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
-        cmbempresa.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "---- Selecione  ----" }));
-        cmbempresa.addActionListener(new java.awt.event.ActionListener() {
+        cmbEmpresa.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
+        cmbEmpresa.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "---- Selecione  ----" }));
+        cmbEmpresa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmbempresaActionPerformed(evt);
+                cmbEmpresaActionPerformed(evt);
             }
         });
-        getContentPane().add(cmbempresa, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 150, -1, -1));
+        getContentPane().add(cmbEmpresa, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 150, -1, -1));
 
         jLabel10.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
         jLabel10.setText("Apellido ");
         getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, -1, 34));
-        getContentPane().add(cmbEmpresa_ruc, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 570, 440));
+        getContentPane().add(lblCli, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 570, 440));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -223,7 +223,7 @@ public class Clientes extends javax.swing.JFrame {
         txtId.setText("0");
         txtNombre.setText("");
         txtApellido.setText("");
-        cmbempresa.setSelectedIndex(0);
+        cmbEmpresa.setSelectedIndex(0);
         txtNombre.requestFocus();
                
 
@@ -248,9 +248,9 @@ public class Clientes extends javax.swing.JFrame {
            return;
         
        }
-       if (cmbempresa.getSelectedIndex()==0){
+       if (cmbEmpresa.getSelectedIndex()==0){
            JOptionPane.showMessageDialog(null,"selecione una empresa  ");
-           cmbempresa.requestFocus();
+           cmbEmpresa.requestFocus();
            return;
        } 
        
@@ -258,11 +258,11 @@ public class Clientes extends javax.swing.JFrame {
         Cliente objCliente = new Cliente();
         String nombre = txtNombre.getText();
         String apellido = txtApellido.getText();
-         String empresa_ruc = cmbEmpresa_ruc.getText();
+         int empresa_ruc = cmbEmpresa.getSelectedIndex();
         int id_cliente = Integer.parseInt(txtId.getText());
-        
-        if(empresa_ruc=="" & id_cliente == 0){
-            boolean resultado = objCliente.insertarCliente(nombre, apellido,empresa_ruc);
+      
+        if(empresa_ruc==0 & id_cliente == 0){
+            boolean resultado = objCliente.insertarCliente(nombre, apellido, empresa_ruc);
             if(resultado == true){
                 JOptionPane.showMessageDialog(null, "Se inserto un nuevo registro.");
                  modeloTablaCli.setNumRows(0);
@@ -285,7 +285,7 @@ public class Clientes extends javax.swing.JFrame {
         txtId.setText("");
         txtNombre.setText("");
         txtApellido.setText("");
-        cmbempresa.setSelectedIndex(0);
+        cmbEmpresa.setSelectedIndex(0);
         txtNombre.requestFocus();
         }        
      
@@ -300,7 +300,7 @@ public class Clientes extends javax.swing.JFrame {
        int seleccion = tblRegistro.rowAtPoint(evt.getPoint());
         txtNombre.setText(String.valueOf(tblRegistro.getValueAt(seleccion,0)));
         txtApellido.setText(String.valueOf(tblRegistro.getValueAt(seleccion,1)));
-        cmbEmpresa_ruc.setText(String.valueOf(tblRegistro.getValueAt(seleccion,1)));
+        //cmbEmpresa.setText(String.valueOf(tblRegistro.getValueAt(seleccion,2)));
         
     }//GEN-LAST:event_tblRegistroMouseClicked
 
@@ -344,10 +344,6 @@ public class Clientes extends javax.swing.JFrame {
         txtApellido.transferFocus();
     }//GEN-LAST:event_txtApellidoActionPerformed
 
-    private void cmbempresaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbempresaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cmbempresaActionPerformed
-
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
         // TODO add your handling code here:
     
@@ -377,6 +373,10 @@ public class Clientes extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "ERROR: No se elimino el registro.");
         }
     }//GEN-LAST:event_btnEliminarActionPerformed
+
+    private void cmbEmpresaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbEmpresaActionPerformed
+
+    }//GEN-LAST:event_cmbEmpresaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -419,14 +419,14 @@ public class Clientes extends javax.swing.JFrame {
     private javax.swing.JButton btnGuardar;
     private javax.swing.JButton btnLimpiar;
     private javax.swing.JButton btnNext;
-    private javax.swing.JLabel cmbEmpresa_ruc;
-    private javax.swing.JComboBox<String> cmbempresa;
+    private javax.swing.JComboBox<String> cmbEmpresa;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblCli;
     private javax.swing.JTable tblRegistro;
     private javax.swing.JTextField txtApellido;
     private javax.swing.JTextField txtId;
