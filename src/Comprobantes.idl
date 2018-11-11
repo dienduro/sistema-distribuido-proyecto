@@ -1,7 +1,7 @@
-module Comprobante_De_Pago{
+module Comprobante_De_Venta{
     interface Comprobante{
-    boolean insertarComprobante(in wstring fecha, in long codigo_cliente);
-    boolean actualizarComprobante(in long id_comprobante,in long codigo_cliente, in wstring fecha);
+    boolean insertarComprobante(in wstring fecha, in long codigo_cliente, in long cliente_id_cliente,in long producto_id_prod);
+    boolean actualizarComprobante(in long id_comprobante,in long codigo_cliente, in wstring fecha, in long cliente_id_cliente,in long producto_id_prod);
     boolean eliminarComprobante(in long id_comprobante);
     wstring consultarComprobante(in long id_comprobante);
     

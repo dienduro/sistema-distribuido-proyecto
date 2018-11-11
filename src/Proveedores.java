@@ -16,10 +16,10 @@ import javax.swing.JOptionPane;
 public class Proveedores extends ProveedorPOA{
  Conexion objConexion = new Conexion();
     @Override
-    public boolean insertarProveedor(String nombre, String direccion, String telefono) {
+    public boolean insertarProveedor(String nombre, String direccion, String telefono,int empresa_ruc) {
       boolean resultado = false;
         try {
-           String sql="insert into proveedor (nombres,direccion,telefono) values('"+nombre+"','"+direccion+"','"+telefono+"')"; 
+           String sql="insert into proveedor (nombres,direccion,telefono) values('"+nombre+"','"+direccion+"','"+telefono+"','"+empresa_ruc+"')"; 
            objConexion.conectar();
            Statement st = objConexion.conex.createStatement();
            int valor = st.executeUpdate(sql);
@@ -40,8 +40,8 @@ public class Proveedores extends ProveedorPOA{
     }
 
     @Override
-    public boolean actualizarProveedor(int ruc_prov, String nombre, String direccion, String telefono) {
-           boolean resultado = false;
+    public boolean actualizarProveedor(int ruc_prov, String nombre, String direccion, String telefono, int empresa_ruc) {
+          boolean resultado = false;
         try {
             String sql="update proveedor set nombres = '"+nombre+"','"+direccion+"','"+telefono+"', where ruc = '"+ruc_prov+"' ";
             objConexion.conectar();
@@ -91,8 +91,9 @@ public class Proveedores extends ProveedorPOA{
             Statement st = objConexion.conex.createStatement();
             ResultSet rs  = st.executeQuery(sqlConsultar);
             while (rs.next()) {
-               resultado += rs.getString(2)+"-"
-               +rs.getString(3)+"-"
+               resultado += rs.getString(1)+"-"
+               +rs.getString(2)+"-"
+                        +rs.getString(3)+"-"
                +rs.getString(4);
                 
             }
@@ -115,7 +116,7 @@ public class Proveedores extends ProveedorPOA{
      public ResultSet cargarProveedor(){
        ResultSet resultado = null;
         try {
-            String sql = "Select nombre, direccion,  Codigo_telefono, Celular from Proveedor";
+            String sql = "Select nombre, direccion,telefono,empresa_ruc from Proveedor";
             objConexion.conectar(); // abrimos la conexion
             Statement st = objConexion.conex.createStatement();//encargado de la consulta
             resultado = st.executeQuery(sql);
@@ -125,7 +126,8 @@ public class Proveedores extends ProveedorPOA{
         }
        return resultado;
     }
-  
+
+ 
     
     
 }

@@ -9,45 +9,47 @@ import javax.swing.table.TableModel;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author DIEGO
  */
 public class Productos extends javax.swing.JFrame {
 
+    public int indice;
     private DefaultTableModel modeloTablaProducto;
 
-    
     public Productos() {
-        
-        modeloTablaProducto = new DefaultTableModel(null,getColumn());
+
+        modeloTablaProducto = new DefaultTableModel(null, getColumn());
         initComponents();
         cargarTablaProducto();
     }
-    private String [] getColumn(){
-        String columnas[] = new String []{"id","Nombre","Modelo","Marca","Precio compra","Precio venta"};
+
+    private String[] getColumn() {
+        String columnas[] = new String[]{"id", "Nombre", "Modelo", "Marca", "Precio compra", "Precio venta"};
         return columnas;
     }
+
     //Metodo par cargar tabla
-    private void cargarTablaProducto(){
-     Producto ObjProducto = new Producto();
+    private void cargarTablaProducto() {
+        Producto ObjProducto = new Producto();
         ResultSet result = ObjProducto.cargarProducto();
         try {
             //creamos un arreglo de  sectores
-            Object Datos [] = new Object[6];
+            Object Datos[] = new Object[6];
             while (result.next()) {
-                for (int i = 0; i <6; i++) {
-                    Datos[i]=result.getObject(i+1) ;
+                for (int i = 0; i < 6; i++) {
+                    Datos[i] = result.getObject(i + 1);
                 }
                 modeloTablaProducto.addRow(Datos);
-                
+
             }
-            
+
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Error: " + e.getMessage());
         }
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -187,54 +189,103 @@ public class Productos extends javax.swing.JFrame {
     }//GEN-LAST:event_txtIdProdActionPerformed
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
+        if (txtNombre.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Digite Su nombre  ");
+            txtNombre.requestFocus();
+            return;
+
+        }
+        if (txtMarca.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Digite Su direccion ");
+            txtMarca.requestFocus();
+            return;
+
+        }
+        if (txtModelo.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Digite Su telefono ");
+            txtModelo.requestFocus();
+            return;
+
+        }
+        if (txtPrecioCompra.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Digite el nombre del propíetario ");
+            txtPrecioCompra.requestFocus();
+            return;
+
+        }
+
         Producto objProducto = new Producto();
+        int id_prod = Integer.parseInt(txtIdProd.getText());
         String nombre = txtNombre.getText();
-        String modelo = txtModelo.getText();
-        String marca = txtMarca.getText();
         float precio_venta = Float.parseFloat(txtPrecioVenta.getText());
         float precio_compra = Float.parseFloat(txtPrecioCompra.getText());
-        int id_prod = Integer.parseInt(txtIdProd.getText());
-        
-        if (id_prod==0) {
-            
-        
-        boolean resultado = objProducto.insertarProducto(nombre,modelo,marca ,precio_compra,precio_venta);
-            if (resultado== true) {
+        String marca = txtMarca.getText();
+        String modelo = txtModelo.getText();
+
+        if (id_prod == 0) {
+
+            boolean resultado = objProducto.insertarProducto(nombre, modelo, marca, precio_compra, precio_venta);
+            if (resultado == true) {
                 JOptionPane.showMessageDialog(null, "Se inserto un nuevo registro");
-                 modeloTablaProducto.setNumRows(0); 
+                modeloTablaProducto.setNumRows(0);
                 cargarTablaProducto();
-            }else{
+            } else {
                 JOptionPane.showMessageDialog(null, "Erro al inserta su datos ");
             }
-        }else{
-            try {
-                boolean resultado = objProducto.actualizarProducto(id_prod,nombre,modelo,marca ,precio_compra,precio_venta);
-            if (resultado== true) {
-            JOptionPane.showMessageDialog(null, "Se actualizo el registro");
-            modeloTablaProducto.setNumRows(0); 
-            cargarTablaProducto();
-                }           
-            
-            } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e.getMessage()+"Error al actualizar  ");
-       
+        } else {
+            boolean resultado = objProducto.actualizarProducto(id_prod, nombre,modelo, marca, precio_compra, precio_venta);
+            if (resultado == true) {
+                JOptionPane.showMessageDialog(null, "Se actualizo el registro");
+                modeloTablaProducto.setNumRows(0);
+                cargarTablaProducto();
+            } else {
+                JOptionPane.showMessageDialog(null, "Error al actualizar  ");
             }
-            
-        } 
+        }
+    }
+
+    private void txtNomEmpKeyTyped(java.awt.event.KeyEvent evt) {
+        // TODO add your handling code here:
+
+        char validar = evt.getKeyChar();
+        if (Character.isDigit(validar)) {
+            getToolkit().beep();
+            evt.consume();
+
+            JOptionPane.showMessageDialog(rootPane, "Ingresa el nombre de empresa");
+        }
+
+    }
+
+    private void txtTelKeyTyped(java.awt.event.KeyEvent evt) {
+        // TODO add your handling code here:
+
+        char c = evt.getKeyChar();
+        if (c < '0' || c > '9') {
+            evt.consume();
+        }
+        {
+
+        }
+
+        char validar = evt.getKeyChar();
+        if (Character.isLetter(validar)) {
+            getToolkit().beep();
+            evt.consume();
+            JOptionPane.showMessageDialog(rootPane, "Ingrensar su numero ");
+        }
+
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void btnConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarActionPerformed
-       Producto objProducto = new Producto();
-         int id_prod = Integer.parseInt(txtIdProd.getText());
-         
-            
-        
-            JOptionPane.showMessageDialog(null, objProducto.consultarProducto(1));
-        
-        
-           
+        Producto objProducto = new Producto();
+        int id_prod = Integer.parseInt(txtIdProd.getText());
+
+        JOptionPane.showMessageDialog(null, objProducto.consultarProducto(1));
+
         txtIdProd.setText("0");
         txtMarca.setText("");
+        txtNombre.setText("");
         txtModelo.setText("");
         txtPrecioCompra.setText("");
         txtPrecioVenta.setText("");
@@ -244,38 +295,49 @@ public class Productos extends javax.swing.JFrame {
     private void btnLimpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpActionPerformed
         // *** Limpio los Campos ***  
         txtIdProd.setText("0");
+        txtNombre.setText("");
         txtMarca.setText("");
         txtModelo.setText("");
         txtPrecioCompra.setText("");
         txtPrecioVenta.setText("");
-        txtNombre.requestFocus();  
+        txtNombre.requestFocus();
     }//GEN-LAST:event_btnLimpActionPerformed
 
     private void tblProductoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblProductoMouseClicked
-       int seleccion = tblProducto.rowAtPoint(evt.getPoint());
-       txtIdProd.setText(String.valueOf(tblProducto.getValueAt(seleccion,0)));
-        txtNombre.setText(String.valueOf(tblProducto.getValueAt(seleccion,1)));
-        txtModelo.setText(String.valueOf(tblProducto.getValueAt(seleccion,2)));
-         txtMarca.setText(String.valueOf(tblProducto.getValueAt(seleccion,3)));
-        txtPrecioCompra.setText(String.valueOf(tblProducto.getValueAt(seleccion,4)));
-        txtPrecioVenta.setText(String.valueOf(tblProducto.getValueAt(seleccion,5)));
-       
+        int seleccion = tblProducto.rowAtPoint(evt.getPoint());
+        txtIdProd.setText(String.valueOf(tblProducto.getValueAt(seleccion, 0)));
+        txtNombre.setText(String.valueOf(tblProducto.getValueAt(seleccion, 1)));
+        txtModelo.setText(String.valueOf(tblProducto.getValueAt(seleccion, 2)));
+        txtMarca.setText(String.valueOf(tblProducto.getValueAt(seleccion, 3)));
+        txtPrecioCompra.setText(String.valueOf(tblProducto.getValueAt(seleccion, 4)));
+        txtPrecioVenta.setText(String.valueOf(tblProducto.getValueAt(seleccion, 5)));
+
     }//GEN-LAST:event_tblProductoMouseClicked
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-       Producto objProducto = new Producto();
-       int id_prod = Integer.parseInt(txtIdProd.getText());
-               
-        
+        // Elimino el registro del JTable y la tabla cliente
+
+        // Defino el modelo para el JTable
+        DefaultTableModel modelo = (DefaultTableModel) tblProducto.getModel();
+
+        // Asigno el indice del elemento seleccionado
+        indice = tblProducto.getSelectedRow();
+
+        // Asigno a idCiudad el elemento a eliminar
+        int id_prod = Integer.parseInt(txtIdProd.getText());
+
+        // Elimino el registro del JTable
+        modelo.removeRow(indice);
+
+        Producto objProducto = new Producto();
+        // Elimino el registro de la tabla cliente
         boolean resultado = objProducto.eliminarProducto(id_prod);
-        if (resultado== true) {
-            JOptionPane.showMessageDialog(null, "Se inserto un nuevo registro");
-            modeloTablaProducto.setNumRows(0); 
-            cargarTablaProducto();
-        }else{
-            JOptionPane.showMessageDialog(null, "Erro al inserta su datos "+id_prod);
-            }
-       
+        // Imprimo el mensaje para indicar si se eliminó o no el registro
+        if (resultado == true) {
+            JOptionPane.showMessageDialog(null, "El registro se elimino.");
+        } else {
+            JOptionPane.showMessageDialog(null, "ERROR: No se elimino el registro.");
+        }
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     /**
@@ -298,7 +360,7 @@ public class Productos extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(Productos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-        
+
         //</editor-fold>
 
         /* Create and display the form */

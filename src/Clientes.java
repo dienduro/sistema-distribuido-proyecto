@@ -1,6 +1,9 @@
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import javax.swing.table.TableModel;
+import javax.swing.DefaultComboBoxModel;
+
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -21,15 +24,22 @@ public class Clientes extends javax.swing.JFrame {
      */
     public int indice;   
     private DefaultTableModel modeloTablaCli;
+    private DefaultComboBoxModel modeloComboCli;
     
-    public Clientes() {
+    public Clientes() {//constructor
         modeloTablaCli = new DefaultTableModel(null,getColumn());
-        initComponents();
+       // modeloComboCli = new DefaultComboBoxModel(new String [] {});
+        
+        initComponents();   
+        
+        ComboBoxRues cb = new ComboBoxRues();
+        DefaultComboBoxModel modeloRuesCli = new DefaultComboBoxModel(cb.mostrarRues());
+        cmbEmpresa.setModel(modeloRuesCli);
         cargarTablaCli();
     }
       //Metodo para cargar las columnas en la tabla
     private String[] getColumn(){
-        String columnas[] = new String[]{"id","Nombre","apellido"};
+        String columnas[] = new String[]{"id","Nombre","apellido","Empresa"};
         return columnas;
     }
     //Metodo par cargar tabla
@@ -194,13 +204,12 @@ public class Clientes extends javax.swing.JFrame {
         getContentPane().add(txtApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 120, 126, -1));
 
         cmbEmpresa.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
-        cmbEmpresa.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "---- Selecione  ----" }));
         cmbEmpresa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmbEmpresaActionPerformed(evt);
             }
         });
-        getContentPane().add(cmbEmpresa, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 150, -1, -1));
+        getContentPane().add(cmbEmpresa, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 150, 120, -1));
 
         jLabel10.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
         jLabel10.setText("Apellido ");
@@ -216,7 +225,7 @@ public class Clientes extends javax.swing.JFrame {
 
     private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
          //LIMPIAR clientes
-       DefaultTableModel modelo = (DefaultTableModel) tblRegistro.getModel();
+       modeloTablaCli = (DefaultTableModel) tblRegistro.getModel();
          
         // Limpio los campos
          // *** Limpio los Campos ***      
@@ -261,7 +270,7 @@ public class Clientes extends javax.swing.JFrame {
          int empresa_ruc = cmbEmpresa.getSelectedIndex();
         int id_cliente = Integer.parseInt(txtId.getText());
       
-        if(empresa_ruc==0 & id_cliente == 0){
+        if( id_cliente == 0){
             boolean resultado = objCliente.insertarCliente(nombre, apellido, empresa_ruc);
             if(resultado == true){
                 JOptionPane.showMessageDialog(null, "Se inserto un nuevo registro.");
@@ -301,7 +310,8 @@ public class Clientes extends javax.swing.JFrame {
         txtNombre.setText(String.valueOf(tblRegistro.getValueAt(seleccion,0)));
         txtApellido.setText(String.valueOf(tblRegistro.getValueAt(seleccion,1)));
         //cmbEmpresa.setText(String.valueOf(tblRegistro.getValueAt(seleccion,2)));
-        
+        //Creamos el objeto
+       
     }//GEN-LAST:event_tblRegistroMouseClicked
 
     private void txtNombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombreKeyTyped
@@ -375,7 +385,7 @@ public class Clientes extends javax.swing.JFrame {
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void cmbEmpresaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbEmpresaActionPerformed
-
+     
     }//GEN-LAST:event_cmbEmpresaActionPerformed
 
     /**
@@ -394,15 +404,11 @@ public class Clientes extends javax.swing.JFrame {
                     break;
                 }
             }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Clientes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Clientes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Clientes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(Clientes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        
         //</editor-fold>
 
         /* Create and display the form */

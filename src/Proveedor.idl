@@ -1,7 +1,7 @@
 module Proveedores{
     interface Proveedor{
-    boolean insertarProveedor(in wstring nombre, in wstring direccion, in  wstring telefono);
-    boolean actualizarProveedor(in long ruc_prov, in wstring nombre, in wstring direccion, in  wstring telefono);
+    boolean insertarProveedor(in wstring nombre, in wstring direccion, in  wstring telefono,in long empresa_ruc);
+    boolean actualizarProveedor(in long ruc_prov, in wstring nombre, in wstring direccion, in  wstring telefono, in long empresa_ruc);
     boolean eliminarProveedor(in long ruc_prov);
     wstring consultarProveedor(in long ruc_prov);
     
