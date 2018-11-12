@@ -110,7 +110,7 @@ public class Comprobante extends ComprobantePOA {
     public ResultSet cargarComprobante() {
         ResultSet resultado = null;
         try {
-            String sql = "Select fecha, codigo_cliente from Comprobante";
+            String sql = "Select fecha, codigo_cliente from Comprobante_venta";
             objConexion.conectar(); // abrimos la conexion
             Statement st = objConexion.conex.createStatement();//encargado de la consulta
             resultado = st.executeQuery(sql);
@@ -124,7 +124,7 @@ public class Comprobante extends ComprobantePOA {
     public ResultSet consultarCmbCli() {
         ResultSet resultado = null;
         try {
-            String sentenciaSql = "select id_cliente, nombre from empresas";
+            String sentenciaSql = "select id_cliente, nombre from cliente";
             objConexion.conectar();
             Statement st = objConexion.conex.createStatement();
             resultado = st.executeQuery(sentenciaSql);

@@ -35,7 +35,7 @@ public class ComboBoxCli {
         this.nombre = nombre;
     }
 
-    public Vector<ComboBoxCli> mostrarBoxClis() {
+    public Vector<ComboBoxCli> mostrarClis() {
         Conexion conex = new Conexion();
 
         PreparedStatement ps = null;
@@ -43,7 +43,7 @@ public class ComboBoxCli {
         Conexion conn = new Conexion();
         Connection con = conex.conectar();
 
-        Vector<ComboBoxCli> datos = new Vector<ComboBoxCli>();
+        Vector<ComboBoxCli> datosClis = new Vector<ComboBoxCli>();
 
         ComboBoxCli dat = null;
 
@@ -55,19 +55,19 @@ public class ComboBoxCli {
             dat = new ComboBoxCli();
             dat.setId(0);
             dat.setNombre("Seleccione");
-            datos.add(dat);
+            datosClis.add(dat);
 
             while (rs.next()) {
                 dat = new ComboBoxCli();
                 dat.setId(rs.getInt("id_cliente"));
                 dat.setNombre(rs.getString("nombre"));
-                datos.add(dat);
+                datosClis.add(dat);
             }
             rs.close();
 
         } catch (SQLException ex) {
             System.err.println(ex.toString());
         }
-        return datos;
+        return datosClis;
     }
 }

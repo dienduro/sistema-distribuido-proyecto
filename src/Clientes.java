@@ -12,7 +12,6 @@ import javax.swing.table.DefaultTableModel;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author DIEGO
@@ -22,41 +21,42 @@ public class Clientes extends javax.swing.JFrame {
     /**
      * Creates new form Clientes
      */
-    public int indice;   
+    public int indice;
     private DefaultTableModel modeloTablaCli;
-    private DefaultComboBoxModel modeloComboCli;
-    
+
     public Clientes() {//constructor
-        modeloTablaCli = new DefaultTableModel(null,getColumn());
-       // modeloComboCli = new DefaultComboBoxModel(new String [] {});
-        
-        initComponents();   
-        
+        modeloTablaCli = new DefaultTableModel(null, getColumn());
+        // modeloComboCli = new DefaultComboBoxModel(new String [] {});
+
+        initComponents();
+
         ComboBoxRues cb = new ComboBoxRues();
         DefaultComboBoxModel modeloRuesCli = new DefaultComboBoxModel(cb.mostrarRues());
         cmbEmpresa.setModel(modeloRuesCli);
         cargarTablaCli();
     }
-      //Metodo para cargar las columnas en la tabla
-    private String[] getColumn(){
-        String columnas[] = new String[]{"id","Nombre","apellido","Empresa"};
+    //Metodo para cargar las columnas en la tabla
+
+    private String[] getColumn() {
+        String columnas[] = new String[]{"id", "Nombre", "apellido", "Empresa"};
         return columnas;
     }
+
     //Metodo par cargar tabla
-    private void cargarTablaCli(){
-     Cliente ObjCliente = new Cliente();
+    private void cargarTablaCli() {
+        Cliente ObjCliente = new Cliente();
         ResultSet result = ObjCliente.cargarCliente();
         try {
             //creamos un arreglo de 3 sectores
-            Object Datos [] = new Object[4];
+            Object Datos[] = new Object[4];
             while (result.next()) {
-                for (int i = 0; i <4; i++) {
-                    Datos[i]=result.getObject(i+1) ;
+                for (int i = 0; i < 4; i++) {
+                    Datos[i] = result.getObject(i + 1);
                 }
                 modeloTablaCli.addRow(Datos);
-                
+
             }
-            
+
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Error: " + e.getMessage());
         }
@@ -224,80 +224,83 @@ public class Clientes extends javax.swing.JFrame {
     }//GEN-LAST:event_txtIdActionPerformed
 
     private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
-         //LIMPIAR clientes
-       modeloTablaCli = (DefaultTableModel) tblRegistro.getModel();
-         
+        //LIMPIAR clientes
+        modeloTablaCli = (DefaultTableModel) tblRegistro.getModel();
+
         // Limpio los campos
-         // *** Limpio los Campos ***      
+        // *** Limpio los Campos ***      
         txtId.setText("0");
         txtNombre.setText("");
         txtApellido.setText("");
         cmbEmpresa.setSelectedIndex(0);
         txtNombre.requestFocus();
-               
+
 
     }//GEN-LAST:event_btnLimpiarActionPerformed
 
     private void btnConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarActionPerformed
-      Cliente objCliente = new Cliente();
+        Cliente objCliente = new Cliente();
         JOptionPane.showMessageDialog(null, objCliente.consultarCliente(1));
     }//GEN-LAST:event_btnConsultarActionPerformed
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
- 
-        if (txtNombre.getText().equals("")){
-           JOptionPane.showMessageDialog(null,"Digite Su nombre ");
-           txtNombre.requestFocus();
-           return;
-           
-       }
-       if (txtApellido.getText().equals("")){
-           JOptionPane.showMessageDialog(null,"Digite Su apellido ");
-           txtApellido.requestFocus();
-           return;
-        
-       }
-       if (cmbEmpresa.getSelectedIndex()==0){
-           JOptionPane.showMessageDialog(null,"selecione una empresa  ");
-           cmbEmpresa.requestFocus();
-           return;
-       } 
-       
-       
+
+        if (txtNombre.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Digite Su nombre ");
+            txtNombre.requestFocus();
+            return;
+
+        }
+        if (txtApellido.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Digite Su apellido ");
+            txtApellido.requestFocus();
+            return;
+
+        }
+        if (cmbEmpresa.getSelectedIndex() == 0) {
+            JOptionPane.showMessageDialog(null, "selecione una empresa  ");
+            cmbEmpresa.requestFocus();
+            return;
+        }
+
         Cliente objCliente = new Cliente();
+        Empresas objEmpresas = new Empresas();
+        
         String nombre = txtNombre.getText();
         String apellido = txtApellido.getText();
-         int empresa_ruc = cmbEmpresa.getSelectedIndex();
+        int empresa_ruc = cmbEmpresa.getSelectedIndex();
+        
+        JOptionPane.showMessageDialog(null, empresa_ruc);
         int id_cliente = Integer.parseInt(txtId.getText());
-      
-        if( id_cliente == 0){
+
+        if (id_cliente == 0) {
             boolean resultado = objCliente.insertarCliente(nombre, apellido, empresa_ruc);
-            if(resultado == true){
+            if (resultado == true) {
                 JOptionPane.showMessageDialog(null, "Se inserto un nuevo registro.");
-                 modeloTablaCli.setNumRows(0);
+                modeloTablaCli.setNumRows(0);
                 cargarTablaCli();
-            }else{
+            } else {
                 JOptionPane.showMessageDialog(null, "Error al insertar.");
             }
-            
-        }else{
-            boolean resultado = objCliente.actualizarCliente(id_cliente, nombre, apellido,empresa_ruc);
-            if(resultado == true){
+
+        } else {
+            boolean resultado = objCliente.actualizarCliente(id_cliente, nombre, apellido, empresa_ruc);
+            if (resultado == true) {
                 JOptionPane.showMessageDialog(null, "Se actualizó el registro.");
                 cargarTablaCli();
-            }else{
+            } else {
                 JOptionPane.showMessageDialog(null, "Error al actualizar.");
-                 //Empresa obj = new Empresa();
+                //Empresa obj = new Empresa();
                 //obj.setVisible(true);
             }
-         // *** Limpio los Campos ***      
-        txtId.setText("");
-        txtNombre.setText("");
-        txtApellido.setText("");
-        cmbEmpresa.setSelectedIndex(0);
-        txtNombre.requestFocus();
-        }        
-     
+            // *** Limpio los Campos ***      
+            txtId.setText("");
+            txtNombre.setText("");
+            txtApellido.setText("");
+            cmbEmpresa.setSelectedIndex(0);
+            txtNombre.requestFocus();
+        }
+
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void btnNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNextActionPerformed
@@ -306,41 +309,38 @@ public class Clientes extends javax.swing.JFrame {
 
     private void tblRegistroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblRegistroMouseClicked
         // TODO add your handling code here:
-       int seleccion = tblRegistro.rowAtPoint(evt.getPoint());
-        txtNombre.setText(String.valueOf(tblRegistro.getValueAt(seleccion,0)));
-        txtApellido.setText(String.valueOf(tblRegistro.getValueAt(seleccion,1)));
+        int seleccion = tblRegistro.rowAtPoint(evt.getPoint());
+        txtNombre.setText(String.valueOf(tblRegistro.getValueAt(seleccion, 0)));
+        txtApellido.setText(String.valueOf(tblRegistro.getValueAt(seleccion, 1)));
         //cmbEmpresa.setText(String.valueOf(tblRegistro.getValueAt(seleccion,2)));
         //Creamos el objeto
-       
+
     }//GEN-LAST:event_tblRegistroMouseClicked
 
     private void txtNombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombreKeyTyped
         // TODO add your handling code here:
-        
-         char  validar = evt.getKeyChar();
-        if(Character.isDigit(validar)){
-        getToolkit().beep();
-        evt.consume();
 
-        JOptionPane.showMessageDialog(rootPane,"Ingresa tu nombre cliente");
-}
+        char validar = evt.getKeyChar();
+        if (Character.isDigit(validar)) {
+            getToolkit().beep();
+            evt.consume();
 
-        
-        
-        
-        
+            JOptionPane.showMessageDialog(rootPane, "Ingresa tu nombre cliente");
+        }
+
+
     }//GEN-LAST:event_txtNombreKeyTyped
 
     private void txtApellidoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtApellidoKeyTyped
         // TODO add your handling code here:
-        
-         char  validar = evt.getKeyChar();
-    if(Character.isDigit(validar)){
-        getToolkit().beep();
-        evt.consume();
 
-        JOptionPane.showMessageDialog(rootPane,"Ingresa tu apellido cliente ");
-}
+        char validar = evt.getKeyChar();
+        if (Character.isDigit(validar)) {
+            getToolkit().beep();
+            evt.consume();
+
+            JOptionPane.showMessageDialog(rootPane, "Ingresa tu apellido cliente ");
+        }
 
     }//GEN-LAST:event_txtApellidoKeyTyped
 
@@ -356,36 +356,33 @@ public class Clientes extends javax.swing.JFrame {
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
         // TODO add your handling code here:
-    
-        // Elimino el registro del JTable y la tabla cliente
 
+        // Elimino el registro del JTable y la tabla cliente
         // Defino el modelo para el JTable
         DefaultTableModel modelo = (DefaultTableModel) tblRegistro.getModel();
-        
-        
+
         // Asigno el indice del elemento seleccionado
         indice = tblRegistro.getSelectedRow();
 
         // Asigno a idCiudad el elemento a eliminar
-        int id_cliente =  Integer.parseInt(txtId.getText());
+        int id_cliente = Integer.parseInt(txtId.getText());
 
         // Elimino el registro del JTable
         modelo.removeRow(indice);
-        
+
         Cliente objCliente = new Cliente();
-         // Elimino el registro de la tabla cliente
+        // Elimino el registro de la tabla cliente
         boolean resultado = objCliente.eliminarCliente(id_cliente);
         // Imprimo el mensaje para indicar si se eliminó o no el registro
-        if(resultado == true){
+        if (resultado == true) {
             JOptionPane.showMessageDialog(null, "El registro se elimino.");
-        }
-        else{
+        } else {
             JOptionPane.showMessageDialog(null, "ERROR: No se elimino el registro.");
         }
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void cmbEmpresaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbEmpresaActionPerformed
-     
+
     }//GEN-LAST:event_cmbEmpresaActionPerformed
 
     /**
@@ -408,7 +405,7 @@ public class Clientes extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(Clientes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-        
+
         //</editor-fold>
 
         /* Create and display the form */

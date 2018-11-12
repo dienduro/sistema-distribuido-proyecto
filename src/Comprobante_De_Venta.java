@@ -24,13 +24,13 @@ public class Comprobante_De_Venta extends javax.swing.JFrame {
     public Comprobante_De_Venta() {
         initComponents();            
        cargarTablaComp();
-//        ComboBoxCli cbCli = new ComboBoxCli();
-//        DefaultComboBoxModel modeloCmbCli = new DefaultComboBoxModel(cbCli.mostrarBoxClis());
-//        cmbCli.setModel(modeloCmbCli);
-//        
-//        ComboBoxProd cbProd = new ComboBoxProd();
-//        DefaultComboBoxModel modeloCmbProd = new DefaultComboBoxModel(cbProd.mostrarBoxProds());
-//        cmbProd.setModel(modeloCmbProd);
+        ComboBoxCli cbCli = new ComboBoxCli();
+      DefaultComboBoxModel modeloCli = new DefaultComboBoxModel(cbCli.mostrarClis());
+       cmbCli.setModel(modeloCli);
+        
+        ComboBoxProd cbProd = new ComboBoxProd();
+        DefaultComboBoxModel modeloProd = new DefaultComboBoxModel(cbProd.mostrarBoxProds());
+        cmbProd.setModel(modeloProd);
     }
     
     
@@ -71,12 +71,14 @@ public class Comprobante_De_Venta extends javax.swing.JFrame {
         txtFecha = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         txtCodigoCliente = new javax.swing.JTextField();
+        txtComprobante = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        btnConsultar = new javax.swing.JButton();
-        btnGuardar = new javax.swing.JButton();
-        btnLimpiar = new javax.swing.JButton();
-        btnEliminar = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
         btnNext = new javax.swing.JButton();
+        jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         cmbCli = new javax.swing.JComboBox<>();
         jLabel4 = new javax.swing.JLabel();
@@ -84,8 +86,6 @@ public class Comprobante_De_Venta extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         txtId = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tblComp = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -99,45 +99,45 @@ public class Comprobante_De_Venta extends javax.swing.JFrame {
         jLabel2.setText("Codigo Cliente ");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 90, -1, -1));
         getContentPane().add(txtCodigoCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 100, 150, -1));
+        getContentPane().add(txtComprobante, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 130, 150, -1));
 
         jLabel3.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
         jLabel3.setText("Producto");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 200, -1, -1));
 
-        btnConsultar.setBackground(new java.awt.Color(51, 255, 255));
-        btnConsultar.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
-        btnConsultar.setText("Consultar ");
-        getContentPane().add(btnConsultar, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 270, -1, -1));
+        jButton1.setBackground(new java.awt.Color(51, 255, 255));
+        jButton1.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
+        jButton1.setText("Consultar ");
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 270, -1, -1));
 
-        btnGuardar.setBackground(new java.awt.Color(51, 255, 255));
-        btnGuardar.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
-        btnGuardar.setText("Guardar");
-        btnGuardar.addActionListener(new java.awt.event.ActionListener() {
+        jButton4.setBackground(new java.awt.Color(51, 255, 255));
+        jButton4.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
+        jButton4.setText("Guardar");
+        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 270, -1, -1));
+
+        jButton2.setBackground(new java.awt.Color(51, 255, 255));
+        jButton2.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
+        jButton2.setText("Limpiar ");
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 270, -1, -1));
+
+        jButton3.setBackground(new java.awt.Color(51, 255, 255));
+        jButton3.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
+        jButton3.setText("Eliminar");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnGuardarActionPerformed(evt);
+                jButton3ActionPerformed(evt);
             }
         });
-        getContentPane().add(btnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 270, -1, -1));
-
-        btnLimpiar.setBackground(new java.awt.Color(51, 255, 255));
-        btnLimpiar.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
-        btnLimpiar.setText("Limpiar ");
-        getContentPane().add(btnLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 190, -1, -1));
-
-        btnEliminar.setBackground(new java.awt.Color(51, 255, 255));
-        btnEliminar.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
-        btnEliminar.setText("Eliminar");
-        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEliminarActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 270, -1, -1));
+        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 270, -1, -1));
 
         btnNext.setBackground(new java.awt.Color(51, 255, 255));
         btnNext.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
         btnNext.setText("NEXT");
-        getContentPane().add(btnNext, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 360, 100, -1));
+        getContentPane().add(btnNext, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 360, 100, -1));
+
+        jLabel6.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
+        jLabel6.setText("Comprobante de pago ");
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, -1, -1));
 
         jLabel7.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
         jLabel7.setText("Cliente ");
@@ -158,76 +158,14 @@ public class Comprobante_De_Venta extends javax.swing.JFrame {
 
         txtId.setText("0");
         getContentPane().add(txtId, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 40, 150, -1));
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 530, 300));
-
-        tblComp.setModel(modeloTablaComp);
-        jScrollPane1.setViewportView(tblComp);
-
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 0, 370, 390));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 530, 300));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnEliminarActionPerformed
-
-    private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
-if (txtFecha.getText().equals("")){
-           JOptionPane.showMessageDialog(null,"Digite una fecha dd/mm/aaaa ");
-           txtFecha.requestFocus();
-           return;
-           
-       }
-       if (txtCodigoCliente.getText().equals("")){
-           JOptionPane.showMessageDialog(null,"Digite un codigo ");
-           txtCodigoCliente.requestFocus();
-           return;
-        
-       }
-       if (cmbCli.getSelectedIndex()==0){
-           JOptionPane.showMessageDialog(null,"selecione un cliente  ");
-           cmbCli.requestFocus();
-           return;
-       } 
-       
-       
-        Comprobante objComprobante = new Comprobante();
-        String fecha = txtFecha.getText();
-        String codigo_clinete = txtCodigoCliente.getText();
-         int cliente_id_cliente = cmbCli.getSelectedIndex();
-        int id_comprobante = Integer.parseInt(txtId.getText());
-      
-        if( id_comprobante == 0){
-            boolean resultado = objComprobante.insertarComprobante(fecha, cliente_id_cliente, cliente_id_cliente, PROPERTIES);
-            if(resultado == true){
-                JOptionPane.showMessageDialog(null, "Se inserto un nuevo registro.");
-                 modeloTablaComp.setNumRows(0);
-                cargarTablaComp();
-            }else{
-                JOptionPane.showMessageDialog(null, "Error al insertar.");
-            }
-            
-        }else{
-            boolean resultado = objComprobante.actualizarComprobante(id_comprobante, cliente_id_cliente, fecha, cliente_id_cliente, PROPERTIES);
-            if(resultado == true){
-                JOptionPane.showMessageDialog(null, "Se actualizó el registro.");
-                cargarTablaComp();
-            }else{
-                JOptionPane.showMessageDialog(null, "Error al actualizar.");
-                 //Empresa obj = new Empresa();
-                //obj.setVisible(true);
-            }
-         // *** Limpio los Campos ***      
-        txtId.setText("0");
-        txtCodigoCliente.setText("");
-        txtFecha.setText("");
-        cmbCli.setSelectedIndex(0);
-        txtFecha.requestFocus();
-        cmbProd.setSelectedIndex(0);
-        }        
-             // TODO add your handling code here:
-    }//GEN-LAST:event_btnGuardarActionPerformed
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -265,23 +203,23 @@ if (txtFecha.getText().equals("")){
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnConsultar;
-    private javax.swing.JButton btnEliminar;
-    private javax.swing.JButton btnGuardar;
-    private javax.swing.JButton btnLimpiar;
     private javax.swing.JButton btnNext;
     private javax.swing.JComboBox<String> cmbCli;
     private javax.swing.JComboBox<String> cmbProd;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable tblComp;
     private javax.swing.JTextField txtCodigoCliente;
+    private javax.swing.JTextField txtComprobante;
     private javax.swing.JTextField txtFecha;
     private javax.swing.JTextField txtId;
     // End of variables declaration//GEN-END:variables

@@ -43,7 +43,7 @@ public class ComboBoxProd {
         Conexion conn = new Conexion();
         Connection con = conex.conectar();
 
-        Vector<ComboBoxProd> datos = new Vector<ComboBoxProd>();
+        Vector<ComboBoxProd> datosProds = new Vector<ComboBoxProd>();
 
         ComboBoxProd dat = null;
 
@@ -55,13 +55,13 @@ public class ComboBoxProd {
             dat = new ComboBoxProd();
             dat.setId(0);
             dat.setNombre("Seleccione");
-            datos.add(dat);
+            datosProds.add(dat);
 
             while (rs.next()) {
                 dat = new ComboBoxProd();
                 dat.setId(rs.getInt("id_prod"));
                 dat.setNombre(rs.getString("nombre"));
-                datos.add(dat);
+                datosProds.add(dat);
             }
             rs.close();
 
@@ -70,6 +70,6 @@ public class ComboBoxProd {
         {
             System.err.println(ex.toString());
         }
-        return datos;
+        return datosProds;
     } 
 }

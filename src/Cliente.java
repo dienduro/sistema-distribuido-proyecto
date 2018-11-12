@@ -125,17 +125,17 @@ public class Cliente extends ClientePOA {
         return resultado;
     }
 
-    public ResultSet consultarCmbRuc() {
-        ResultSet resultado = null;
-        try {
-            String sentenciaSql = "select ruc, nombre from empresas";
-            objConexion.conectar();
-            Statement st = objConexion.conex.createStatement();
-            resultado = st.executeQuery(sentenciaSql);
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Ocurrio un error al consultar: " + e.getMessage());
-        }
-        return resultado;
-
-    }
+//    public ResultSet consultarCmbRuc() {
+//        ResultSet resultado = null;
+//        try {
+//            String sentenciaSql = "select ruc, nombre from empresas";
+//            objConexion.conectar();
+//            Statement st = objConexion.conex.createStatement();
+//            resultado = st.executeQuery(sentenciaSql);
+//        } catch (Exception e) {
+//            JOptionPane.showMessageDialog(null, "Ocurrio un error al consultar: " + e.getMessage());
+//        }
+//        return resultado;
+//
+//    }
 }
