@@ -19,20 +19,24 @@ public class Prov extends javax.swing.JFrame {
     private DefaultTableModel modeloTablaProv;
     
     public Prov() {
-        modeloTablaProv = new DefaultTableModel(null, getColumn());
+     
         
         initComponents();
-        
-        cargarTablaproveedor();
         
         ComboBoxRues cb = new ComboBoxRues();
         DefaultComboBoxModel modeloRuesProv = new DefaultComboBoxModel(cb.mostrarRues());
         cmbEmpresa.setModel(modeloRuesProv);
     }
 
-    private String[] getColumn() {
-        String columnas[] = new String[]{"Nombre", "direccion", "telefono", "empresa_ruc"};
-        return columnas;
+    private void getColumn() {
+        modeloTablaProv = (DefaultTableModel) tblProv.getModel();
+         
+         modeloTablaProv.addColumn("ID");
+         modeloTablaProv.addColumn("Nombre");
+         modeloTablaProv.addColumn("Direccion");
+         modeloTablaProv.addColumn("Telefono");
+         modeloTablaProv.addColumn("Empresa_Ruc");
+
     }
 
     //Metodo par cargar tabla
@@ -41,9 +45,9 @@ public class Prov extends javax.swing.JFrame {
         ResultSet result = ObjproProveedor.cargarProveedor();
         try {
             //creamos un arreglo de 3 sectores
-            Object Datos[] = new Object[4];
+            Object Datos[] = new Object[5];
             while (result.next()) {
-                for (int i = 0; i < 4; i++) {
+                for (int i = 0; i < 5; i++) {
                     Datos[i] = result.getObject(i + 1);
                 }
                 modeloTablaProv.addRow(Datos);
@@ -130,7 +134,14 @@ public class Prov extends javax.swing.JFrame {
         getContentPane().add(txtDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(124, 207, 89, -1));
         getContentPane().add(txtTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(124, 253, 89, -1));
 
-        tblProv.setModel(modeloTablaProv);
+        tblProv.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+
+            }
+        ));
         tblProv.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tblProvMouseClicked(evt);
@@ -270,10 +281,13 @@ public class Prov extends javax.swing.JFrame {
         }
         // TODO add your handling code here:
         Proveedores objProveedor = new Proveedores();
+        
+        ComboBoxRues cb =  (ComboBoxRues) cmbEmpresa.getSelectedItem();
+        
         String nombres = txtNombre.getText();
         String direccion = txtDireccion.getText();
         String telefono = txtTelefono.getText();
-        int empresa_ruc = cmbEmpresa.getSelectedIndex();
+        int empresa_ruc = cb.getId();
         
         int ruc_prov = Integer.parseInt(txtProvRuc.getText());
         if (ruc_prov == 0) {
@@ -281,8 +295,7 @@ public class Prov extends javax.swing.JFrame {
             boolean resultado = objProveedor.insertarProveedor(nombres, direccion, telefono, empresa_ruc);
             if (resultado == true) {
                 JOptionPane.showMessageDialog(null, "Se inserto un nuevo registro");
-                modeloTablaProv.setNumRows(0);                
-                cargarTablaproveedor();
+                
             } else {
                 JOptionPane.showMessageDialog(null, "Erro al inserta su datos ");
             }
@@ -305,6 +318,7 @@ public class Prov extends javax.swing.JFrame {
 
     private void tblProvMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblProvMouseClicked
         int seleccion = tblProv.rowAtPoint(evt.getPoint());
+       
         txtProvRuc.setText(String.valueOf(tblProv.getValueAt(seleccion, 0)));
         txtNombre.setText(String.valueOf(tblProv.getValueAt(seleccion, 1)));
         txtDireccion.setText(String.valueOf(tblProv.getValueAt(seleccion, 2)));
@@ -313,8 +327,17 @@ public class Prov extends javax.swing.JFrame {
     }//GEN-LAST:event_tblProvMouseClicked
 
     private void btnConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarActionPerformed
-        Proveedores objProveedores = new Proveedores();
-        JOptionPane.showMessageDialog(null, objProveedores.consultarProveedor(1));        // TODO add your handling code here:
+        
+        //LIMPIAR clientes
+        modeloTablaProv = (DefaultTableModel) tblProv.getModel();
+
+      
+        modeloTablaProv.setColumnCount(0);
+        modeloTablaProv.setRowCount(0);
+        
+        
+        getColumn();
+        cargarTablaproveedor();     // TODO add your handling code here:
     }//GEN-LAST:event_btnConsultarActionPerformed
 
     /**

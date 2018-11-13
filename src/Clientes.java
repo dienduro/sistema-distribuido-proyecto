@@ -25,32 +25,35 @@ public class Clientes extends javax.swing.JFrame {
     private DefaultTableModel modeloTablaCli;
 
     public Clientes() {//constructor
-        modeloTablaCli = new DefaultTableModel(null, getColumn());
-        // modeloComboCli = new DefaultComboBoxModel(new String [] {});
-
         initComponents();
 
         ComboBoxRues cb = new ComboBoxRues();
         DefaultComboBoxModel modeloRuesCli = new DefaultComboBoxModel(cb.mostrarRues());
-        cmbEmpresa.setModel(modeloRuesCli);
-        cargarTablaCli();
+        cmbEmpresa.setModel(modeloRuesCli);        
+        
     }
     //Metodo para cargar las columnas en la tabla
 
-    private String[] getColumn() {
-        String columnas[] = new String[]{"Nombre", "apellido", "Empresa_ruc"};
-        return columnas;
+    private void getColumn() {
+        modeloTablaCli = (DefaultTableModel) tblRegistro.getModel();
+         
+         modeloTablaCli.addColumn("ID");
+         modeloTablaCli.addColumn("Nombre");
+         modeloTablaCli.addColumn("Apellido");
+         modeloTablaCli.addColumn("Empresa_ruc");
+
     }
 
     //Metodo par cargar tabla
     private void cargarTablaCli() {
         Cliente ObjCliente = new Cliente();
+        modeloTablaCli = (DefaultTableModel) tblRegistro.getModel();
         ResultSet result = ObjCliente.cargarCliente();
         try {
             //creamos un arreglo de 3 sectores
-            Object Datos[] = new Object[3];
+            Object Datos[] = new Object[4];
             while (result.next()) {
-                for (int i = 0; i < 3; i++) {
+                for (int i = 0; i < 4; i++) {
                     Datos[i] = result.getObject(i + 1);
                 }
                 modeloTablaCli.addRow(Datos);
@@ -81,12 +84,12 @@ public class Clientes extends javax.swing.JFrame {
         btnGuardar = new javax.swing.JButton();
         btnLimpiar = new javax.swing.JButton();
         btnEliminar = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tblRegistro = new javax.swing.JTable();
         btnNext = new javax.swing.JButton();
         txtApellido = new javax.swing.JTextField();
         cmbEmpresa = new javax.swing.JComboBox<>();
         jLabel10 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tblRegistro = new javax.swing.JTable();
         lblCli = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -171,16 +174,6 @@ public class Clientes extends javax.swing.JFrame {
         });
         getContentPane().add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 330, -1, 40));
 
-        tblRegistro.setModel(modeloTablaCli);
-        tblRegistro.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tblRegistroMouseClicked(evt);
-            }
-        });
-        jScrollPane1.setViewportView(tblRegistro);
-
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, 300, 120));
-
         btnNext.setBackground(new java.awt.Color(51, 255, 255));
         btnNext.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
         btnNext.setText("NEXT");
@@ -220,6 +213,18 @@ public class Clientes extends javax.swing.JFrame {
         jLabel10.setText("Apellido ");
         getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, -1, 34));
 
+        tblRegistro.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+
+            }
+        ));
+        jScrollPane2.setViewportView(tblRegistro);
+
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, 380, 110));
+
         lblCli.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/91134-OIW11W-632.jpg"))); // NOI18N
         getContentPane().add(lblCli, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 570, 440));
 
@@ -241,13 +246,18 @@ public class Clientes extends javax.swing.JFrame {
         txtApellido.setText("");
         cmbEmpresa.setSelectedIndex(0);
         txtNombre.requestFocus();
+        modeloTablaCli.setColumnCount(0);
+        modeloTablaCli.setRowCount(0);
 
 
     }//GEN-LAST:event_btnLimpiarActionPerformed
 
     private void btnConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarActionPerformed
-        Cliente objCliente = new Cliente();
-        JOptionPane.showMessageDialog(null, objCliente.consultarCliente(1));
+    modeloTablaCli = (DefaultTableModel) tblRegistro.getModel();      
+        modeloTablaCli.setColumnCount(0);
+        modeloTablaCli.setRowCount(0);
+        getColumn();
+        cargarTablaCli();
     }//GEN-LAST:event_btnConsultarActionPerformed
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
@@ -271,20 +281,22 @@ public class Clientes extends javax.swing.JFrame {
         }
 
         Cliente objCliente = new Cliente();
+        
+        
+        ComboBoxRues cb =  (ComboBoxRues) cmbEmpresa.getSelectedItem();
+        
         Empresas objEmpresas = new Empresas();
         
         String nombre = txtNombre.getText();
         String apellido = txtApellido.getText();
-        int empresa_ruc = cmbEmpresa.getSelectedIndex();
+        int empresa_ruc = cb.getId();
         int id_cliente = Integer.parseInt(txtId.getText());
         JOptionPane.showMessageDialog(null, empresa_ruc);
 
         if (id_cliente == 0) {
-            boolean resultado = objCliente.insertarCliente(nombre, apellido, empresa_ruc);
+            boolean resultado = objCliente.insertarCliente(nombre, apellido, empresa_ruc );
             if (resultado == true) {
                 JOptionPane.showMessageDialog(null, "Se inserto un nuevo registro.");
-                modeloTablaCli.setNumRows(0);
-                cargarTablaCli();
             } else {
                 JOptionPane.showMessageDialog(null, "Error al insertar.");
             }
@@ -312,16 +324,6 @@ public class Clientes extends javax.swing.JFrame {
     private void btnNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNextActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnNextActionPerformed
-
-    private void tblRegistroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblRegistroMouseClicked
-        // TODO add your handling code here:
-        int seleccion = tblRegistro.rowAtPoint(evt.getPoint());
-        txtNombre.setText(String.valueOf(tblRegistro.getValueAt(seleccion, 0)));
-        txtApellido.setText(String.valueOf(tblRegistro.getValueAt(seleccion, 1)));
-        //cmbEmpresa.setText(String.valueOf(tblRegistro.getValueAt(seleccion,2)));
-        //Creamos el objeto
-
-    }//GEN-LAST:event_tblRegistroMouseClicked
 
     private void txtNombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombreKeyTyped
         // TODO add your handling code here:
@@ -372,19 +374,33 @@ public class Clientes extends javax.swing.JFrame {
 
         // Asigno a idCiudad el elemento a eliminar
         int id_cliente = Integer.parseInt(txtId.getText());
+        
+        System.out.println(id_cliente);
 
         // Elimino el registro del JTable
         modelo.removeRow(indice);
 
         Cliente objCliente = new Cliente();
         // Elimino el registro de la tabla cliente
-        boolean resultado = objCliente.eliminarCliente(id_cliente);
-        // Imprimo el mensaje para indicar si se eliminó o no el registro
-        if (resultado == true) {
-            JOptionPane.showMessageDialog(null, "El registro se elimino.");
-        } else {
-            JOptionPane.showMessageDialog(null, "ERROR: No se elimino el registro.");
+       
+        
+        
+        try {
+            
+            boolean resultado = objCliente.eliminarCliente(id_cliente);
+            // Imprimo el mensaje para indicar si se eliminó o no el registro
+            if (resultado == true) {
+                JOptionPane.showMessageDialog(null, "El registro se elimino.");
+            } else {
+                JOptionPane.showMessageDialog(null, "ERROR: No se elimino el registro.");
+            }
+            
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "ERROR:" + e.getMessage());
         }
+        
+        
+       
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void cmbEmpresaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbEmpresaActionPerformed
@@ -438,7 +454,7 @@ public class Clientes extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel lblCli;
     private javax.swing.JTable tblRegistro;
     private javax.swing.JTextField txtApellido;

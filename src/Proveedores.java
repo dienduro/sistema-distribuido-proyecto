@@ -116,7 +116,7 @@ public class Proveedores extends ProveedorPOA{
      public ResultSet cargarProveedor(){
        ResultSet resultado = null;
         try {
-            String sql = "Select nombre, direccion,telefono,empresa_ruc from Proveedor";
+            String sql = "Select ruc_prov,nombre, direccion,telefono,empresa_ruc from Proveedor";
             objConexion.conectar(); // abrimos la conexion
             Statement st = objConexion.conex.createStatement();//encargado de la consulta
             resultado = st.executeQuery(sql);
