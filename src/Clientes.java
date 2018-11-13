@@ -38,7 +38,7 @@ public class Clientes extends javax.swing.JFrame {
     //Metodo para cargar las columnas en la tabla
 
     private String[] getColumn() {
-        String columnas[] = new String[]{"id", "Nombre", "apellido", "Empresa"};
+        String columnas[] = new String[]{"Nombre", "apellido", "Empresa_ruc"};
         return columnas;
     }
 
@@ -48,9 +48,9 @@ public class Clientes extends javax.swing.JFrame {
         ResultSet result = ObjCliente.cargarCliente();
         try {
             //creamos un arreglo de 3 sectores
-            Object Datos[] = new Object[4];
+            Object Datos[] = new Object[3];
             while (result.next()) {
-                for (int i = 0; i < 4; i++) {
+                for (int i = 0; i < 3; i++) {
                     Datos[i] = result.getObject(i + 1);
                 }
                 modeloTablaCli.addRow(Datos);
@@ -204,16 +204,23 @@ public class Clientes extends javax.swing.JFrame {
         getContentPane().add(txtApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 120, 126, -1));
 
         cmbEmpresa.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
+        cmbEmpresa.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cmbEmpresaItemStateChanged(evt);
+            }
+        });
         cmbEmpresa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmbEmpresaActionPerformed(evt);
             }
         });
-        getContentPane().add(cmbEmpresa, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 150, 120, -1));
+        getContentPane().add(cmbEmpresa, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 150, 190, -1));
 
         jLabel10.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
         jLabel10.setText("Apellido ");
         getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, -1, 34));
+
+        lblCli.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/91134-OIW11W-632.jpg"))); // NOI18N
         getContentPane().add(lblCli, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 570, 440));
 
         pack();
@@ -269,9 +276,8 @@ public class Clientes extends javax.swing.JFrame {
         String nombre = txtNombre.getText();
         String apellido = txtApellido.getText();
         int empresa_ruc = cmbEmpresa.getSelectedIndex();
-        
-        JOptionPane.showMessageDialog(null, empresa_ruc);
         int id_cliente = Integer.parseInt(txtId.getText());
+        JOptionPane.showMessageDialog(null, empresa_ruc);
 
         if (id_cliente == 0) {
             boolean resultado = objCliente.insertarCliente(nombre, apellido, empresa_ruc);
@@ -384,6 +390,10 @@ public class Clientes extends javax.swing.JFrame {
     private void cmbEmpresaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbEmpresaActionPerformed
 
     }//GEN-LAST:event_cmbEmpresaActionPerformed
+
+    private void cmbEmpresaItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbEmpresaItemStateChanged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmbEmpresaItemStateChanged
 
     /**
      * @param args the command line arguments

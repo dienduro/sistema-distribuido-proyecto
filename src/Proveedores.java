@@ -19,7 +19,7 @@ public class Proveedores extends ProveedorPOA{
     public boolean insertarProveedor(String nombre, String direccion, String telefono,int empresa_ruc) {
       boolean resultado = false;
         try {
-           String sql="insert into proveedor (nombres,direccion,telefono) values('"+nombre+"','"+direccion+"','"+telefono+"','"+empresa_ruc+"')"; 
+           String sql="insert into proveedor (nombre,direccion,telefono,empresa_ruc) values('"+nombre+"','"+direccion+"','"+telefono+"','"+empresa_ruc+"')"; 
            objConexion.conectar();
            Statement st = objConexion.conex.createStatement();
            int valor = st.executeUpdate(sql);

@@ -20,8 +20,7 @@ public class Cliente extends ClientePOA {
     public boolean insertarCliente(String nombre, String apellido, int empresa_ruc) {
         boolean resultado = false;
         try {
-            String sql = "insert into cliente (id_cliente, nombre,apellido,empresa_ruc)"
-                    + " values('" + nombre + "','" + apellido + "','"+empresa_ruc+"')";
+            String sql="insert into cliente (nombre,apellido,empresa_ruc) values('" + nombre + "','" + apellido + "','"+empresa_ruc+"')";
             objConexion.conectar();
             Statement st = objConexion.conex.createStatement();
             int valor = st.executeUpdate(sql);
@@ -114,7 +113,7 @@ public class Cliente extends ClientePOA {
     public ResultSet cargarCliente() {
         ResultSet resultado = null;
         try {
-            String sql = "Select nombre, apellido from cliente";
+            String sql = "Select id_cliente,nombre, apellido from cliente";
             objConexion.conectar(); // abrimos la conexion
             Statement st = objConexion.conex.createStatement();//encargado de la consulta
             resultado = st.executeQuery(sql);
