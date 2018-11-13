@@ -113,7 +113,7 @@ public class Cliente extends ClientePOA {
     public ResultSet cargarCliente() {
         ResultSet resultado = null;
         try {
-            String sql = "Select id_cliente,nombre, apellido from cliente";
+            String sql = "Select nombre, apellido,empresa_ruc from cliente";
             objConexion.conectar(); // abrimos la conexion
             Statement st = objConexion.conex.createStatement();//encargado de la consulta
             resultado = st.executeQuery(sql);

@@ -147,6 +147,11 @@ public class Empleado extends javax.swing.JFrame {
         btnGuardar.setBackground(new java.awt.Color(51, 255, 255));
         btnGuardar.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
         btnGuardar.setText("Guardar");
+        btnGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGuardarActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 430, -1, -1));
 
         btnLimpiar.setBackground(new java.awt.Color(51, 255, 255));
@@ -229,6 +234,10 @@ public class Empleado extends javax.swing.JFrame {
     private void btnNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNextActionPerformed
      
     }//GEN-LAST:event_btnNextActionPerformed
+
+    private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnGuardarActionPerformed
 
     /**
      * @param args the command line arguments
