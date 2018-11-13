@@ -108,6 +108,11 @@ public class Comprobante_De_Venta extends javax.swing.JFrame {
         jButton1.setBackground(new java.awt.Color(51, 255, 255));
         jButton1.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
         jButton1.setText("Consultar ");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 270, -1, -1));
 
         jButton4.setBackground(new java.awt.Color(51, 255, 255));
@@ -175,6 +180,19 @@ public class Comprobante_De_Venta extends javax.swing.JFrame {
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+  Comprobante objComprobante = new Comprobante();
+        int id_prod = Integer.parseInt(txtId.getText());
+
+        JOptionPane.showMessageDialog(null, objComprobante.consultarComprobante(1));
+
+        txtId.setText("0");
+        txtFecha.setText("");
+        txtCodigoCliente.setText("");
+        txtComprobante.setText("");       
+        txtFecha.requestFocus();        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
