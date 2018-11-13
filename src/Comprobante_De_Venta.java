@@ -113,6 +113,11 @@ public class Comprobante_De_Venta extends javax.swing.JFrame {
         jButton4.setBackground(new java.awt.Color(51, 255, 255));
         jButton4.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
         jButton4.setText("Guardar");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 270, -1, -1));
 
         jButton2.setBackground(new java.awt.Color(51, 255, 255));
@@ -166,6 +171,10 @@ public class Comprobante_De_Venta extends javax.swing.JFrame {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
      * @param args the command line arguments

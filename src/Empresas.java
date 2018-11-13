@@ -70,7 +70,7 @@ public class Empresas extends EmpresasPOA{
             objConexion.conex.close();
             st.close();
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "ocurrio un error al insertar"+e.getMessage());
+            JOptionPane.showMessageDialog(null, "ocurrio un error al eliminar"+e.getMessage());
         }
         return resultado;
     }  

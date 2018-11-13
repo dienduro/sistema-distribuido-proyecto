@@ -59,7 +59,7 @@ public class ComboBoxRues {
             while (rs.next()) {
                 dat = new ComboBoxRues();
                 dat.setId(rs.getInt("ruc"));
-                dat.setNombre(rs.getString("ruc"));
+                dat.setNombre(rs.getString("nombre"));
                 datos.add(dat);
             }
             rs.close();

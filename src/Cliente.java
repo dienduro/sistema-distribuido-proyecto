@@ -64,7 +64,7 @@ public class Cliente extends ClientePOA {
     public boolean eliminarCliente(int id_cliente) {
         boolean resultado = false;
         try {
-            String sql = "delete from cliente where id_cliente = " + id_cliente;
+            String sql = "delete from cliente where id_cliente = "+id_cliente;
             objConexion.conectar();
             Statement st = objConexion.conex.createStatement();
             int valor = st.executeUpdate(sql);
