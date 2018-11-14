@@ -34,6 +34,9 @@ public class ComboBoxCli {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
+     public String toString() {
+        return this.nombre;
+    }
 
     public Vector<ComboBoxCli> mostrarClis() {
         Conexion conex = new Conexion();

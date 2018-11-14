@@ -24,29 +24,37 @@ public class Comprobante_De_Venta extends javax.swing.JFrame {
     public Comprobante_De_Venta() {
         initComponents();            
        cargarTablaComp();
-        ComboBoxCli cbCli = new ComboBoxCli();
-      DefaultComboBoxModel modeloCli = new DefaultComboBoxModel(cbCli.mostrarClis());
+        ComboBoxCli cbc = new ComboBoxCli();
+      DefaultComboBoxModel modeloCli = new DefaultComboBoxModel(cbc.mostrarClis());
        cmbCli.setModel(modeloCli);
         
-        ComboBoxProd cbProd = new ComboBoxProd();
-        DefaultComboBoxModel modeloProd = new DefaultComboBoxModel(cbProd.mostrarBoxProds());
+        ComboBoxProd cbp = new ComboBoxProd();
+        DefaultComboBoxModel modeloProd = new DefaultComboBoxModel(cbp.mostrarBoxProds());
         cmbProd.setModel(modeloProd);
     }
     
     
-    private String[] getColumn(){
-        String columnas[] = new String[]{"id","Fecha","codigo_Cliente","cliente","Producto"};
-        return columnas;
+     private void getColumn() {
+        modeloTablaComp = (DefaultTableModel) tblComprobante.getModel();
+         
+         modeloTablaComp.addColumn("ID");
+         modeloTablaComp.addColumn("fecha");
+         modeloTablaComp.addColumn("cliente");
+         modeloTablaComp.addColumn("empresa");
+
     }
+
+    //Metodo par cargar tabla
+    
     //Metodo par cargar tabla
     private void cargarTablaComp(){
      Comprobante ObjComprobante = new Comprobante();
         ResultSet result = ObjComprobante.cargarComprobante();
         try {
             //creamos un arreglo de 3 sectores
-            Object Datos [] = new Object[4];
+            Object Datos [] = new Object[5];
             while (result.next()) {
-                for (int i = 0; i <4; i++) {
+                for (int i = 0; i <5; i++) {
                     Datos[i]=result.getObject(i+1) ;
                 }
                 modeloTablaComp.addRow(Datos);
@@ -71,83 +79,38 @@ public class Comprobante_De_Venta extends javax.swing.JFrame {
         txtFecha = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         txtCodigoCliente = new javax.swing.JTextField();
-        txtComprobante = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        btnNext = new javax.swing.JButton();
-        jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         cmbCli = new javax.swing.JComboBox<>();
         jLabel4 = new javax.swing.JLabel();
         cmbProd = new javax.swing.JComboBox<>();
         jLabel8 = new javax.swing.JLabel();
         txtId = new javax.swing.JTextField();
+        btnEliminar = new javax.swing.JButton();
+        btnConsultar = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
+        btnGuardar = new javax.swing.JButton();
+        btnLimpiar = new javax.swing.JButton();
+        btnNext = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tblComprobante = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
         jLabel1.setText("id comprovante");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 30, -1, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 40, -1, -1));
         getContentPane().add(txtFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 70, 150, -1));
 
         jLabel2.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
         jLabel2.setText("Codigo Cliente ");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 90, -1, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 100, -1, -1));
         getContentPane().add(txtCodigoCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 100, 150, -1));
-        getContentPane().add(txtComprobante, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 130, 150, -1));
 
         jLabel3.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
         jLabel3.setText("Producto");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 200, -1, -1));
-
-        jButton1.setBackground(new java.awt.Color(51, 255, 255));
-        jButton1.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
-        jButton1.setText("Consultar ");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 270, -1, -1));
-
-        jButton4.setBackground(new java.awt.Color(51, 255, 255));
-        jButton4.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
-        jButton4.setText("Guardar");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 270, -1, -1));
-
-        jButton2.setBackground(new java.awt.Color(51, 255, 255));
-        jButton2.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
-        jButton2.setText("Limpiar ");
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 270, -1, -1));
-
-        jButton3.setBackground(new java.awt.Color(51, 255, 255));
-        jButton3.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
-        jButton3.setText("Eliminar");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 270, -1, -1));
-
-        btnNext.setBackground(new java.awt.Color(51, 255, 255));
-        btnNext.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
-        btnNext.setText("NEXT");
-        getContentPane().add(btnNext, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 360, 100, -1));
-
-        jLabel6.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
-        jLabel6.setText("Comprobante de pago ");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, -1, -1));
 
         jLabel7.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
         jLabel7.setText("Cliente ");
@@ -164,35 +127,220 @@ public class Comprobante_De_Venta extends javax.swing.JFrame {
 
         jLabel8.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
         jLabel8.setText("Fecha ");
-        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 60, -1, -1));
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 70, -1, -1));
 
         txtId.setText("0");
         getContentPane().add(txtId, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 40, 150, -1));
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 530, 300));
+
+        btnEliminar.setBackground(new java.awt.Color(51, 255, 255));
+        btnEliminar.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
+        btnEliminar.setText("Eliminar ");
+        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 270, -1, 40));
+
+        btnConsultar.setBackground(new java.awt.Color(51, 255, 255));
+        btnConsultar.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
+        btnConsultar.setText("Consultar ");
+        btnConsultar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConsultarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnConsultar, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 270, 150, 40));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 530, 240));
+
+        btnGuardar.setBackground(new java.awt.Color(51, 255, 255));
+        btnGuardar.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
+        btnGuardar.setText("Guardar ");
+        btnGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGuardarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, 130, 40));
+
+        btnLimpiar.setBackground(new java.awt.Color(51, 255, 255));
+        btnLimpiar.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
+        btnLimpiar.setText("Limpiar");
+        btnLimpiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLimpiarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 320, 110, 40));
+
+        btnNext.setBackground(new java.awt.Color(51, 255, 255));
+        btnNext.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
+        btnNext.setText("NEXT");
+        btnNext.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNextActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnNext, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 320, 120, 40));
+
+        tblComprobante.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+
+            }
+        ));
+        jScrollPane1.setViewportView(tblComprobante);
+
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton4ActionPerformed
+        // Elimino el registro del JTable y la tabla cliente
+        // Defino el modelo para el JTable
+        DefaultTableModel modelo = (DefaultTableModel) tblComprobante.getModel();
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-  Comprobante objComprobante = new Comprobante();
-        int id_prod = Integer.parseInt(txtId.getText());
+        // Asigno el indice del elemento seleccionado
+        indice = tblComprobante.getSelectedRow();
 
-        JOptionPane.showMessageDialog(null, objComprobante.consultarComprobante(1));
+        // Asigno a idCiudad el elemento a eliminar
+        int id_cliente = Integer.parseInt(txtId.getText());
 
+        System.out.println(id_cliente);
+
+        // Elimino el registro del JTable
+        modelo.removeRow(indice);
+
+        Cliente objCliente = new Cliente();
+        // Elimino el registro de la tabla cliente
+
+        try {
+
+            boolean resultado = objCliente.eliminarCliente(id_cliente);
+            // Imprimo el mensaje para indicar si se eliminó o no el registro
+            if (resultado == true) {
+                JOptionPane.showMessageDialog(null, "El registro se elimino.");
+            } else {
+                JOptionPane.showMessageDialog(null, "ERROR: No se elimino el registro.");
+            }
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "ERROR:" + e.getMessage());
+        }
+
+    }//GEN-LAST:event_btnEliminarActionPerformed
+
+    private void btnConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarActionPerformed
+        modeloTablaComp = (DefaultTableModel) tblComprobante.getModel();
+        modeloTablaComp.setColumnCount(0);
+        modeloTablaComp.setRowCount(0);
+        getColumn();
+        cargarTablaComp();
+    }//GEN-LAST:event_btnConsultarActionPerformed
+
+    private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
+        //LIMPIAR clientes
+        modeloTablaComp = (DefaultTableModel) tblComprobante.getModel();
+
+        // Limpio los campos
+        // *** Limpio los Campos ***
         txtId.setText("0");
         txtFecha.setText("");
-        txtCodigoCliente.setText("");
-        txtComprobante.setText("");       
-        txtFecha.requestFocus();        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+        
+        cmbCli.setSelectedIndex(0);
+        cmbProd.setSelectedIndex(0);
+        txtCodigoCliente.requestFocus();
+        modeloTablaComp.setColumnCount(0);
+        modeloTablaComp.setRowCount(0);
+
+    }//GEN-LAST:event_btnLimpiarActionPerformed
+
+    private void btnNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnNextActionPerformed
+
+    private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
+
+        if (txtFecha.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Digite Su fecha ");
+            txtFecha.requestFocus();
+            return;
+
+        }
+        if (txtCodigoCliente.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Digite Su comprobante ");
+            txtCodigoCliente.requestFocus();
+            return;
+
+        }
+        if (cmbCli.getSelectedIndex() == 0) {
+            JOptionPane.showMessageDialog(null, "selecione una empresa  ");
+            cmbCli.requestFocus();
+            return;
+        }
+
+        Comprobante objComprobante = new Comprobante();
+
+        ComboBoxCli cbc  =  (ComboBoxCli) cmbCli.getSelectedItem();
+        ComboBoxProd cbp =  (ComboBoxProd) cmbProd.getSelectedItem();
+       
+
+        String fecha = txtFecha.getText();
+        int id_comprobante = Integer.parseInt(txtId.getText());
+        int cliente_id_cliente = cbc.getId();
+        int producto_id_prod = cbp.getId();
+        int codigo_cliente = Integer.parseInt(txtCodigoCliente.getText());
+       
+        try {
+            
+            if (id_comprobante == 0) {
+                boolean resultado = objComprobante.insertarComprobante(fecha, codigo_cliente, cliente_id_cliente, producto_id_prod);
+                if (resultado == true) {
+                    JOptionPane.showMessageDialog(null, "Se inserto un nuevo registro.");
+                } else {
+                    JOptionPane.showMessageDialog(null, "Error al insertar.");
+                }
+            }
+            else {
+                boolean resultado = objComprobante.actualizarComprobante(id_comprobante, codigo_cliente, fecha, cliente_id_cliente, producto_id_prod);
+                if (resultado == true) {
+                    JOptionPane.showMessageDialog(null, "Se actualizó el registro.");
+                    cargarTablaComp();
+                }
+                 else {
+                    JOptionPane.showMessageDialog(null, "Error al actualizar.");
+                    //Empresa obj = new Empresa();
+                }   //obj.setVisible(true);
+            
+            }
+           
+                
+                
+            // *** Limpio los Campos ***
+            txtId.setText("0");
+        txtFecha.setText("");
+        
+        cmbCli.setSelectedIndex(0);
+        cmbProd.setSelectedIndex(0);
+        txtCodigoCliente.requestFocus();
+        modeloTablaComp.setColumnCount(0);
+        modeloTablaComp.setRowCount(0);
+
+
+        } catch (Exception e) {
+               System.out.println("error..................");
+                
+        }
+            
+        
+        
+        
+    }//GEN-LAST:event_btnGuardarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -230,23 +378,23 @@ public class Comprobante_De_Venta extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnConsultar;
+    private javax.swing.JButton btnEliminar;
+    private javax.swing.JButton btnGuardar;
+    private javax.swing.JButton btnLimpiar;
     private javax.swing.JButton btnNext;
     private javax.swing.JComboBox<String> cmbCli;
     private javax.swing.JComboBox<String> cmbProd;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable tblComprobante;
     private javax.swing.JTextField txtCodigoCliente;
-    private javax.swing.JTextField txtComprobante;
     private javax.swing.JTextField txtFecha;
     private javax.swing.JTextField txtId;
     // End of variables declaration//GEN-END:variables

@@ -28,7 +28,7 @@ public class Empleados extends EmpleadoPOA {
             }
 
             objConexion.conex.close();
-        } catch (Exception e) {
+        } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "ocurrio un error al eliminar empleado " + e.getMessage());
         }
 
@@ -93,10 +93,10 @@ public class Empleados extends EmpleadoPOA {
     }
 
     @Override
-    public boolean actualizarEmpleado(int cedula_emple, String nombre, String apellido, String genero, String direccion, String fecha_nacimiento, String estado_civil, String codigo_cargo, String hora_entrada, String hora_salida, String telefono, float sueldo, int empresa_ruc) {
+    public boolean actualizarEmpleado(int cedula_empleado, String nombre, String apellido, String genero, String direccion, String fecha_nacimiento, String estado_civil, String codigo_cargo, String hora_entrada, String hora_salida, String telefono, float sueldo, int empresa_ruc) {
         boolean resultado = false;
         try {
-            String sql = "update empleado set  empresa_ruc='" + empresa_ruc + "' nombre = '" + nombre + "',apellido='" + apellido + "',genero='" + genero + "',direccion='" + direccion + "',fecha_nacimiento='" + fecha_nacimiento + "',estado_civil='" + estado_civil + "',codigo_cargo='" + codigo_cargo + "',hora_entrada='" + hora_entrada + "',hora_salida='" + hora_salida + "',telefono='" + telefono + "',sueldo='" + sueldo + "' where cedula_emple = '" + cedula_emple + "' ";
+            String sql = "update empleado set cedula_empleado ='"+cedula_empleado+"' ,  nombre = '" + nombre + "',apellido='" + apellido + "',genero='" + genero + "',direccion='" + direccion + "',fecha_nacimiento='" + fecha_nacimiento + "',estado_civil='" + estado_civil + "',codigo_cargo='" + codigo_cargo + "',hora_entrada='" + hora_entrada + "',hora_salida='" + hora_salida + "',telefono='" + telefono + "',sueldo='" + sueldo + "',empresa_ruc='" + empresa_ruc + "' where cedula_emple = '" + cedula_empleado + "' ";
             Statement st = objConexion.conex.createStatement();
             int valor = st.executeUpdate(sql);
             if (valor > 0) {
@@ -132,6 +132,7 @@ public class Empleados extends EmpleadoPOA {
         return resultado;
     }
 
+   
     
 
    

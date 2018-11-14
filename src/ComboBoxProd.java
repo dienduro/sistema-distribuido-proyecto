@@ -34,6 +34,9 @@ public class ComboBoxProd {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
+     public String toString() {
+        return this.nombre;
+    }
     
       public Vector<ComboBoxProd> mostrarBoxProds() {
         Conexion conex = new Conexion();

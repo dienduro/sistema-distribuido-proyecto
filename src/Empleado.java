@@ -291,27 +291,27 @@ public class Empleado extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+       // Defino el modelo para el JTable
         DefaultTableModel modelo = (DefaultTableModel) tblEmpleado.getModel();
 
         // Asigno el indice del elemento seleccionado
         indice = tblEmpleado.getSelectedRow();
 
         // Asigno a idCiudad el elemento a eliminar
-        int cedula_empleado = Integer.parseInt(txtCedula.getText());
+        int cedula_empleado = Integer.parseInt(txtCedula.getText());;
 
         // Elimino el registro del JTable
         modelo.removeRow(indice);
-
-        Empleados ObjempEmpleados = new Empleados();
+        
+        Empleados objEmpleados = new Empleados();
         // Elimino el registro de la tabla proveedor
-        boolean resultado = ObjempEmpleados.eliminarEmpleado(cedula_empleado);
+        boolean resultado = objEmpleados.eliminarEmpleado(cedula_empleado);
         // Imprimo el mensaje para indicar si se eliminó o no el registro
         if (resultado == true) {
-            JOptionPane.showMessageDialog(null, "El registro se elimino empresas .");
+            JOptionPane.showMessageDialog(null, "El registro se elimino.");
         } else {
-            JOptionPane.showMessageDialog(null, "ERROR: No se elimino el registro empresas.");
-
-        }    // TODO add your handling code here:
+            JOptionPane.showMessageDialog(null, "ERROR: No se elimino el registro.");
+        }        // TODO add your handling code here:
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void btnConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarActionPerformed
@@ -480,32 +480,34 @@ public class Empleado extends javax.swing.JFrame {
 
         String hora_salida = txtHoraDeSalida.getText();
         float sueldo = Float.parseFloat(txtSueldo.getText());
-
-        boolean resultado = objEmpleados.actualizarEmpleado(cedula_empleado, nombre, apellido, genero, direccion, fecha_nacimiento, estado_civil, codigo_cargo, hora_entrada, hora_salida, telefono, sueldo, empresa_ruc);
-        if (resultado == true) {
+        try {
+            boolean resultado = objEmpleados.actualizarEmpleado( cedula_empleado, nombre, apellido, genero, direccion, fecha_nacimiento, estado_civil, codigo_cargo, hora_entrada, hora_salida, telefono, sueldo,  empresa_ruc);
+        if (resultado == true){
             JOptionPane.showMessageDialog(null, "Se actualizo el registro");
             modeloTablaEmpleado.setNumRows(0);
             cargarTablaEmpleado();
-        } else {
+        }
+        } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Error al actualizar  ");
         }
+          
     }//GEN-LAST:event_btnActualizarActionPerformed
 
     private void tblEmpleadoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblEmpleadoMouseClicked
         int seleccion = tblEmpleado.rowAtPoint(evt.getPoint());
-        txtApellido.setText(String.valueOf(tblEmpleado.getValueAt(seleccion, 0)));
-        txtCedula.setText(String.valueOf(tblEmpleado.getValueAt(seleccion, 1)));
-        txtCodigoCargo.setText(String.valueOf(tblEmpleado.getValueAt(seleccion, 2)));
-        txtCumple.setText(String.valueOf(tblEmpleado.getValueAt(seleccion, 3)));
-        txtDireccion.setText(String.valueOf(tblEmpleado.getValueAt(seleccion, 5)));
+        txtApellido.setText(String.valueOf(tblEmpleado.getValueAt(seleccion, 2)));
+        txtCedula.setText(String.valueOf(tblEmpleado.getValueAt(seleccion, 0)));
+        txtCodigoCargo.setText(String.valueOf(tblEmpleado.getValueAt(seleccion, 7)));
+        txtCumple.setText(String.valueOf(tblEmpleado.getValueAt(seleccion, 5)));
+        txtDireccion.setText(String.valueOf(tblEmpleado.getValueAt(seleccion, 4)));
         txtEstado.setText(String.valueOf(tblEmpleado.getValueAt(seleccion, 6)));
-        txtGenero.setText(String.valueOf(tblEmpleado.getValueAt(seleccion, 7)));
-        txtHoraDeSalida.setText(String.valueOf(tblEmpleado.getValueAt(seleccion, 8)));
-        txtHoraEntrada.setText(String.valueOf(tblEmpleado.getValueAt(seleccion, 9)));
-        txtNombre.setText(String.valueOf(tblEmpleado.getValueAt(seleccion, 10)));
+        txtGenero.setText(String.valueOf(tblEmpleado.getValueAt(seleccion, 3)));
+        txtHoraDeSalida.setText(String.valueOf(tblEmpleado.getValueAt(seleccion, 9)));
+        txtHoraEntrada.setText(String.valueOf(tblEmpleado.getValueAt(seleccion, 8)));
+        txtNombre.setText(String.valueOf(tblEmpleado.getValueAt(seleccion, 1)));
         txtSueldo.setText(String.valueOf(tblEmpleado.getValueAt(seleccion, 11)));
-        txtTelefono.setText(String.valueOf(tblEmpleado.getValueAt(seleccion, 12)));
-        cmbEmpresa.setActionCommand(String.valueOf(tblEmpleado.getValueAt(seleccion,13)));
+        txtTelefono.setText(String.valueOf(tblEmpleado.getValueAt(seleccion, 10)));
+        
     }//GEN-LAST:event_tblEmpleadoMouseClicked
 
     /**

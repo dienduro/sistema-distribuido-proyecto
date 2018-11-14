@@ -20,7 +20,7 @@ public class Comprobante extends ComprobantePOA {
     public boolean insertarComprobante(String fecha, int codigo_cliente, int cliente_id_cliente, int producto_id_prod) {
         boolean resultado = false;
         try {
-            String sql = "insert into insertarComprobante (id_comprobante, fecha, codigo_cliente) values('" + fecha + "','" + codigo_cliente + "')";
+            String sql = "insert into  comprobante_venta ( fecha, codigo_cliente,cliente_id_cliente,producto_id_prod) values('" + fecha + "','" + codigo_cliente + "','"+cliente_id_cliente+"','"+producto_id_prod+"')";
             objConexion.conectar();
             Statement st = objConexion.conex.createStatement();
             int valor = st.executeUpdate(sql);
@@ -42,7 +42,7 @@ public class Comprobante extends ComprobantePOA {
     public boolean actualizarComprobante(int id_comprobante, int codigo_cliente, String fecha, int cliente_id_cliente, int producto_id_prod) {
         boolean resultado = false;
         try {
-            String sql = "update comprobante set fecha = '" + fecha + "','" + codigo_cliente + "' where id_comprobante = '" + id_comprobante + "' ";
+            String sql = "update comprobante_venta set fecha = '" + fecha + "','" + codigo_cliente + "' where id_comprobante = '" + id_comprobante + "' ";
             Statement st = objConexion.conex.createStatement();
             int valor = st.executeUpdate(sql);
             if (valor > 0) {
@@ -110,7 +110,7 @@ public class Comprobante extends ComprobantePOA {
     public ResultSet cargarComprobante() {
         ResultSet resultado = null;
         try {
-            String sql = "Select fecha, codigo_cliente from Comprobante_venta";
+            String sql = "Select id_comprobante , fecha, codigo_cliente,cliente_id_cliente,producto_id_prod from comprobante_venta";
             objConexion.conectar(); // abrimos la conexion
             Statement st = objConexion.conex.createStatement();//encargado de la consulta
             resultado = st.executeQuery(sql);
