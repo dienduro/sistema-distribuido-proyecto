@@ -221,6 +221,11 @@ public class Clientes extends javax.swing.JFrame {
 
             }
         ));
+        tblRegistro.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblRegistroMouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(tblRegistro);
 
         getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, 380, 110));
@@ -375,7 +380,7 @@ public class Clientes extends javax.swing.JFrame {
         // Asigno a idCiudad el elemento a eliminar
         int id_cliente = Integer.parseInt(txtId.getText());
         
-        System.out.println(id_cliente);
+       // System.out.println(id_cliente);
 
         // Elimino el registro del JTable
         modelo.removeRow(indice);
@@ -410,6 +415,17 @@ public class Clientes extends javax.swing.JFrame {
     private void cmbEmpresaItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbEmpresaItemStateChanged
         // TODO add your handling code here:
     }//GEN-LAST:event_cmbEmpresaItemStateChanged
+
+    private void tblRegistroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblRegistroMouseClicked
+        // TODO add your handling code here:
+           int seleccion = tblRegistro.rowAtPoint(evt.getPoint());
+       
+        txtId.setText(String.valueOf(tblRegistro.getValueAt(seleccion, 0)));
+        txtNombre.setText(String.valueOf(tblRegistro.getValueAt(seleccion, 1)));
+        txtApellido.setText(String.valueOf(tblRegistro.getValueAt(seleccion, 2)));
+      
+        
+    }//GEN-LAST:event_tblRegistroMouseClicked
 
     /**
      * @param args the command line arguments
