@@ -124,6 +124,17 @@ public class Prov extends javax.swing.JFrame {
         txtProvRuc.setEditable(false);
         txtProvRuc.setText("0");
         getContentPane().add(txtProvRuc, new org.netbeans.lib.awtextra.AbsoluteConstraints(124, 115, 89, -1));
+
+        txtNombre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNombreActionPerformed(evt);
+            }
+        });
+        txtNombre.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtNombreKeyTyped(evt);
+            }
+        });
         getContentPane().add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(124, 161, 89, -1));
 
         txtDireccion.addActionListener(new java.awt.event.ActionListener() {
@@ -132,6 +143,17 @@ public class Prov extends javax.swing.JFrame {
             }
         });
         getContentPane().add(txtDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(124, 207, 89, -1));
+
+        txtTelefono.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtTelefonoActionPerformed(evt);
+            }
+        });
+        txtTelefono.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtTelefonoKeyTyped(evt);
+            }
+        });
         getContentPane().add(txtTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(124, 253, 89, -1));
 
         tblProv.setModel(new javax.swing.table.DefaultTableModel(
@@ -211,6 +233,7 @@ public class Prov extends javax.swing.JFrame {
 
     private void txtDireccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDireccionActionPerformed
         // TODO add your handling code here:
+         txtDireccion.transferFocus();
     }//GEN-LAST:event_txtDireccionActionPerformed
 
     private void btnNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNextActionPerformed
@@ -227,7 +250,7 @@ public class Prov extends javax.swing.JFrame {
         indice = tblProv.getSelectedRow();
 
         // Asigno a idCiudad el elemento a eliminar
-        int ruc_prov = Integer.parseInt(txtProvRuc.getText());;
+        int ruc_prov = Integer.parseInt(txtProvRuc.getText());
 
         // Elimino el registro del JTable
         modelo.removeRow(indice);
@@ -340,6 +363,37 @@ public class Prov extends javax.swing.JFrame {
         cargarTablaproveedor();     // TODO add your handling code here:
     }//GEN-LAST:event_btnConsultarActionPerformed
 
+    private void txtNombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombreKeyTyped
+        // TODO add your handling code here:
+         char  validar = evt.getKeyChar();
+    if(Character.isDigit(validar)){
+        getToolkit().beep();
+        evt.consume();
+
+        JOptionPane.showMessageDialog(rootPane,"Ingresa el nombre de PROVEEDOR");
+        }
+    }//GEN-LAST:event_txtNombreKeyTyped
+
+    private void txtTelefonoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTelefonoKeyTyped
+        // TODO add your handling code here:
+        char c = evt.getKeyChar();
+
+        if(c < '0' || c > '9') evt.consume();{
+        
+        }
+    
+    }//GEN-LAST:event_txtTelefonoKeyTyped
+
+    private void txtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreActionPerformed
+        // TODO add your handling code here:
+         txtNombre.transferFocus();
+    }//GEN-LAST:event_txtNombreActionPerformed
+
+    private void txtTelefonoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTelefonoActionPerformed
+        // TODO add your handling code here:
+         txtNombre.transferFocus();
+    }//GEN-LAST:event_txtTelefonoActionPerformed
+ 
     /**
      * @param args the command line arguments
      */

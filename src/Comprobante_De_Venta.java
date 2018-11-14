@@ -88,7 +88,6 @@ public class Comprobante_De_Venta extends javax.swing.JFrame {
         txtId = new javax.swing.JTextField();
         btnEliminar = new javax.swing.JButton();
         btnConsultar = new javax.swing.JButton();
-        jLabel5 = new javax.swing.JLabel();
         btnGuardar = new javax.swing.JButton();
         btnLimpiar = new javax.swing.JButton();
         btnNext = new javax.swing.JButton();
@@ -101,11 +100,23 @@ public class Comprobante_De_Venta extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
         jLabel1.setText("id comprovante");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 40, -1, -1));
+
+        txtFecha.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtFechaActionPerformed(evt);
+            }
+        });
         getContentPane().add(txtFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 70, 150, -1));
 
         jLabel2.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
         jLabel2.setText("Codigo Cliente ");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 100, -1, -1));
+
+        txtCodigoCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCodigoClienteActionPerformed(evt);
+            }
+        });
         getContentPane().add(txtCodigoCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 100, 150, -1));
 
         jLabel3.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
@@ -151,7 +162,6 @@ public class Comprobante_De_Venta extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnConsultar, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 270, 150, 40));
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 530, 240));
 
         btnGuardar.setBackground(new java.awt.Color(51, 255, 255));
         btnGuardar.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
@@ -193,7 +203,7 @@ public class Comprobante_De_Venta extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(tblComprobante);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 0, -1, -1));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 0, 290, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -342,6 +352,16 @@ public class Comprobante_De_Venta extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btnGuardarActionPerformed
 
+    private void txtFechaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFechaActionPerformed
+        // TODO add your handling code here:
+        txtFecha.transferFocus();
+    }//GEN-LAST:event_txtFechaActionPerformed
+
+    private void txtCodigoClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCodigoClienteActionPerformed
+        // TODO add your handling code here:
+        txtCodigoCliente.transferFocus();
+    }//GEN-LAST:event_txtCodigoClienteActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -389,7 +409,6 @@ public class Comprobante_De_Venta extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JScrollPane jScrollPane1;

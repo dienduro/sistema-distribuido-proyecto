@@ -389,7 +389,6 @@ public class Clientes extends javax.swing.JFrame {
         // Elimino el registro de la tabla cliente
        
         
-        
         try {
             
             boolean resultado = objCliente.eliminarCliente(id_cliente);
@@ -418,8 +417,7 @@ public class Clientes extends javax.swing.JFrame {
 
     private void tblRegistroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblRegistroMouseClicked
         // TODO add your handling code here:
-           int seleccion = tblRegistro.rowAtPoint(evt.getPoint());
-       
+          int seleccion = tblRegistro.rowAtPoint(evt.getPoint());
         txtId.setText(String.valueOf(tblRegistro.getValueAt(seleccion, 0)));
         txtNombre.setText(String.valueOf(tblRegistro.getValueAt(seleccion, 1)));
         txtApellido.setText(String.valueOf(tblRegistro.getValueAt(seleccion, 2)));

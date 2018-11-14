@@ -20,7 +20,7 @@ public class Empleados extends EmpleadoPOA {
     public boolean eliminarEmpleado(int cedula_empleado) {
         boolean resultado = false;
         try {
-            String sql = "delete from empleado where cedula_emple = " + cedula_empleado;
+            String sql = "DELETE FROM empleado WHERE cedula_emple = " + cedula_empleado;
             Statement st = objConexion.conex.createStatement();
             int valor = st.executeUpdate(sql);
             if (valor > 0) {

@@ -206,6 +206,11 @@ public class Empresa extends javax.swing.JFrame {
                 txtPropActionPerformed(evt);
             }
         });
+        txtProp.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtPropKeyTyped(evt);
+            }
+        });
         getContentPane().add(txtProp, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 180, 130, -1));
 
         btnNext.setBackground(new java.awt.Color(51, 255, 255));
@@ -448,6 +453,16 @@ public class Empresa extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_tblEmpresaKeyPressed
 
+    private void txtPropKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPropKeyTyped
+        // TODO add your handling code here:
+      char  validar = evt.getKeyChar();
+    if(Character.isDigit(validar)){
+        getToolkit().beep();
+        evt.consume();
+
+        JOptionPane.showMessageDialog(rootPane,"Ingresa el nombre PROPIETARIO");
+    }//GEN-LAST:event_txtPropKeyTyped
+ }
     /**
      * @param args the command line arguments
      */

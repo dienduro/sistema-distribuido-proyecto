@@ -124,6 +124,7 @@ public class Empleado extends javax.swing.JFrame {
         jLabel14 = new javax.swing.JLabel();
         txtNombre = new javax.swing.JTextField();
         btnActualizar = new javax.swing.JButton();
+        jLabel15 = new javax.swing.JLabel();
 
         setSize(new java.awt.Dimension(100, 100));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -135,7 +136,7 @@ public class Empleado extends javax.swing.JFrame {
 
         jLabel2.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
         jLabel2.setText("Cedula");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 200, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 200, -1));
 
         jLabel3.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
         jLabel3.setText("Apellido");
@@ -160,13 +161,40 @@ public class Empleado extends javax.swing.JFrame {
             }
         });
         getContentPane().add(txtCedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 60, 110, -1));
+
+        txtApellido.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtApellidoActionPerformed(evt);
+            }
+        });
+        txtApellido.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtApellidoKeyTyped(evt);
+            }
+        });
         getContentPane().add(txtApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 120, 110, -1));
 
         txtGenero.setText("M/F");
+        txtGenero.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtGeneroActionPerformed(evt);
+            }
+        });
         getContentPane().add(txtGenero, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 150, 110, -1));
+
+        txtDireccion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtDireccionActionPerformed(evt);
+            }
+        });
         getContentPane().add(txtDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 180, 110, -1));
 
         txtCumple.setText("dd/mm/aa");
+        txtCumple.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCumpleActionPerformed(evt);
+            }
+        });
         getContentPane().add(txtCumple, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 210, 110, -1));
 
         btnConsultar.setBackground(new java.awt.Color(51, 255, 255));
@@ -228,10 +256,55 @@ public class Empleado extends javax.swing.JFrame {
         jLabel11.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
         jLabel11.setText("Telefono");
         getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 140, 110, -1));
+
+        txtEstado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtEstadoActionPerformed(evt);
+            }
+        });
+        txtEstado.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtEstadoKeyTyped(evt);
+            }
+        });
         getContentPane().add(txtEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 30, 170, -1));
+
+        txtCodigoCargo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCodigoCargoActionPerformed(evt);
+            }
+        });
+        txtCodigoCargo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtCodigoCargoKeyTyped(evt);
+            }
+        });
         getContentPane().add(txtCodigoCargo, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 60, 170, -1));
+
+        txtHoraEntrada.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtHoraEntradaActionPerformed(evt);
+            }
+        });
         getContentPane().add(txtHoraEntrada, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 90, 170, -1));
+
+        txtHoraDeSalida.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtHoraDeSalidaActionPerformed(evt);
+            }
+        });
         getContentPane().add(txtHoraDeSalida, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 120, 170, -1));
+
+        txtTelefono.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtTelefonoActionPerformed(evt);
+            }
+        });
+        txtTelefono.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtTelefonoKeyTyped(evt);
+            }
+        });
         getContentPane().add(txtTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 150, 170, -1));
 
         jLabel12.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
@@ -268,6 +341,17 @@ public class Empleado extends javax.swing.JFrame {
         jLabel13.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
         jLabel13.setText("Sueldo ");
         getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 170, 120, -1));
+
+        txtSueldo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtSueldoActionPerformed(evt);
+            }
+        });
+        txtSueldo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtSueldoKeyTyped(evt);
+            }
+        });
         getContentPane().add(txtSueldo, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 180, 170, -1));
 
         getContentPane().add(cmbEmpresa, new org.netbeans.lib.awtextra.AbsoluteConstraints(486, 210, 170, -1));
@@ -275,6 +359,17 @@ public class Empleado extends javax.swing.JFrame {
         jLabel14.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
         jLabel14.setText("Nombre");
         getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, 90, -1));
+
+        txtNombre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNombreActionPerformed(evt);
+            }
+        });
+        txtNombre.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtNombreKeyTyped(evt);
+            }
+        });
         getContentPane().add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 90, 110, -1));
 
         btnActualizar.setBackground(new java.awt.Color(51, 255, 255));
@@ -287,6 +382,9 @@ public class Empleado extends javax.swing.JFrame {
         });
         getContentPane().add(btnActualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 430, -1, -1));
 
+        jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/91134-OIW11W-632.jpg"))); // NOI18N
+        getContentPane().add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 690, 550));
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -298,20 +396,26 @@ public class Empleado extends javax.swing.JFrame {
         indice = tblEmpleado.getSelectedRow();
 
         // Asigno a idCiudad el elemento a eliminar
-        int cedula_empleado = Integer.parseInt(txtCedula.getText());;
+        int cedula_emple = Integer.parseInt(txtCedula.getText());
 
         // Elimino el registro del JTable
         modelo.removeRow(indice);
         
         Empleados objEmpleados = new Empleados();
         // Elimino el registro de la tabla proveedor
-        boolean resultado = objEmpleados.eliminarEmpleado(cedula_empleado);
+     try {
+        boolean resultado = objEmpleados.eliminarEmpleado(cedula_emple);
         // Imprimo el mensaje para indicar si se eliminó o no el registro
+         
+     
         if (resultado == true) {
             JOptionPane.showMessageDialog(null, "El registro se elimino.");
         } else {
             JOptionPane.showMessageDialog(null, "ERROR: No se elimino el registro.");
-        }        // TODO add your handling code here:
+        }       // TODO add your handling code here:
+      } catch (Exception e) {
+           JOptionPane.showMessageDialog(null, "ERROR:" + e.getMessage());
+      }
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void btnConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarActionPerformed
@@ -495,20 +599,127 @@ public class Empleado extends javax.swing.JFrame {
 
     private void tblEmpleadoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblEmpleadoMouseClicked
         int seleccion = tblEmpleado.rowAtPoint(evt.getPoint());
-        txtApellido.setText(String.valueOf(tblEmpleado.getValueAt(seleccion, 2)));
-        txtCedula.setText(String.valueOf(tblEmpleado.getValueAt(seleccion, 0)));
-        txtCodigoCargo.setText(String.valueOf(tblEmpleado.getValueAt(seleccion, 7)));
-        txtCumple.setText(String.valueOf(tblEmpleado.getValueAt(seleccion, 5)));
+        txtApellido.setText(String.valueOf(tblEmpleado.getValueAt(seleccion, 0)));
+        txtCedula.setText(String.valueOf(tblEmpleado.getValueAt(seleccion, 1)));
+        txtCodigoCargo.setText(String.valueOf(tblEmpleado.getValueAt(seleccion, 2)));
+        txtCumple.setText(String.valueOf(tblEmpleado.getValueAt(seleccion, 3)));
         txtDireccion.setText(String.valueOf(tblEmpleado.getValueAt(seleccion, 4)));
-        txtEstado.setText(String.valueOf(tblEmpleado.getValueAt(seleccion, 6)));
-        txtGenero.setText(String.valueOf(tblEmpleado.getValueAt(seleccion, 3)));
-        txtHoraDeSalida.setText(String.valueOf(tblEmpleado.getValueAt(seleccion, 9)));
+        txtEstado.setText(String.valueOf(tblEmpleado.getValueAt(seleccion, 5)));
+        txtGenero.setText(String.valueOf(tblEmpleado.getValueAt(seleccion, 6)));
+        txtHoraDeSalida.setText(String.valueOf(tblEmpleado.getValueAt(seleccion, 7)));
         txtHoraEntrada.setText(String.valueOf(tblEmpleado.getValueAt(seleccion, 8)));
-        txtNombre.setText(String.valueOf(tblEmpleado.getValueAt(seleccion, 1)));
-        txtSueldo.setText(String.valueOf(tblEmpleado.getValueAt(seleccion, 11)));
-        txtTelefono.setText(String.valueOf(tblEmpleado.getValueAt(seleccion, 10)));
+        txtNombre.setText(String.valueOf(tblEmpleado.getValueAt(seleccion, 9)));
+        txtSueldo.setText(String.valueOf(tblEmpleado.getValueAt(seleccion, 10)));
+        txtTelefono.setText(String.valueOf(tblEmpleado.getValueAt(seleccion, 11)));
         
     }//GEN-LAST:event_tblEmpleadoMouseClicked
+
+    private void txtNombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombreKeyTyped
+        // TODO add your handling code here:
+          char validar = evt.getKeyChar();
+        if (Character.isDigit(validar)) {
+            getToolkit().beep();
+            evt.consume();
+
+            JOptionPane.showMessageDialog(rootPane, "Ingresa tu NOMBRE EMPLEADO ");
+        }
+    }//GEN-LAST:event_txtNombreKeyTyped
+
+    private void txtApellidoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtApellidoKeyTyped
+        // TODO add your handling code here:
+        
+          char validar = evt.getKeyChar();
+        if (Character.isDigit(validar)) {
+            getToolkit().beep();
+            evt.consume();
+
+            JOptionPane.showMessageDialog(rootPane, "Ingresa tu apellido EMPLEADO ");
+        }
+    }//GEN-LAST:event_txtApellidoKeyTyped
+
+    private void txtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreActionPerformed
+        // TODO add your handling code here:
+         txtNombre.transferFocus();
+    }//GEN-LAST:event_txtNombreActionPerformed
+
+    private void txtApellidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtApellidoActionPerformed
+        // TODO add your handling code here:
+         txtApellido.transferFocus();
+    }//GEN-LAST:event_txtApellidoActionPerformed
+
+    private void txtGeneroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtGeneroActionPerformed
+        // TODO add your handling code here:
+         txtGenero.transferFocus();
+    }//GEN-LAST:event_txtGeneroActionPerformed
+
+    private void txtDireccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDireccionActionPerformed
+        // TODO add your handling code here:
+         txtDireccion.transferFocus();
+    }//GEN-LAST:event_txtDireccionActionPerformed
+
+    private void txtCumpleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCumpleActionPerformed
+        // TODO add your handling code here:
+         txtCumple.transferFocus();
+    }//GEN-LAST:event_txtCumpleActionPerformed
+
+    private void txtEstadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEstadoActionPerformed
+        // TODO add your handling code here:
+         txtEstado.transferFocus();
+    }//GEN-LAST:event_txtEstadoActionPerformed
+
+    private void txtCodigoCargoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCodigoCargoActionPerformed
+        // TODO add your handling code here:
+         txtCodigoCargo.transferFocus();
+    }//GEN-LAST:event_txtCodigoCargoActionPerformed
+
+    private void txtHoraEntradaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtHoraEntradaActionPerformed
+        // TODO add your handling code here:
+         txtHoraEntrada.transferFocus();
+    }//GEN-LAST:event_txtHoraEntradaActionPerformed
+
+    private void txtHoraDeSalidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtHoraDeSalidaActionPerformed
+        // TODO add your handling code here:
+         txtHoraDeSalida.transferFocus();
+    }//GEN-LAST:event_txtHoraDeSalidaActionPerformed
+
+    private void txtEstadoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtEstadoKeyTyped
+        // TODO add your handling code here:
+        char validar = evt.getKeyChar();
+        if (Character.isDigit(validar)) {
+            getToolkit().beep();
+            evt.consume();
+
+            JOptionPane.showMessageDialog(rootPane, "Ingresa tu estado empleado");
+        }
+    }//GEN-LAST:event_txtEstadoKeyTyped
+
+    private void txtTelefonoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTelefonoActionPerformed
+        // TODO add your handling code here:
+        txtTelefono.transferFocus();
+    }//GEN-LAST:event_txtTelefonoActionPerformed
+
+    private void txtSueldoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSueldoActionPerformed
+        // TODO add your handling code here:
+        txtSueldo.transferFocus();
+    }//GEN-LAST:event_txtSueldoActionPerformed
+
+    private void txtTelefonoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTelefonoKeyTyped
+        // TODO add your handling code here:
+          char c = evt.getKeyChar();
+        if(c < '0' || c > '9') evt.consume(); 
+    }//GEN-LAST:event_txtTelefonoKeyTyped
+
+    private void txtSueldoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSueldoKeyTyped
+        // TODO add your handling code here:
+          char c = evt.getKeyChar();
+        if(c < '0' || c > '9') evt.consume(); 
+    }//GEN-LAST:event_txtSueldoKeyTyped
+
+    private void txtCodigoCargoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCodigoCargoKeyTyped
+        // TODO add your handling code here:
+          char c = evt.getKeyChar();
+        if(c < '0' || c > '9') evt.consume(); 
+    }//GEN-LAST:event_txtCodigoCargoKeyTyped
 
     /**
      * @param args the command line arguments
@@ -562,6 +773,7 @@ public class Empleado extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
