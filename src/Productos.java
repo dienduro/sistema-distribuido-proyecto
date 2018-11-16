@@ -231,6 +231,11 @@ public class Productos extends javax.swing.JFrame {
         btnNext2.setBackground(new java.awt.Color(51, 255, 255));
         btnNext2.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
         btnNext2.setText("NEXT");
+        btnNext2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNext2ActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnNext2, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 320, 110, 40));
 
         btnConsultar.setBackground(new java.awt.Color(51, 255, 255));
@@ -475,6 +480,14 @@ public class Productos extends javax.swing.JFrame {
           char c = evt.getKeyChar();
         if(c < '0' || c > '9') evt.consume(); 
     }//GEN-LAST:event_txtPrecioVentaKeyTyped
+
+    private void btnNext2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNext2ActionPerformed
+        // TODO add your handling code here:
+         Clientes obj = new Clientes();
+            obj.setVisible(true);
+            this.setVisible(false);
+            dispose();
+    }//GEN-LAST:event_btnNext2ActionPerformed
 
     /**
      * @param args the command line arguments

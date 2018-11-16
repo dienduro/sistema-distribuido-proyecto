@@ -301,9 +301,14 @@ public class Empresa extends javax.swing.JFrame {
     }//GEN-LAST:event_txtPropActionPerformed
 
     private void btnNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNextActionPerformed
-        this.hide();
-        Empleado obj = new Empleado();
-    obj.setVisible(true);
+    //  this.hide();
+     
+     
+       Empleado obj = new Empleado();
+            obj.setVisible(true);
+            this.setVisible(false);
+            dispose();
+         
     
     }//GEN-LAST:event_btnNextActionPerformed
 

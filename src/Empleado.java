@@ -42,14 +42,14 @@ public class Empleado extends javax.swing.JFrame {
     private void getColumn() {
         modeloTablaEmpleado = (DefaultTableModel) tblEmpleado.getModel();
 
-        modeloTablaEmpleado.addColumn("ID");
+        modeloTablaEmpleado.addColumn("Cedula_Emple");
         modeloTablaEmpleado.addColumn("Nombre");
         modeloTablaEmpleado.addColumn("Apellido");
         modeloTablaEmpleado.addColumn("Genero");
         modeloTablaEmpleado.addColumn("Direccion");
         modeloTablaEmpleado.addColumn("Fecha_nacimineto");
         modeloTablaEmpleado.addColumn("Estado civil");
-        modeloTablaEmpleado.addColumn("cargo");
+        modeloTablaEmpleado.addColumn("codigo_cargo");
         modeloTablaEmpleado.addColumn("Hora entrada");
         modeloTablaEmpleado.addColumn("Hora Salida");
         modeloTablaEmpleado.addColumn("Telefono");
@@ -407,7 +407,6 @@ public class Empleado extends javax.swing.JFrame {
         boolean resultado = objEmpleados.eliminarEmpleado(cedula_emple);
         // Imprimo el mensaje para indicar si se eliminó o no el registro
          
-     
         if (resultado == true) {
             JOptionPane.showMessageDialog(null, "El registro se elimino.");
         } else {
@@ -426,23 +425,15 @@ public class Empleado extends javax.swing.JFrame {
         getColumn();
         cargarTablaEmpleado();
 
-//        txtCedula.setText("0");
-//        txtNombre.setText("");
-//        txtApellido.setText("");
-//        txtCodigoCargo.setText("");
-//        txtCumple.setText("");
-//        txtDireccion.setText("");
-//        txtEstado.setText("");
-//        txtGenero.setText("");
-//        txtHoraDeSalida.setText("");
-//        txtHoraEntrada.setText("");
-//        txtSueldo.setText("");
-//        txtTelefono.setText("");
-//        txtNombre.requestFocus();        // TODO add your handling code here:
+      // TODO add your handling code here:
     }//GEN-LAST:event_btnConsultarActionPerformed
 
     private void btnNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNextActionPerformed
-
+        
+         Prov obj = new Prov();
+            obj.setVisible(true);
+            this.setVisible(false);
+            dispose();
     }//GEN-LAST:event_btnNextActionPerformed
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
@@ -506,7 +497,7 @@ public class Empleado extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "");
 
         }
-
+        txtNombre.requestFocus();
     }
 
     private void txtNomEmpKeyTyped(java.awt.event.KeyEvent evt) {
@@ -599,18 +590,18 @@ public class Empleado extends javax.swing.JFrame {
 
     private void tblEmpleadoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblEmpleadoMouseClicked
         int seleccion = tblEmpleado.rowAtPoint(evt.getPoint());
-        txtApellido.setText(String.valueOf(tblEmpleado.getValueAt(seleccion, 0)));
-        txtCedula.setText(String.valueOf(tblEmpleado.getValueAt(seleccion, 1)));
-        txtCodigoCargo.setText(String.valueOf(tblEmpleado.getValueAt(seleccion, 2)));
-        txtCumple.setText(String.valueOf(tblEmpleado.getValueAt(seleccion, 3)));
+        txtCedula.setText(String.valueOf(tblEmpleado.getValueAt(seleccion, 0)));
+        txtNombre.setText(String.valueOf(tblEmpleado.getValueAt(seleccion, 1)));
+        txtApellido.setText(String.valueOf(tblEmpleado.getValueAt(seleccion, 2)));
+        txtGenero.setText(String.valueOf(tblEmpleado.getValueAt(seleccion, 3)));
         txtDireccion.setText(String.valueOf(tblEmpleado.getValueAt(seleccion, 4)));
         txtEstado.setText(String.valueOf(tblEmpleado.getValueAt(seleccion, 5)));
-        txtGenero.setText(String.valueOf(tblEmpleado.getValueAt(seleccion, 6)));
-        txtHoraDeSalida.setText(String.valueOf(tblEmpleado.getValueAt(seleccion, 7)));
-        txtHoraEntrada.setText(String.valueOf(tblEmpleado.getValueAt(seleccion, 8)));
-        txtNombre.setText(String.valueOf(tblEmpleado.getValueAt(seleccion, 9)));
+        txtCodigoCargo.setText(String.valueOf(tblEmpleado.getValueAt(seleccion, 6)));
+        txtHoraEntrada.setText(String.valueOf(tblEmpleado.getValueAt(seleccion, 7)));
+        txtHoraDeSalida.setText(String.valueOf(tblEmpleado.getValueAt(seleccion, 8)));
+        txtTelefono.setText(String.valueOf(tblEmpleado.getValueAt(seleccion, 9)));
         txtSueldo.setText(String.valueOf(tblEmpleado.getValueAt(seleccion, 10)));
-        txtTelefono.setText(String.valueOf(tblEmpleado.getValueAt(seleccion, 11)));
+        //cmbEmpresa.setText(String.valueOf(tblEmpleado.getValueAt(seleccion, 11)));
         
     }//GEN-LAST:event_tblEmpleadoMouseClicked
 

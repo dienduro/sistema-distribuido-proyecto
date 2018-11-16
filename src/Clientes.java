@@ -328,6 +328,10 @@ public class Clientes extends javax.swing.JFrame {
 
     private void btnNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNextActionPerformed
         // TODO add your handling code here:
+         Comprobante_De_Venta obj = new Comprobante_De_Venta();
+            obj.setVisible(true);
+            this.setVisible(false);
+            dispose();
     }//GEN-LAST:event_btnNextActionPerformed
 
     private void txtNombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombreKeyTyped

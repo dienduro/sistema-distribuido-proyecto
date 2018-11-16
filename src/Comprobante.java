@@ -62,7 +62,8 @@ public class Comprobante extends ComprobantePOA {
     public boolean eliminarComprobante(int id_comprobante) {
         boolean resultado = false;
         try {
-            String sql = "delete from Comprobante_Venta where id_comprobante = " + id_comprobante;
+            String sql = "delete from comprobante_venta where id_comprobante =" +id_comprobante;
+            objConexion.conectar();
             Statement st = objConexion.conex.createStatement();
             int valor = st.executeUpdate(sql);
             if (valor > 0) {

@@ -39,8 +39,9 @@ public class Comprobante_De_Venta extends javax.swing.JFrame {
          
          modeloTablaComp.addColumn("ID");
          modeloTablaComp.addColumn("fecha");
-         modeloTablaComp.addColumn("cliente");
-         modeloTablaComp.addColumn("empresa");
+         modeloTablaComp.addColumn("codigo_Cliente");
+         modeloTablaComp.addColumn("Cliente_id");
+         modeloTablaComp.addColumn("Producto_id");
 
     }
 
@@ -201,6 +202,16 @@ public class Comprobante_De_Venta extends javax.swing.JFrame {
 
             }
         ));
+        tblComprobante.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblComprobanteMouseClicked(evt);
+            }
+        });
+        tblComprobante.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                tblComprobanteKeyTyped(evt);
+            }
+        });
         jScrollPane1.setViewportView(tblComprobante);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 0, 290, -1));
@@ -219,19 +230,18 @@ public class Comprobante_De_Venta extends javax.swing.JFrame {
         indice = tblComprobante.getSelectedRow();
 
         // Asigno a idCiudad el elemento a eliminar
-        int id_cliente = Integer.parseInt(txtId.getText());
+        int id_comprobante = Integer.parseInt(txtId.getText());
 
-        System.out.println(id_cliente);
 
         // Elimino el registro del JTable
         modelo.removeRow(indice);
 
-        Cliente objCliente = new Cliente();
+        Comprobante objComprobante = new Comprobante();
         // Elimino el registro de la tabla cliente
 
         try {
 
-            boolean resultado = objCliente.eliminarCliente(id_cliente);
+            boolean resultado = objComprobante.eliminarComprobante(id_comprobante);
             // Imprimo el mensaje para indicar si se eliminó o no el registro
             if (resultado == true) {
                 JOptionPane.showMessageDialog(null, "El registro se elimino.");
@@ -276,6 +286,7 @@ public class Comprobante_De_Venta extends javax.swing.JFrame {
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
 
+        
         if (txtFecha.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "Digite Su fecha ");
             txtFecha.requestFocus();
@@ -361,6 +372,23 @@ public class Comprobante_De_Venta extends javax.swing.JFrame {
         // TODO add your handling code here:
         txtCodigoCliente.transferFocus();
     }//GEN-LAST:event_txtCodigoClienteActionPerformed
+
+    private void tblComprobanteKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tblComprobanteKeyTyped
+        // TODO add your handling code here:
+       
+        
+        
+    }//GEN-LAST:event_tblComprobanteKeyTyped
+
+    private void tblComprobanteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblComprobanteMouseClicked
+        // TODO add your handling code here:
+         int seleccion = tblComprobante.rowAtPoint(evt.getPoint());
+        txtId.setText(String.valueOf(tblComprobante.getValueAt(seleccion, 0)));
+        txtFecha.setText(String.valueOf(tblComprobante.getValueAt(seleccion, 1)));
+        txtCodigoCliente.setText(String.valueOf(tblComprobante.getValueAt(seleccion, 2)));
+       //  txtsetText(String.valueOf(tblComprobante.getValueAt(seleccion, 2)));
+         
+    }//GEN-LAST:event_tblComprobanteMouseClicked
 
     /**
      * @param args the command line arguments

@@ -20,7 +20,8 @@ public class Empleados extends EmpleadoPOA {
     public boolean eliminarEmpleado(int cedula_empleado) {
         boolean resultado = false;
         try {
-            String sql = "DELETE FROM empleado WHERE cedula_emple = " + cedula_empleado;
+            String sql = "DELETE FROM empleado WHERE cedula_emple =" + cedula_empleado;
+            objConexion.conectar();
             Statement st = objConexion.conex.createStatement();
             int valor = st.executeUpdate(sql);
             if (valor > 0) {
@@ -120,8 +121,7 @@ public class Empleados extends EmpleadoPOA {
     public ResultSet cargarEmpleado() {
         ResultSet resultado = null;
         try {
-            String sql = "Select cedula_emple,nombre, apellido,genero, direccion,fecha_nacimiento, estado_civil, codigo_cargo, "
-                    + "hora_entrada, hora_salida,telefono, sueldo,empresa_ruc from empleado";
+            String sql = "Select cedula_emple, nombre, apellido,genero, direccion,fecha_nacimiento, estado_civil, codigo_cargo, hora_entrada, hora_salida, telefono, sueldo, empresa_ruc from empleado";
             objConexion.conectar(); // abrimos la conexion
             Statement st = objConexion.conex.createStatement();//encargado de la consulta
             resultado = st.executeQuery(sql);

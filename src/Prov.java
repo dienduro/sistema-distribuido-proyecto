@@ -175,6 +175,7 @@ public class Prov extends javax.swing.JFrame {
 
         getContentPane().add(cmbEmpresa, new org.netbeans.lib.awtextra.AbsoluteConstraints(124, 299, 89, -1));
 
+        btnGuardar.setBackground(new java.awt.Color(51, 255, 255));
         btnGuardar.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
         btnGuardar.setForeground(new java.awt.Color(0, 0, 0));
         btnGuardar.setText("Guardar");
@@ -185,6 +186,7 @@ public class Prov extends javax.swing.JFrame {
         });
         getContentPane().add(btnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 343, -1, -1));
 
+        btnConsultar.setBackground(new java.awt.Color(51, 255, 255));
         btnConsultar.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
         btnConsultar.setForeground(new java.awt.Color(0, 0, 0));
         btnConsultar.setText("Consultar");
@@ -195,6 +197,7 @@ public class Prov extends javax.swing.JFrame {
         });
         getContentPane().add(btnConsultar, new org.netbeans.lib.awtextra.AbsoluteConstraints(97, 343, -1, -1));
 
+        btnEliminar.setBackground(new java.awt.Color(51, 255, 255));
         btnEliminar.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
         btnEliminar.setForeground(new java.awt.Color(0, 0, 0));
         btnEliminar.setText("Eliminar");
@@ -205,6 +208,7 @@ public class Prov extends javax.swing.JFrame {
         });
         getContentPane().add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(197, 343, -1, -1));
 
+        btnLimpiar.setBackground(new java.awt.Color(51, 255, 255));
         btnLimpiar.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
         btnLimpiar.setForeground(new java.awt.Color(0, 0, 0));
         btnLimpiar.setText("Limpiar");
@@ -215,6 +219,7 @@ public class Prov extends javax.swing.JFrame {
         });
         getContentPane().add(btnLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(289, 343, -1, -1));
 
+        btnNext.setBackground(new java.awt.Color(51, 255, 255));
         btnNext.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
         btnNext.setForeground(new java.awt.Color(0, 0, 0));
         btnNext.setText("Next");
@@ -238,6 +243,11 @@ public class Prov extends javax.swing.JFrame {
 
     private void btnNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNextActionPerformed
         // TODO add your handling code here:
+        
+         Productos obj = new Productos();
+            obj.setVisible(true);
+            this.setVisible(false);
+            dispose();
     }//GEN-LAST:event_btnNextActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
@@ -346,7 +356,7 @@ public class Prov extends javax.swing.JFrame {
         txtNombre.setText(String.valueOf(tblProv.getValueAt(seleccion, 1)));
         txtDireccion.setText(String.valueOf(tblProv.getValueAt(seleccion, 2)));
         txtTelefono.setText(String.valueOf(tblProv.getValueAt(seleccion, 3)));
-        // cbmEmpresa.getString(String.valueOf(tblProveedor.getValueAt(seleccion,3)));        // TODO add your handling code here:
+       // cmbEmpresa.(String.valueOf(tblProv.getValueAt(seleccion,3)));        // TODO add your handling code here:
     }//GEN-LAST:event_tblProvMouseClicked
 
     private void btnConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarActionPerformed
