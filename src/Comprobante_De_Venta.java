@@ -94,6 +94,7 @@ public class Comprobante_De_Venta extends javax.swing.JFrame {
         btnNext = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblComprobante = new javax.swing.JTable();
+        jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -215,6 +216,9 @@ public class Comprobante_De_Venta extends javax.swing.JFrame {
         jScrollPane1.setViewportView(tblComprobante);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 0, 290, -1));
+
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/32.jpg"))); // NOI18N
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 740, 400));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -437,6 +441,7 @@ public class Comprobante_De_Venta extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JScrollPane jScrollPane1;
